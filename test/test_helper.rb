@@ -8,4 +8,4 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-#ここ変更したテスト内容です。
+#ここ変更したテスト内容です。2回目
