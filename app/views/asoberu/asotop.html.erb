@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>あそべ～る</title>
+<link href="..\assets\stylesheets\header.css" rel="stylesheet" type="text/css">
+<style>
+#map {
+	width: 1000px;
+	height: 500px;
+}
+</style>
+<script>
+  //共通パーツ読み込み
+  $(function() {
+       $("#header").load("header.html");
+       $("#side").load("side.html");
+       $("#footer").load("footer.html");
+  });
+</script>
+</head>
+<body>
+  <div class="nav">
+    <ul class="nl clearfix">
+      <li><a href="asotop.html">あそべ～る</a></li>
+      <li><a href="siratop.html">しらべ～る</a></li>
+      <li><a href="manatop.html">まなべ～る</a></li>
+      <li><a href="mypage.html">マイページ</a></li>
+      <li><a href="setting.html">設定</a></li>
+    </ul>
+  </div>
+  <br>
+<h1>あそべ～る</h1>
+
+<div id="map">ここにマップを表示</div>
+<script>
+var map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), { // #mapに地図を埋め込む
+		center: { // 地図の中心を指定
+			lat: 43.0560242, // 緯度
+			lng: 141.3795115, // 経度
+		},
+		zoom: 18 // 地図のズームを指定
+	});
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
+
+<div id="footer">
+Copyright (C) 2017 ママ友ネットワーク All Rights Reserved.
+</div>
+
+</body>
+</html>
