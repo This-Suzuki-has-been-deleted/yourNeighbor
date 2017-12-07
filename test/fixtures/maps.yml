@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  point_id: MyString
+  point_name: MyString
+  point_lat: MyString
+  point_lng: MyString
+  point_date: 2017-12-07 12:22:47
+
+two:
+  point_id: MyString
+  point_name: MyString
+  point_lat: MyString
+  point_lng: MyString
+  point_date: 2017-12-07 12:22:47
