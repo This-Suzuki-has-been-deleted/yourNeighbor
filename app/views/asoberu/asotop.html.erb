@@ -4,61 +4,71 @@
 		<meta charset="UTF-8">
 		<title>あそべ～る</title>
 
-<style>
-@charset "UTF-8";
-/* --- ナビゲーションバー --- */
-div.nav {
-width: 100%; /* ナビゲーションの幅 */
-background-color: #f9f9f9; /* ナビゲーションの背景色 */
-border-top: 1px #cccccc solid; /* 上境界線 */
-border-bottom: 1px #cccccc solid; /* 下境界線 */
-font-size: 80%;
-}
-
-/* --- メニューエリア --- */
-div.nav ul.nl {
-width: 600px; /* メニューの幅 */
-margin: 0 auto; /* センターに配置 */
-padding: 0;
-background-color: #ffffff; /* メニューの背景色 */
-border-right: 1px #cccccc solid; /* メニューの右境界線 */
-list-style-type: none;
-text-align: center;
-}
-
-/* --- メニュー項目 --- */
-div.nav ul.nl li {
-width: 20%; /* 項目の幅 */
-float: left;
-}
-
-/* --- リンク --- */
-div.nav ul.nl li a {
-display: block;
-position: relative; /* IE6用 */
-padding: 8px 2px; /* リンクエリアのパディング（上下、左右） */
-border-left: 1px #cccccc solid; /* リンクエリアの左境界線 */
-text-decoration: none; /* テキストの下線（なし） */
-}
-/* --- ポイント時の設定 --- */
-div.nav ul.nl li a:hover {
-background-color: #f0ffff; /* ポイント時の背景色 */
-text-decoration: underline; /* テキストの下線（あり） */
-}
-
-/* --- clearfix --- */
-.clearFix:after {
-content: ".";
-display: block;
-height: 0;
-clear: both;
-visibility: hidden;
-}
-.clearFix {
-min-height: 1px;
-}
-
-</style>
+		<style>
+			@charset "UTF-8";
+			/* --- ナビゲーションバー --- */
+			div.nav {
+				width: 100%;
+				/* ナビゲーションの幅 */
+				background-color: #f9f9f9;
+				/* ナビゲーションの背景色 */
+				border-top: 1px #cccccc solid;
+				/* 上境界線 */
+				border-bottom: 1px #cccccc solid;
+				/* 下境界線 */
+				font-size: 80%;
+			}
+			/* --- メニューエリア --- */
+			div.nav ul.nl {
+				width: 600px;
+				/* メニューの幅 */
+				margin: 0 auto;
+				/* センターに配置 */
+				padding: 0;
+				background-color: #ffffff;
+				/* メニューの背景色 */
+				border-right: 1px #cccccc solid;
+				/* メニューの右境界線 */
+				list-style-type: none;
+				text-align: center;
+			}
+			/* --- メニュー項目 --- */
+			div.nav ul.nl li {
+				width: 20%;
+				/* 項目の幅 */
+				float: left;
+			}
+			/* --- リンク --- */
+			div.nav ul.nl li a {
+				display: block;
+				position: relative;
+				/* IE6用 */
+				padding: 8px 2px;
+				/* リンクエリアのパディング（上下、左右） */
+				border-left: 1px #cccccc solid;
+				/* リンクエリアの左境界線 */
+				text-decoration: none;
+				/* テキストの下線（なし） */
+			}
+			/* --- ポイント時の設定 --- */
+			div.nav ul.nl li a:hover {
+				background-color: #f0ffff;
+				/* ポイント時の背景色 */
+				text-decoration: underline;
+				/* テキストの下線（あり） */
+			}
+			/* --- clearfix --- */
+			.clearFix:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			.clearFix {
+				min-height: 1px;
+			}
+		</style>
 		<style>
 			#inMap {
 				width: 1000px;
@@ -82,38 +92,66 @@ min-height: 1px;
 		<div id="inMap">ここにマップを表示</div>
 		<script>
 			var map;
-			var marker;
-			var infoWindow;
-			var center = {
-				lat: 43.0560242, // 緯度
-				lng: 141.3795115, // 経度
-			};
+			var marker = [];
+			var infoWindow = [];
+			var markerData = [
+				{ // マーカーを立てる場所名・緯度・経度
+					name: '北海道情報専門学校',
+					lat: 43.056032,// 緯度
+					lng: 141.379728 // 経度
+				}, {
+					name: 'イーアス札幌',
+					lat: 43.054331,
+					lng: 141.383220
+				}, {
+					name: 'らあめんがんてつ イーアス札幌店',
+					lat: 43.055335,
+					lng: 141.384448
+				}, {
+					name: 'TSUTAYA 札幌菊水店',
+					lat: 43.052986,
+					lng: 141.378298
+				}, {
+					name: 'やよい公園',
+					lat: 43.055084,
+					lng: 141.374029
+				}
+			];
 			function initMap() {
+				var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']
+				}); // 緯度経度のデータ作成
 				map = new google.maps.Map(document.getElementById('inMap'), { // #inMapに地図を埋め込む
-					center: center, // 地図の中心を指定
-					zoom: 18 // 地図のズームを指定
+					center: mapLatLng, // 地図の中心を指定
+					zoom: 15 // 地図のズームを指定
 				});
 
-				marker = new google.maps.Marker({ // マーカーの追加
-					position: center, // マーカーを立てる位置を指定
-					map: map // マーカーを立てる地図を指定
-				});
-
-				infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-					content: '<div class="fukidashi">北海道情報専門学校<br>'+
-					'<a href="reviewPost.html.erb">レビューを書き込む</a>'+
-					' <a href="reviewDetail.html.erb">レビューを見る</a></div>' // 吹き出しに表示する内容
-				});
-				marker.addListener('click', function () { // マーカーをクリックしたとき
-					infoWindow.open(map, marker); // 吹き出しの表示
+				// マーカー毎の処理
+				for (var i = 0; i < markerData.length; i++) {
+					markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']
+					}); // 緯度経度のデータ作成
+					marker[i] = new google.maps.Marker({ // マーカーの追加
+						position: markerLatLng, // マーカーを立てる位置を指定
+						map: map // マーカーを立てる地図を指定
+					});
+					infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+						content: '<div class="sample">' + markerData[i]['name'] + '<br><a href="reviewPost.html.erb">レビューを書き込む</a>'+
+						' <a href="reviewDetail.html.erb">レビューを見る</a></div></div>' // 吹き出しに表示する内容
+					});
+					markerEvent(i); // マーカーにクリックイベントを追加
+				}
+			}
+			// マーカーにクリックイベントを追加
+			function markerEvent(i) {
+				marker[i].addListener('click', function () { // マーカーをクリックしたとき
+					infoWindow[i].open(map, marker[i]); // 吹き出しの表示
 				});
 			}
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
 
-		<div id="footer">
+		<footer>
 			<small>Copyright (C) 2017 Your Neighbor All Rights Reserved.</small>
-		</div>
+		</footer>
 
 	</body>
 </html>
