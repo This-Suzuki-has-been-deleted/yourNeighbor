@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206072251) do
+ActiveRecord::Schema.define(version: 20171207050336) do
+
+  create_table "maps", force: :cascade do |t|
+    t.string "point_id"
+    t.string "point_name"
+    t.string "point_lat"
+    t.string "point_lng"
+    t.time "point_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "maps_reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "review_reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "review_id"
+    t.string "review_title"
+    t.string "review_text"
+    t.date "review_date"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
