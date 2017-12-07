@@ -43,6 +43,8 @@ GEM
     arel (8.0.0)
     bcrypt (3.1.11-x64-mingw32)
     bcrypt (3.1.11-x86-mingw32)
+    bcrypt-ruby (3.1.1.rc1)
+    bcrypt-ruby (3.1.1.rc1-x86-mingw32)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
@@ -187,6 +189,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.11)
+  bcrypt-ruby (= 3.1.1.rc1)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
