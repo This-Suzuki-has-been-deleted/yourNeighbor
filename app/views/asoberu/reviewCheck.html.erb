@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>レビュー投稿</title>
+    <link rel="stylesheet" href="..\assets\stylesheets\header.css.scss">
+    <style>
+      #map {
+        width: 1000px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul class="nl clearfix">
+        <li>
+          <a href="../asoberu/asotop.html.erb">あそべ～る</a>
+        </li>
+        <li>
+          <a href="../siraberu/siratop.html.erb">しらべ～る</a>
+        </li>
+        <li>
+          <a href="../manaberu/manatop.html.erb">まなべ～る</a>
+        </li>
+        <li>
+          <a href="mypage.html">マイページ</a>
+        </li>
+        <li>
+          <a href="setting.html">設定</a>
+        </li>
+      </ul>
+    </header>
+    <br>
+    <h1>レビュー内容確認</h1>
+    <table>
+      <tr>
+        <th>タイトル</th>
+        <td>%タイトル%</td>
+      </tr>
+      <tr>
+        <th>評価</th>
+        <td>%評価%</td>
+      </tr>
+      <tr>
+        <th>内容</th>
+        <td>%内容%</td>
+      </tr>
+    </table>
+    <button type="button" onclick="history.back()">戻る</button>
+    <button type="submit" id="submit">投稿</button>
+  </body>
+</html>
