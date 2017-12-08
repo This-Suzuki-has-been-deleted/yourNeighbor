@@ -1,38 +1,47 @@
 <!DOCTYPE HTML>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>しらべ～る</title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-$("#header").load("header.html.erb");
+  <head>
+    <meta charset="UTF-8">
+    <title>しらべ～る</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("#header").load("../siraberu/header.html.erb");
+      })
+    </script>
+    <link href="../../assets/stylesheets/header.css" rel="stylesheet" type="text/css">
 
-})
-</script>
-<!-- <link href="..\assets\stylesheets\header.css" rel="stylesheet" type="text/css"> -->
-<link href="header.css" rel="stylesheet" type="text/css">
+  </head>
 
-</head>
-<body>
-  <div id="haader">ヘッダー</div>
-  <div class="nav">
-    <ul class="nl clearfix">
-      <li><a href="../asoberu/asotop.html.erb">あそべ～る</a></li>
-      <li><a href="../siraberu/siratop.html.erb">しらべ～る</a></li>
-      <li><a href="../manaberu/manatop.html.erb">まなべ～る</a></li>
-      <li><a href="mypage.html">マイページ</a></li>
-      <li><a href="setting.html">設定</a></li>
-    </ul>
-  </div>
+  <body>
+    <div id="header"></div>
+    <div class="nav">
+      <ul class="nl clearfix">
+        <li>
+          <a href="../asoberu/asotop.html.erb">あそべ～る</a>
+        </li>
+        <li>
+          <a href="../siraberu/siratop.html.erb">しらべ～る</a>
+        </li>
+        <li>
+          <a href="../manaberu/manatop.html.erb">まなべ～る</a>
+        </li>
+        <li>
+          <a href="mypage.html">マイページ</a>
+        </li>
+        <li>
+          <a href="setting.html">設定</a>
+        </li>
+      </ul>
+    </div>
 
-  <br>
-<h1>しらべ～る</h1>
-<p>しらべ～るトップページ</p>
+    <br>
+    <h1>しらべ～る</h1>
+    <p>しらべ～るトップページ</p>
 
-<div id="footer">
-<small>Copyright (C) 2017 Your Neighbor All Rights Reserved.</small>
-</div>
+    <div id="footer">
+      <small>Copyright (C) 2017 Your Neighbor All Rights Reserved.</small>
+    </div>
 
-</body>
+  </body>
 </html>
