@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20171207062930) do
 
   create_table "maps", force: :cascade do |t|
-    t.string "point_id"
+    t.string "point_id", null: false
     t.string "point_name"
     t.string "point_lat"
     t.string "point_lng"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20171207062930) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
-    t.integer "email_id"
-    t.index ["email_id"], name: "index_maps_on_email_id"
+    t.String "email_id"
+    t.String ["email_id"], name: "index_maps_on_email_id"
   end
 
   create_table "maps_reports", force: :cascade do |t|
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20171207062930) do
   create_table "reviews", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "review_id"
+    t.string "review_id", null: false
     t.string "review_title"
     t.string "review_text"
     t.date "review_date"

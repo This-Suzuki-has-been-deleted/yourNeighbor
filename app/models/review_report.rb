@@ -1,2 +1,0 @@
-class ReviewReport < ApplicationRecord
-end
