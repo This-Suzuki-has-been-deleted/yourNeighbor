@@ -10,38 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207062930) do
+ActiveRecord::Schema.define(version: 20171208021757) do
 
-  create_table "maps", force: :cascade do |t|
-    t.string "point_id", null: false
-    t.string "point_name"
-    t.string "point_lat"
-    t.string "point_lng"
-    t.time "point_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "maps", id: false, force: :cascade do |t|
+    t.string "maps_id"
+    t.string "map_name"
+    t.string "map_lat"
+    t.string "map_lng"
+    t.date "map_date"
     t.string "email"
-    t.String "email_id"
-    t.String ["email_id"], name: "index_maps_on_email_id"
   end
 
-  create_table "maps_reports", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "review_reports", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "review_id", null: false
+  create_table "reviews", id: false, force: :cascade do |t|
+    t.string "reviews_id"
     t.string "review_title"
     t.string "review_text"
+    t.string "review_eva", default: "good"
     t.date "review_date"
+    t.string "email"
+    t.string "maps_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,6 +42,10 @@ ActiveRecord::Schema.define(version: 20171207062930) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

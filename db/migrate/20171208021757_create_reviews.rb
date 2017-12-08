@@ -1,6 +1,6 @@
 class CreateReviews < ActiveRecord::Migration[5.1]
   def change
-    create_table :reviews, id: false, primary_key: "reviews_id" do |t|
+    create_table :reviews, id: false do |t|
       t.string :reviews_id                  # レビューID
       t.string :review_title	              # レビュータイトル
     	t.string :review_text               	# レビュー本文
@@ -9,7 +9,8 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       # ここから外部キー
       t.string :email                       # 外部キー：Users
       t.string :maps_id                     # 外部キー：Maps
-
+      #主キー指定
+      PRIMARY KEY('reviews_id', 'email', 'maps_id')
     end
   end
 end
