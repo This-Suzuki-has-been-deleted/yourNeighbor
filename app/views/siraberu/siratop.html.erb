@@ -3,20 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <title>しらべ～る</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(function () {
-        $("#header").load("../siraberu/header.html.erb");
-      })
-    </script>
+    <style>
+      body {
+        background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+      }
+    </style>
     <link href="../../assets/stylesheets/header.css" rel="stylesheet" type="text/css">
-
   </head>
 
   <body>
-    <div id="header"></div>
     <div class="nav">
-      <ul class="nl clearfix">
+      <ul class="nl clearFix">
         <li>
           <a href="../asoberu/asotop.html.erb">あそべ～る</a>
         </li>
@@ -35,7 +32,6 @@
       </ul>
     </div>
 
-    <br>
     <h1>しらべ～る</h1>
     <p>しらべ～るトップページ</p>
 
