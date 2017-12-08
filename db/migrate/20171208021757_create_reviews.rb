@@ -7,7 +7,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
     	t.string :review_eva, default: "good"	# 評価
     	t.date :review_date                  	# 追加日付
       # ここから外部キー
-      t.string :email_id                    # 外部キー：Users
+      t.string :email                       # 外部キー：Users
       t.string :maps_id                     # 外部キー：Maps
 
     end
