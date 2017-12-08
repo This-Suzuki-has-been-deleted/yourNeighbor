@@ -6,7 +6,8 @@ class CreateMaps < ActiveRecord::Migration[5.1]
       t.string :map_lat               # 緯度
       t.string :map_lng               # 経度
       t.date :map_date                # 追加日付
-      t.timestamps
+      # ここから外部キー
+      t.string :email_id              # 外部キー：Users
     end
   end
 end
