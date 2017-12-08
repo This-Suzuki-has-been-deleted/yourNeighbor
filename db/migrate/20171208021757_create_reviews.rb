@@ -9,7 +9,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       # ここから外部キー
       t.string :email_id                    # 外部キー：Users
       t.string :maps_id                     # 外部キー：Maps
-      
+
     end
   end
 end
