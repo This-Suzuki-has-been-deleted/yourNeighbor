@@ -17,7 +17,7 @@ class MapController < ApplicationController
   def regist_ping
     if request.post? then
       map_data = params[:map_data]
-      map.create(maps_id: map.count.to_i + 1, map_name: map_data[1], map_lat: map_data[2], map_lng: map_data[3], map_date: Date.today.to_time)
+      map.create(maps_id: map.count.to_i + 1, map_name: map_data[1], map_text: map_data[2], map_lat: map_data[3], map_lng: map_data[4], map_date: Date.today.to_time)
     end
   end
 
