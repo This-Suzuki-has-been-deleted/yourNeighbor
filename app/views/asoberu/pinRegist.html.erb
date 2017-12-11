@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>位置登録</title>
+    <style>
+      #map {
+        width: 800px;
+        height: 450px;
+      }
+    </style>
+    <link href="../../assets/stylesheets/style.css" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <div class="nav">
+      <ul class="nl clearFix">
+        <li>
+          <a href="../asoberu/asotop.html.erb">あそべ～る</a>
+        </li>
+        <li>
+          <a href="../siraberu/siratop.html.erb">しらべ～る</a>
+        </li>
+        <li>
+          <a href="../manaberu/manatop.html.erb">まなべ～る</a>
+        </li>
+        <li>
+          <a href="mypage.html">マイページ</a>
+        </li>
+        <li>
+          <a href="setting.html">設定</a>
+        </li>
+      </ul>
+    </div>
+    <h1>地点登録</h1>
+    <form method="post" action="asotop.html.erb">
+      <label for="latitude">緯度</label>
+      <input type="text" id="latitude" size="20" value="43.197707"/>
+      <label for="longitude">経度</label>
+      <input type="text" id="longitude" size="20" value="140.993696"/>
+      <input type="submit" name="submit" value="この地点を登録">
+    </form>
+
+    <div id="map">ここにマップを表示</div>
+    <script>
+      function initMap() {
+
+        // 初期位置
+        var otaru = new google.maps.LatLng(43.197707,140.993696);
+
+        // マップ表示
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: otaru,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        // ドラッグできるマーカーを表示
+        var marker = new google.maps.Marker({
+          position: otaru, title: "登録したい地点にマーカーをドラッグしてください", draggable: true, // ドラッグ可能にする
+          icon: '../../../app/assets/images/pinIcon.png'
+        });
+        marker.setMap(map);
+
+        // マーカーのドロップ（ドラッグ終了）時のイベント
+        google.maps.event.addListener(marker, 'dragend', function (ev) {
+          // イベントの引数evの、プロパティ.latLngが緯度経度。
+          document.getElementById('latitude').value = ev.latLng.lat();
+          document.getElementById('longitude').value = ev.latLng.lng();
+        });
+      }
+      // ONLOADイベントにセット
+      window.onload = initMap();
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
+
+    <div id="footer">
+      <small>Copyright (C) 2017 Your Neighbor All Rights Reserved.</small>
+    </div>
+
+  </body>
+</html>
