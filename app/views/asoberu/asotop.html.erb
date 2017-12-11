@@ -3,28 +3,40 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>あそべ～る</title>
-		<link href="../../assets/stylesheets/header.scss" rel="stylesheet" type="text/css">
 		<style>
 			#inMap {
 				width: 1000px;
 				height: 450px;
 			}
 		</style>
+		<link href="../../assets/stylesheets/style.css" rel="stylesheet" type="text/css">
+
 	</head>
 	<body>
 		<div class="nav">
-			<ul class="nl clearfix">
-        <li><a href="../asoberu/asotop.html.erb">あそべ～る</a></li>
-        <li><a href="../siraberu/siratop.html.erb">しらべ～る</a></li>
-        <li><a href="../manaberu/manatop.html.erb">まなべ～る</a></li>
-        <li><a href="mypage.html">マイページ</a></li>
-        <li><a href="setting.html">設定</a></li>
+      <ul class="nl clearFix">
+        <li>
+          <a href="../asoberu/asotop.html.erb">あそべ～る</a>
+        </li>
+        <li>
+          <a href="../siraberu/siratop.html.erb">しらべ～る</a>
+        </li>
+        <li>
+          <a href="../manaberu/manatop.html.erb">まなべ～る</a>
+        </li>
+        <li>
+          <a href="mypage.html">マイページ</a>
+        </li>
+        <li>
+          <a href="setting.html">設定</a>
+        </li>
       </ul>
-		</div>
-		<p>
-			<br /><h1>あそべ～る</h1>
-			あそべ～るトップページ
-		</p>
+    </div>
+		<h1>あそべ～る</h1>
+		<form method="post" action="asotop.html.erb">
+			<input type="search" name="search" placeholder="場所名で検索">
+		  <input type="submit" name="submit" value="検索">
+			<a href="../asoberu/pinRegist.html.erb">地点登録</a>
 		<div id="inMap">ここにマップを表示</div>
 		<script>
 			var map;
@@ -33,7 +45,7 @@
 			var markerData = [
 				{ // マーカーを立てる場所名・緯度・経度
 					name: '北海道情報専門学校',
-					lat: 43.056032,// 緯度
+					lat: 43.056032,	// 緯度
 					lng: 141.379728 // 経度
 				}, {
 					name: 'イーアス札幌',
@@ -70,7 +82,7 @@
 						map: map // マーカーを立てる地図を指定
 					});
 					infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-						content: '<div class="sample">' + markerData[i]['name'] + '<br><a href="reviewPost.html.erb">レビューを書き込む</a>'+
+						content: '<div class="fukidashi">' + markerData[i]['name'] + '<br><a href="reviewPost.html.erb">レビューを書き込む</a>'+
 						' <a href="reviewDetail.html.erb">レビューを見る</a></div></div>' // 吹き出しに表示する内容
 					});
 					markerEvent(i); // マーカーにクリックイベントを追加
