@@ -1,105 +1,19 @@
 <!DOCTYPE HTML>
-<html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<title>あそべ～る</title>
-		<style>
-			#inMap {
-				width: 1000px;
-				height: 450px;
-			}
-		</style>
-		<link href="../../assets/stylesheets/style.css" rel="stylesheet" type="text/css">
-
+<html lang="ja">	<head>
+		<title>Your Neighbor</title>
 	</head>
-	<body>
-		<div class="nav">
-      <ul class="nl clearFix">
-        <li>
-          <a href="../asoberu/asotop.html.erb">あそべ～る</a>
-        </li>
-        <li>
-          <a href="../siraberu/siratop.html.erb">しらべ～る</a>
-        </li>
-        <li>
-          <a href="../manaberu/manatop.html.erb">まなべ～る</a>
-        </li>
-        <li>
-          <a href="mypage.html">マイページ</a>
-        </li>
-        <li>
-          <a href="setting.html">設定</a>
-        </li>
-      </ul>
-    </div>
-		<h1>あそべ～る</h1>
-		<form method="post" action="asotop.html.erb">
-			<input type="search" name="search" placeholder="場所名で検索">
-		  <input type="submit" name="submit" value="検索">
-			<a href="../asoberu/pinRegist.html.erb">地点登録</a>
-		<div id="inMap">ここにマップを表示</div>
-		<script>
-			var map;
-			var marker = [];
-			var infoWindow = [];
-			var markerData = [
-				{ // マーカーを立てる場所名・緯度・経度
-					name: '北海道情報専門学校',
-					lat: 43.056032,	// 緯度
-					lng: 141.379728 // 経度
-				}, {
-					name: 'イーアス札幌',
-					lat: 43.054331,
-					lng: 141.383220
-				}, {
-					name: 'らあめんがんてつ イーアス札幌店',
-					lat: 43.055335,
-					lng: 141.384448
-				}, {
-					name: 'TSUTAYA 札幌菊水店',
-					lat: 43.052986,
-					lng: 141.378298
-				}, {
-					name: 'やよい公園',
-					lat: 43.055084,
-					lng: 141.374029
-				}
-			];
-			function initMap() {
-				var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']
-				}); // 緯度経度のデータ作成
-				map = new google.maps.Map(document.getElementById('inMap'), { // #inMapに地図を埋め込む
-					center: mapLatLng, // 地図の中心を指定
-					zoom: 15 // 地図のズームを指定
-				});
 
-				// マーカー毎の処理
-				for (var i = 0; i < markerData.length; i++) {
-					markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']
-					}); // 緯度経度のデータ作成
-					marker[i] = new google.maps.Marker({ // マーカーの追加
-						position: markerLatLng, // マーカーを立てる位置を指定
-						map: map // マーカーを立てる地図を指定
-					});
-					infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-						content: '<div class="fukidashi">' + markerData[i]['name'] + '<br><a href="reviewPost.html.erb">レビューを書き込む</a>'+
-						' <a href="reviewDetail.html.erb">レビューを見る</a></div></div>' // 吹き出しに表示する内容
-					});
-					markerEvent(i); // マーカーにクリックイベントを追加
-				}
-			}
-			// マーカーにクリックイベントを追加
-			function markerEvent(i) {
-				marker[i].addListener('click', function () { // マーカーをクリックしたとき
-					infoWindow[i].open(map, marker[i]); // 吹き出しの表示
-				});
-			}
-		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
+	<frameset rows="50,*" frameborder="0">
 
-		<div id="footer">
-      <small>Copyright (C) 2017 Your Neighbor All Rights Reserved.</small>
-    </div>
+		<frame src="../comonn/header.html.erb" name="menu" title="ヘッダー" scrolling="no">
+		<frame src="asomap.html.erb" name="main" title="中フレーム">
 
-	</body>
+		<noframes>
+			<body>
+				<p>あそべ～るトップページ</p>
+			</body>
+		</noframes>
+
+	</frameset>
+
 </html>
