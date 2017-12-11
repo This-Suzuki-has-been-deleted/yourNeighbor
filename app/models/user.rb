@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  self.primary_key = "email_id"
+  self.primary_key = "email"
   has_many :maps, foreign_key: "email"
   has_many :reviews, foreign_key: "email"
 
