@@ -51,5 +51,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+# 鈴木追加したゾーン
 gem 'config'
 gem 'composite_primary_keys'
+gem 'mysql2'
