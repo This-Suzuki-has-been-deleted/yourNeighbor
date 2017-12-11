@@ -14,7 +14,7 @@ class ReviewController < ApplicationController
   end
   # レビュー削除
   # delete_dataにはmap_idとemailを入れる
-  def delete_review delete_data
+  def delete_review
     delete_data = params[:delete_data]
     review.delete(map_id: delete_data[1], email: delete_data[2])
   end
