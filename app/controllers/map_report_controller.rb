@@ -1,0 +1,2 @@
+class MapReportController < ApplicationController
+end

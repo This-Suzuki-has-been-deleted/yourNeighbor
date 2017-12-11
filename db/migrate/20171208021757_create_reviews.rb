@@ -10,15 +10,5 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.string :email                       # 外部キー：Users
       t.string :maps_id                     # 外部キー：Maps
     end
-    create_table :map_report do |t|
-      t.string :map_report_text
-      # ここから外部キー
-      t.string :maps_id
-    end
-    create_table :review_report do |t|
-      t.string :review_report_text
-      # ここから外部キー
-      t.string :reviews_id
-    end
   end
 end
