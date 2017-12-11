@@ -1,0 +1,2 @@
+class MapReport < ApplicationRecord
+end
