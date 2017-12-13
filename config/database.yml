@@ -6,8 +6,12 @@
 #
 default: &default
   adapter: mysql2
+  encoding: utf8
+  reconnect: false
   pool: 5
-  timeout: 5000
+  username: mama
+  password: Your_Neighbor01
+  host: http://10.11.38.160/
 
 development:
   adapter: mysql2
@@ -22,9 +26,19 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
   database: mamafriends
+  pool: 5
+  username: mama
+  password: Your_Neighbor01
+  host: http://10.11.38.160/
 
 production:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
   database: mamafriends
+  pool: 5
+  username: mama
+  password: Your_Neighbor01
+  host: http://10.11.38.160/
