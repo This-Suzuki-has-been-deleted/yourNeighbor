@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>YourNeighbor</title>
-    <%= csrf_meta_tags %>
+    <body>
+        <header>
+            <nav>
+                <% if user_signed_in? %>
+                  <strong><%= link_to current_user.email, pages_show_path %></strong>
+                  <%= link_to 'プロフィール変更', edit_user_registration_path %>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                  ログイン成功！<br />
+                  <%= p current_user.email %><br />
+                <% else %>
+                  <%= link_to 'サインアップ', new_user_registration_path %>
+                  <%= link_to 'ログイン', new_user_session_path %>
+                  <% end %>
+            </nav>
+        </header>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-  </body>
+        <%= yield %>
+    </body>
 </html>
