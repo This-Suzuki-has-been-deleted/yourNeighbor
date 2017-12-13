@@ -12,10 +12,10 @@ default: &default
 development:
   adapter: mysql2
   encoding: utf8
-  database: yourNeighbor
+  database: mamafriends
   pool: 5
-  username: root
-  password: mama
+  username: mama
+  password: Your_Neighbor01
   host: http://10.11.38.160/
 
 # Warning: The database defined as "test" will be erased and
