@@ -1,13 +1,25 @@
-<!DOCTYPE HTML>
-<html lang="ja">
+<%= render "shared/errors", obj: @ping %>
+
 <table class="attr">
   <tr>
-    <th>
-      <%= form.label :name, "位置名" %>
-    </th>
+    <th><%= form.label :map_name, "位置名" %></th>
+    <td><%= form.text_field :map_name, size: 15 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :map_text, "概要" %></th>
+    <td><%= form.text_field :map_text, size: 20 %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= form.label :map_lat, "緯度" %></th>
+    <td><%= form.text_field :map_lat, size: 20 %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= form.label :map_lng, "経度" %></th>
     <td>
-      <%= form.map_name :name, size: 10 %>
+      <td><%= form.text_field :map_lng, size: 20 %>
+      </td>
     </td>
   </tr>
 </table>
-</html>
