@@ -1,44 +1,31 @@
-<!DOCTYPE HTML>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>位置登録</title>
-      <link rel="stylesheet" href="..\assets\stylesheets\header.css.scss">
-    <style>
-      #map {
-        width: 1000px;
-        height: 500px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>位置内容入力</h1>
+<%= @page_title = "位置内容入力" %>
 
-    <form method="post" action="reviewCheck.html.erb">
-      <table>
-        <tr>
-          <th>位置名</th>
-          <td><input type="text" name="タイトル" size="50"></td>
-        </tr>
-        <tr>
-          <th>緯度</th>
-          <td><input type="radio" name="評価" value="Good" /> Good!
-          <input type="radio" name="評価" value="Bad" />Bad!</td>
-        </tr>
-        <tr>
-          <th>内容</th>
-          <td><textarea name="detail" rows="15" cols="70">レビューを書き込んでね！</textarea></td>
-        </tr>
-      </table>
-      <!----------------------------------------------------------------->
-      <input type="hidden" name="Confirm_Page" value="reviewCheck.html">
-      <!----------------------------------------------------------------->
-      <input type="submit" value="確認">
-      <input type="reset" value="リセット">
-    </form>
+<h1><%= @page_title %></h1>
+<form method="post" action="reviewCheck.html.erb">
+  <table>
+    <tr>
+      <th>位置名</th>
+      <td><input type="text" name="タイトル" size="50"></td>
+    </tr>
+    <tr>
+      <th>緯度</th>
+      <td>
+        <input type="radio" name="評価" value="Good"/>Good!
+        <input type="radio" name="評価" value="Bad"/>Bad!
+      </td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td>
+        <textarea name="detail" rows="15" cols="70">レビューを書き込んでね！</textarea>
+      </td>
+    </tr>
+  </table>
+  <!----------------------------------------------------------------->
+  <input type="hidden" name="Confirm_Page" value="reviewCheck.html">
+  <!----------------------------------------------------------------->
+  <input type="submit" value="確認">
+  <input type="reset" value="リセット">
+</form>
 
-    <div id="footer">
-      <small>Copyright (C) 2017 Your Neighbor All Rights Reserved.</small>
-    </div>
-  </body>
-</html>
+<% end %>
