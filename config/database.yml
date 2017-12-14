@@ -8,6 +8,7 @@ default: &default
 development:
   <<: *default
   database: yourNeighbor_development
+  host: http://10.11.38.160
 
 test:
   <<: *default
