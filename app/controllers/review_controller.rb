@@ -12,6 +12,7 @@ class ReviewController < ApplicationController
     review_data = params[:review_data]
     review.create(reviews_id: review.count.to_i + 1, review_title: review_data[1], review_text: review_data[2], review_eva: review_data[3], review_date: Date.today.to_time)
   end
+
   # レビュー削除
   # delete_dataにはmap_idとemailを入れる
   def delete_review

@@ -6,10 +6,6 @@
     <td><%= form.text_field :map_name, size: 15 %></td>
   </tr>
   <tr>
-    <th><%= form.label :map_text, "概要" %></th>
-    <td><%= form.text_field :map_text, size: 50 %></td>
-  </tr>
-  <tr>
     <th>緯度経度</th>
     <td>
       <%= form.label :map_lat, "緯度" %>
@@ -17,5 +13,9 @@
       <%= form.label :map_lng, "経度" %>
       <%= form.text_field :map_lng, size: 20 %>
     </td>
+  </tr>
+  <tr>
+    <th><%= form.label :map_text, "概要" %></th>
+    <td><%= form.text_area :map_text, cols: 40, rows: 5 %></td>
   </tr>
 </table>
