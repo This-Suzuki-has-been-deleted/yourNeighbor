@@ -53,5 +53,5 @@ group :assets do
   gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
   gem 'config'
   gem 'composite_primary_keys'
-  gem 'mysql2'
+  #gem 'mysql2', '0.4.10'
 end
