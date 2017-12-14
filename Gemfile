@@ -48,10 +48,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-group :assets do
-  gem 'devise'
-  gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
-  gem 'config'
-  gem 'composite_primary_keys'
-  #gem 'mysql2', '0.4.10'
-end
+gem 'devise'
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+gem 'config'
+gem 'composite_primary_keys'
+gem 'mysql2', '0.4.10'
