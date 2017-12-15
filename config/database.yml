@@ -7,14 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: yourNeighbor
+  database: yourneighbor
   host: http://10.11.38.160
 
 test:
   <<: *default
-  database: yourNeighbor
+  database: yourneighbor
 
 production:
   <<: *default
-  database: yourNeighbor
+  database: yourneighbor
   host: 127.0.0.1
