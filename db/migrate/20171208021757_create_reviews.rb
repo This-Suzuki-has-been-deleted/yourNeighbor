@@ -1,7 +1,7 @@
 class CreateReviews < ActiveRecord::Migration[5.1]
   def change
     create_table :reviews, primary_keys: 'reviews_id' 'email' 'maps_id', id: false do |t|
-      t.integer :reviews_id, auto_increment # レビューID
+      t.string :reviews_id                 # レビューID
       t.string :review_title	              # レビュータイトル
     	t.string :review_text               	# レビュー本文
     	t.string :review_eva, default: "good"	# 評価
