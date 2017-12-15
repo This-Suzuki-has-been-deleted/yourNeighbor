@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: [username]
-  password: [password]
+  username: postgres
+  password: mama-friends
 
 development:
   <<: *default
