@@ -21,6 +21,14 @@ class MapController < ApplicationController
     end
   end
 
+  #編集
+  def edit_ping
+    if request.post? then
+      map_id = params[:map_id]
+      map.update(maps_id: map_id)
+    end
+  end
+
   #削除
   def delete_ping
     if request.post? then

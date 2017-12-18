@@ -60,3 +60,7 @@ min-height: 1px;
     color: #959595;
     text-align: center;
 }
+#map {
+  width: 800px;
+  height: 450px;
+}
