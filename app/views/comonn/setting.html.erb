@@ -1,102 +1,37 @@
-<!DOCTYPE HTML>
-<html lang="ja">
+<%= @page_title = "設定" %>
 
-<head>
-  <meta charset="UTF-8">
-  <title>設定</title>
-  <link href="./css/style.css" rel="stylesheet" type="text/css">
+<h1><%= @page_title %></h1>
 
-</head>
+ハンドルネームの変更
+<%= form.text_field :name, placeholder="ハンドルネーム" %>
+<input type="submit" name="submit" value="変更">
 
-<body>
+<hr/>
+<h2>パスワードの変更</h2>
+新しいパスワード：<%= form.password_field :new_password %>
+新規パスワードの再入力：<%= form.password_field :password %>
+現在のパスワード<%= form.password_field :new_password2 %>
+<hr/>
 
-  <div class="menu">
-    <ul class="nl">
-      <li><a href="asotop.html">あそべ～る</a></li>
-      <li><a href="siratop.html">しらべ～る</a></li>
-      <li><a href="manatop.html">まなべ～る</a></li>
-      <li><a href="mypage.html">マイページ</a></li>
-      <li><a href="setting.html">設定</a></li>
-    </ul>
-  </div>
+<% options = [['北海道', 0], ['青森県', 1], ['岩手県', 2], ['宮城県', 3], ['秋田県', 4],
+    ['山形県', 5], ['福島県', 6], ['茨城県', 7], ['栃木県', 8], ['群馬県', 9],
+    ['埼玉県', 10], ['千葉県', 11], ['東京都', 12], ['神奈川県', 13], ['新潟県', 14],
+    ['富山県', 15], ['石川県', 16], ['福井県', 17], ['山梨県', 18], ['長野県', 19],
+    ['岐阜県', 20], ['静岡県', 21], ['愛知県', 22], ['三重県', 23], ['滋賀県', 24],
+    ['京都府', 25], ['大阪府', 26], ['兵庫県', 27], ['奈良県', 28], ['和歌山県', 29],
+    ['鳥取県', 30], ['島根県', 31], ['岡山県', 32], ['広島県', 33], ['山口県', 34],
+    ['徳島県', 35], ['香川県', 36], ['愛媛県', 37], ['高知県', 38], ['福岡県', 39],
+    ['佐賀県', 40], ['長崎県', 41], ['熊本県', 42], ['大分県', 43], ['宮崎県', 44],
+    ['鹿児島県', 45], ['沖縄県', 46]] %>
+  居住地の変更：<%= form.select :area, options %>
+  <input type="submit" name="submit" value="退会する">
+  <hr/>
+  <h2>退会</h2>
+  パスワードを入力
+  <input type="search" name="search" placeholder="パスワード">
+  <input type="submit" name="submit" value="退会する">
 
-  <h1>設定</h1>
-
-  <form method="post" action="reviewCheck.html">
-
-    ハンドルネームの変更
-    <input type="search" name="search" placeholder="ハンドルネーム">
-    <input type="submit" name="submit" value="変更">
-
-    <hr /> パスワードの変更
-    <input type="password" name="search" placeholder="新規パスワード"><br />
-    <input type="password" name="search" placeholder="現在のパスワード"><br />
-    <input type="password" name="search" placeholder="新規パスワードの再入力">
-    <input type="submit" name="submit" value="変更">
-    <hr /> 居住地の変更
-    <select name="pref_id">
-          <option value="" selected>都道府県</option>
-          <option value="1">北海道</option>
-          <option value="2">青森県</option>
-          <option value="3">岩手県</option>
-          <option value="4">宮城県</option>
-          <option value="5">秋田県</option>
-          <option value="6">山形県</option>
-          <option value="7">福島県</option>
-          <option value="8">茨城県</option>
-          <option value="9">栃木県</option>
-          <option value="10">群馬県</option>
-          <option value="11">埼玉県</option>
-          <option value="12">千葉県</option>
-          <option value="13">東京都</option>
-          <option value="14">神奈川県</option>
-          <option value="15">新潟県</option>
-          <option value="16">富山県</option>
-          <option value="17">石川県</option>
-          <option value="18">福井県</option>
-          <option value="19">山梨県</option>
-          <option value="20">長野県</option>
-          <option value="21">岐阜県</option>
-          <option value="22">静岡県</option>
-          <option value="23">愛知県</option>
-          <option value="24">三重県</option>
-          <option value="25">滋賀県</option>
-          <option value="26">京都府</option>
-          <option value="27">大阪府</option>
-          <option value="28">兵庫県</option>
-          <option value="29">奈良県</option>
-          <option value="30">和歌山県</option>
-          <option value="31">鳥取県</option>
-          <option value="32">島根県</option>
-          <option value="33">岡山県</option>
-          <option value="34">広島県</option>
-          <option value="35">山口県</option>
-          <option value="36">徳島県</option>
-          <option value="37">香川県</option>
-          <option value="38">愛媛県</option>
-          <option value="39">高知県</option>
-          <option value="40">福岡県</option>
-          <option value="41">佐賀県</option>
-          <option value="42">長崎県</option>
-          <option value="43">熊本県</option>
-          <option value="44">大分県</option>
-          <option value="45">宮崎県</option>
-          <option value="46">鹿児島県</option>
-          <option value="47">沖縄県</option>
-          </select>
-          <input type="submit" name="submit" value="退会する">
-    <hr />
-    <h2>退会</h2> パスワードを入力
-    <input type="search" name="search" placeholder="パスワード">
-    <input type="submit" name="submit" value="退会する">
-  </form>
-  <hr />
+  <hr/>
   <button type="button" onclick="history.back()">戻る</button>
 
-  <div id="footer">
-    Copyright (C) 2017 ママ友ネットワーク All Rights Reserved.
-  </div>
-
-</body>
-
-</html>
+<% end %>
