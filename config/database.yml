@@ -3,18 +3,18 @@ default: &default
   encoding: utf8
   pool: 5
   username: postgres
-  password: mama-friends
+  password: passpass
 
 development:
   <<: *default
-  database: yourneighbor
-  host: http://10.11.38.160
+  database: mamafriends
+  host: http://54.249.109.82/
 
 test:
   <<: *default
-  database: yourneighbor
+  database: mamafriends
 
 production:
   <<: *default
-  database: yourneighbor
+  database: mamafriends
   host: 127.0.0.1
