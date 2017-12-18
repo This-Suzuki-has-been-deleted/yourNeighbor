@@ -8,7 +8,7 @@ default: &default
 development:
   <<: *default
   database: mamafriends
-  host: http://54.249.109.82/
+  host: localhost
 
 test:
   <<: *default
