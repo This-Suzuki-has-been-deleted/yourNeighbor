@@ -5,6 +5,13 @@
 	<input type="search" name="search" placeholder="場所名で検索">
 	<input type="submit" name="submit" value="検索">
 	<a href="../asoberu/pinRegist.html.erb">地点登録</a>
+</form>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "場所名で検索:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("けんさく") %>
+
 	<div id="map">ここにマップを表示</div>
 	<script>
 		var map;
