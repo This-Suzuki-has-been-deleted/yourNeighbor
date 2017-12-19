@@ -15,6 +15,10 @@ test:
   database: mamafriends
 
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password: passpass
   database: mamafriends
   host: localhost
