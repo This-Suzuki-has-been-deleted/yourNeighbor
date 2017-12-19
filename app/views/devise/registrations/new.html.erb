@@ -1,34 +1,47 @@
-<html>
-<body>
-<h2>ログイン</h2>
+<html lang="ja">
+  <head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <title>mama Friends～Your Neighbor</title>
+  </head>
+  <body>
+    <h1 style="text-align:center;">このSNSは親のために作られたものです。</h1>
+    <h2>登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="contents" style="text-align:center;">
+      <div class="back-code">
+        <div class="field">
+          <%= f.label :email %><br/>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>
+              characters minimum)</em>
+          <% end %><br/>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br/>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登録" %>
+        </div>
+        <%= render "devise/shared/links" %>
+      <% end %>
+    </div>
+    <!-- back-code -->
   </div>
+  <!-- /contents -->
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
+  <footer style="text-align:center;">
+    <div class="copyright">Copyright &copy; 2017 mama Friends～Your Neighbor All Rights Reserved.</div>
+  </footer>
 </body>
 </html>

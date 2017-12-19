@@ -1,23 +1,30 @@
-<!DOCTYPE html>
 <html>
-    <body>
-        <header>
-            <nav>
-                <% if user_signed_in? %>
-                  <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-                  ログイン成功！<br />
-                  <%= p current_user.email %><br />
-                <% else %>
-                  <%= link_to 'サインアップ', new_user_registration_path %>
-                  <%= link_to 'ログイン', new_user_session_path %>
-                  <% end %>
-            </nav>
-        </header>
+  <head>
 
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+    <title>mama Friends～Your Neighbor</title>
+  </head>
+  <body>
+    <header>
+      <% if user_signed_in? %>
+        <h1><%= link_to 'mama Friends～Your Neighbor', actions=new_user_asoberutop %><!-- asoberutopに変更する --></h1>
+      <% else %>
+        <h1><%= link_to 'mama Friends～Your Neighbor', new_user_session_path %></h1>
+      <% end %>
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to 'プロフィール変更', edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><br>
+          <%= p current_user.email %><br/>
+        <% else %>
+          <%= link_to 'サインアップ', new_user_registration_path %>
+          <%= link_to 'ログイン', new_user_session_path %>
+        <% end %>
+      </nav>
+    </header>
 
-        <%= yield %>
-    </body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+  </body>
 </html>
