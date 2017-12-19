@@ -2,6 +2,11 @@
 
 <h1><%= @page_title %></h1>
 
+<%= form_for @reviews do |f| %>
+  <%= render "shared/errors", object: @reviews %>
+  <%= f.text_field :field %>
+
+<% end %>
 <form method="post" action="reviewCheck.html.erb">
   <table>
     <tr>
