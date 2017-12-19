@@ -2,14 +2,14 @@ class MapController < ApplicationController
 
   #全ピンの情報を取得
   def get_ping
-    @ping = map.all
+    @maps = map.all
   end
 
   #検索ワードと一致するピンを表示
   def get_search_ping
     if request.post? then
       word = params[:word]
-      @ping = map.where("map_name like '%" + word + "%'")
+      @maps = map.where("map_name like '%" + word + "%'")
     end
   end
 
