@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'pages#asotop'
+  root 'pages#show'
   get 'pages/asotop'
 
   devise_scope :user do
