@@ -6,7 +6,7 @@
   <body>
     <header>
       <% if user_signed_in? %>
-        <h1><%= link_to 'mama Friends～Your Neighbor','asotop' %><!-- asoberutopに変更する --></h1>
+        <h1><%= link_to 'mama Friends～Your Neighbor','asoberu/asotop' %><!-- asoberutopに変更する --></h1>
       <% else %>
         <h1><%= link_to 'mama Friends～Your Neighbor', new_user_session_path %></h1>
       <% end %>
