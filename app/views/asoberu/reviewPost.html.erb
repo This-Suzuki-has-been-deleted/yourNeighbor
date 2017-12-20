@@ -4,8 +4,15 @@
 
 <%= form_for @reviews do |f| %>
   <%= render "shared/errors", object: @reviews %>
-  <%= f.text_field :field %>
+  <%= f.label :review_title, "タイトル" %>
+  <%= f.text_field :review_title %>
 
+  <%= f.label :review_eva, "評価" %>
+  <%= f.radio_button 'eva', 'good' {:checked => true} %>
+  <%= f.radio_button 'eva', 'bad' %>
+
+  <%= f.label :review_text, "内容" %>
+  <%= f.text_area :review_text %>
 <% end %>
 <form method="post" action="reviewCheck.html.erb">
   <table>
