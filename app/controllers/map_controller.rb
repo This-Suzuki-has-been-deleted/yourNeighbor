@@ -1,4 +1,4 @@
-class MapController < ApplicationController
+class MapController < ApplicationController::Base
 
   #全ピンの情報を取得
   def get_ping
