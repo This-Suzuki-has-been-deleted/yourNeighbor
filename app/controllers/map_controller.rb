@@ -1,5 +1,5 @@
 class MapController < ApplicationController::Base
-  def new
+  def asotop
 
   end
 
