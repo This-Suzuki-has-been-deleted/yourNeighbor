@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :use, :path => 'asoberu/', :as => :main
+
   root 'pages#index'
   get 'pages/show'
 
