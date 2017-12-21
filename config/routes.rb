@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :maps, :only => [:new, :create, :edit, :update]
-   get'maps/new' => 'maps/new#new'
+  # resources :maps, :only => [:new, :create, :edit, :update]
+  #  get'maps/new' => 'maps/new#new'
 
   resource :maps do
     get 'new', :as => :top_Page
