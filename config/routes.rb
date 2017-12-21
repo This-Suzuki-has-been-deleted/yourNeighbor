@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # resource :maps do
   #   get 'asotop', :as => :top_Page
   # end
-  get "asotop" => "map#asotop"
+  get "asotop" => "map#asotop", path =>"asoberu/asomap"
    # resources :asoberu, :controller => :map, :path => 'asoberu/maps', :only => [:new]
 
    root :controller => 'pages', :action => 'index'
