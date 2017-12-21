@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # resource :maps do
   #   get 'asotop', :as => :top_Page
   # end
-  asoberu_for :users
-  # resources :asoberu, :controller => :asoberu, :path =>'asoberu/maps', :only => [:new]
+
+   resources :asoberu, :controller => :asoberu, :only => [:new]
 
   root :controller => 'pages', :action => 'new'
 
