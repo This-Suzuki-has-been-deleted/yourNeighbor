@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
 
-  resource :maps do
-    get 'asotop', :as => :top_Page
-  end
+  # resource :maps do
+  #   get 'asotop', :as => :top_Page
+  # end
 
   root 'maps/asotop#new'
   get 'pages/show'
