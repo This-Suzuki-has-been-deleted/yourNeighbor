@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   #   get 'asotop', :as => :top_Page
   # end
 
-  root 'maps/asotop#new'
-  # get 'pages/show'
-
+  root 'pages#index'
+   get 'pages/show'
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
