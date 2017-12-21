@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
    # resources :asoberu, :controller => :map, :path => 'asoberu/maps', :only => [:new]
 
-   root :controller => 'pages', :action => 'index'
+   root :controller => 'map', :action => 'index'
    get "asotop" => "map#asotop"
 
   devise_scope :user do
