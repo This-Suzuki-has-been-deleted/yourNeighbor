@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
    resources :asoberu, :controller => :map, :path => 'asoberu/maps', :only => [:new]
 
-  root :controller => 'pages', :action => 'index'
+  root :controller => 'pages', :action => 'index' 
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
