@@ -2,24 +2,25 @@
 
 <h1><%= @page_title %></h1>
 
-<%= form_for do |f| %>
-<%= render "shared/errors", object: %>
-<%= label :name, "ハンドルネームの変更" %><%= form.text_field :name, placeholder="ハンドルネーム" %>
-<input type="submit" name="submit" value="変更">
-<%= form.submit_tag("") %>
+<%= form_for @users do |f| %>
+  <%= render "shared/errors", object: @users %>
+<%= label :name, "ハンドルネームの変更" %><%= form.text_field :name %>
+<%= f.submit %>
 <% end %>
 
 <hr/>
-<%= form_for do |f| %>
-<%= render "shared/errors", object: %>
 <h2>パスワードの変更</h2>
+<%= form_for @users do |f| %>
+  <%= render "shared/errors", object: @users %>
 <%= label :new_password, "新しいパスワード：" %><%= form.password_field :new_password %>
 <%= label :new_password2, "新規パスワードの再入力：" %><%= form.password_field :new_password2 %>
 <%= label :password, "現在のパスワード：" %><%= form.password_field :password %>
+<%= f.submit %>
 <% end %>
 <hr/>
-<%= form_for do |f| %>
-<%= render "shared/errors", object: %>
+
+<%= form_for @users do |f| %>
+  <%= render "shared/errors", object: @users %>
 <%= f.text_field :field %>
 <% options = [['北海道', 0], ['青森県', 1], ['岩手県', 2], ['宮城県', 3], ['秋田県', 4],
       ['山形県', 5], ['福島県', 6], ['茨城県', 7], ['栃木県', 8], ['群馬県', 9],
@@ -32,15 +33,16 @@
       ['佐賀県', 40], ['長崎県', 41], ['熊本県', 42], ['大分県', 43], ['宮崎県', 44],
       ['鹿児島県', 45], ['沖縄県', 46]] %>
 居住地の変更：<%= form.select :area, options %>
+<%= f.submit %>
 <% end %>
 <hr/>
-<%= form_for do |f| %>
-<%= render "shared/errors", object: %>
-<%= f.text_field :field %>
+
 <h2>退会</h2>
-パスワードを入力
+<%= form_for @users do |f| %>
+  <%= render "shared/errors", object: @users %>
+<%= f.label :password, "パスワードを入力" %><%= f.password_field :password %>
 <%= form.password_field_tag(:password) %>
-<input type="submit" name="submit" value="退会する">
+<%= f.submit %>
 <% end %>
 
 <hr/>
