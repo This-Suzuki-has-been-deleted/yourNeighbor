@@ -55,7 +55,7 @@ function initMap() {
 			map: map // マーカーを立てる地図を指定
 		});
 		infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-			content: '<div class="fukidashi">' + markerData[i]['name'] + '<br><a href="reviewPost.html.erb">レビューを書き込む</a> <a href="reviewDetail.html.erb">レビューを見る</a></div></div>' // 吹き出しに表示する内容
+			content: '<div class="fukidashi">' + markerData[i]['name'] + '<br><a href="review/reviewPost.html.erb">レビューを書き込む</a> <a href="review/reviewDetail.html.erb">レビューを見る</a></div></div>' // 吹き出しに表示する内容
 		});
 		markerEvent(i); // マーカーにクリックイベントを追加
 	}
