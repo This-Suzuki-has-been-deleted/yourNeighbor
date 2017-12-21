@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   root 'maps#asotop'
-  get 'pages/show'
+  get 'maps/new'
 
 
   devise_scope :user do
