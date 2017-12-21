@@ -1,71 +1,51 @@
-<%= @page_title = "あそべ～る" %>
+<html lang ="ja">
+<head>
 
-<h1><%= @page_title %></h1>
-<%= form_for @maps do |f| %>
-<%= render "shared/errors", object: @maps %>
-<%= form_tag("/search", method: "get") do %>
-<%= label_tag(:q, "場所名で検索:") %>
-<%= text_field_tag(:q) %>
-<%= submit_tag("けんさく") %>
-<% end %>
+  <title>mama Friends～Your Neighbor</title>
+</head>
+<body style ="background-color:red;">
+<div id="top">
+  <div id="header">
+    <div id="main">
+      <h1>このSNSは親のために作られたものです。</h1>
+      <h2>ログイン</h2>
+      <div class="contents" style="text-align:center;">
+        <div class="back-code">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email  %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
 
-<a href="../asoberu/pinRegist.html.erb">地点登録</a>
-<div id="map">ここにマップを表示</div>
-<script>
-var map;
-var marker = [];
-var infoWindow = [];
-var markerData = [
-	{ // マーカーを立てる場所名・緯度・経度
-		name: '北海道情報専門学校',
-		lat: 43.056032, // 緯度
-		lng: 141.379728 // 経度
-	}, {
-		name: 'イーアス札幌',
-		lat: 43.054331,
-		lng: 141.383220
-	}, {
-		name: 'らあめんがんてつ イーアス札幌店',
-		lat: 43.055335,
-		lng: 141.384448
-	}, {
-		name: 'TSUTAYA 札幌菊水店',
-		lat: 43.052986,
-		lng: 141.378298
-	}, {
-		name: 'やよい公園',
-		lat: 43.055084,
-		lng: 141.374029
-	}
-];
-function initMap() {
-	var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']
-	}); // 緯度経度のデータ作成
-	map = new google.maps.Map(document.getElementById('map'), { // #mapに地図を埋め込む
-		center: mapLatLng, // 地図の中心を指定
-		zoom: 15 // 地図のズームを指定
-	});
+          <div class="field">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
 
-	// マーカー毎の処理
-	for (var i = 0; i < markerData.length; i++) {
-		markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']
-		}); // 緯度経度のデータ作成
-		marker[i] = new google.maps.Marker({ // マーカーの追加
-			position: markerLatLng, // マーカーを立てる位置を指定
-			map: map // マーカーを立てる地図を指定
-		});
-		infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-			content: '<div class="fukidashi">' + markerData[i]['name'] + '<br><a href="review/reviewPost.html.erb">レビューを書き込む</a> <a href="review/reviewDetail.html.erb">レビューを見る</a></div></div>' // 吹き出しに表示する内容
-		});
-		markerEvent(i); // マーカーにクリックイベントを追加
-	}
-}
-// マーカーにクリックイベントを追加
-function markerEvent(i) {
-	marker[i].addListener('click', function () { // マーカーをクリックしたとき
-		infoWindow[i].open(map, marker[i]); // 吹き出しの表示
-	});
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
-<% end %>
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.submit "ログイン", id: "sub" %>
+          </div>
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+      <!-- back-code -->
+    </div>
+    <!-- /contents -->
+  </div>
+  <!-- /main -->
+</div>
+<!-- /header -->
+</div>
+<!-- /top -->
+<footer style="text-align:center;">
+  <div class="copyright">Copyright &copy; 2017 mama Friends～Your Neighbor All Rights Reserved.</div>
+</footer>
+</body>
+</html>
