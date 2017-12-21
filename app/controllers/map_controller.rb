@@ -43,5 +43,4 @@ class MapController < ApplicationController
       map.destroy_all(maps_id: map_id)
     end
   end
- end
 end
