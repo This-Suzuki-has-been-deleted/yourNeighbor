@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :asoberu, :as => :asoberu, :path => 'asoberu/map' ,:only => [:edit]
 
   resources :asoberu, :as => :asoberu, :path => 'asoberu/map' ,:only => [:new]
 
