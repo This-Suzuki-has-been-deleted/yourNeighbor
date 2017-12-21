@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   #  get'maps/new' => 'maps/new#new'
 
   resource :maps do
-    get 'new', :as => :top_Page
+    get 'asotop', :as => :top_Page
   end
 
-  root 'maps#asotop'
-  get 'maps/new'
+  root 'pages#index'
+  get 'pages/show'
 
 
   devise_scope :user do
