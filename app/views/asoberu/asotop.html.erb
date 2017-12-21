@@ -1,7 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 	<head>
-		<%= javascript_include_tag 'application' %>
+		title
+		 | Gmap
+	 = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	 = javascript_include_tag 'application', 'data-turbolinks-track' => true
+	 = csrf_meta_tags
+	 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" />
+	 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript' />
 		<title>あそべ～る</title>
 	</head>
 	<body>
@@ -18,10 +24,13 @@
 	<a href="../pinRegist.html.erb">地点登録</a>
 	<div id="map">ここにマップを表示</div>
 	<script>
-		var map;
-			var marker = [];
-			var infoWindow = [];
-			var markerData = [
+	javascript:
+	  handler = Gmaps.build('Google');
+	  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	    markers = handler.addMarkers(#{raw @hash.to_json});
+	    handler.bounds.extendWith(markers);
+	    handler.fitMapToBounds();
+	  });
 				{ // マーカーを立てる場所名・緯度・経度
 					name: '北海道情報専門学校',
 					lat: 43.056032, // 緯度
@@ -36,7 +45,7 @@
 		</script>
 // 吹き出しに表示する内容 }); markerEvent(i); // マーカーにクリックイベントを追加 } } // マーカーにクリックイベントを追加 function markerEvent(i) { marker[i].addListener('click', function () { // マーカーをクリックしたとき infoWindow[i].open(map, marker[i]); // 吹き出しの表示 }); }
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVgdmCr_kliSUgLs3XpmCOCrXuU-N0vyU=initMap" type="text/javascript"></script>
+	<script src="//maps.google.com/maps/api/js?v=3.23&key=AIzaSyBVgdmCr_kliSUgLs3XpmCOCrXuU-N0vyU=initMap" type="text/javascript"></script>
 
 	<div id="footer">
 		Copyright (C) 2017 ママ友ネットワーク All Rights Reserved.
