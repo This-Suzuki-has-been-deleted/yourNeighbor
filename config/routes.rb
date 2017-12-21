@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'asotop', :as => :top_Page
   end
 
-  root 'pages#index'
+  root 'maps/asotop#new'
   get 'pages/show'
 
 
