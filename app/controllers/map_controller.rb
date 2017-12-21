@@ -9,9 +9,9 @@ class MapController < ApplicationController
 
 
   #全ピンの情報を取得
-  def get_ping
-    @maps = map.all
-  end
+  # def get_ping
+  #   @maps = map.all
+  # end
 
  end
 
