@@ -11,4 +11,4 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 end
-resource :asoberu/map
+resource :asoberu
