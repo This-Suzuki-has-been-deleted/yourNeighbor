@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   resource :map do
-    get 'asotop', :as => :Top_Page
+    get 'asotop', :as => :top_Page
   end
   resource :review
 end
