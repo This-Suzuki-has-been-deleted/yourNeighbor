@@ -1,7 +1,7 @@
 class MapController < ApplicationController
   def asotop
 
-  end
+
 
   #全ピンの情報を取得
   def get_ping
@@ -39,5 +39,5 @@ class MapController < ApplicationController
       map.destroy_all(maps_id: map_id)
     end
   end
-
+ end
 end
