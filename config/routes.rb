@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resource :maps, :only => [:show]
+  resources :maps, :only => [:new, :create, :edit, :update]
+   get'maps/new' => 'maps/new#new'
 
-
-
-  # resource :map do
-  #   get 'new', :as => :top_Page
-  # end
+  resource :map do
+    get 'new', :as => :top_Page
+  end
 
   root 'pages#index'
   get 'pages/show'
