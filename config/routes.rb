@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #   get 'asotop', :as => :top_Page
   # end
 
+  resources :maps, :controller => :map
+
   root 'pages#index'
    get 'pages/show'
 
