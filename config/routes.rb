@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :maps, :only => [:new, :create, :edit, :update]
    get'maps/new' => 'maps/new#new'
 
-  resource :map do
+  resource :maps do
     get 'new', :as => :top_Page
   end
 
