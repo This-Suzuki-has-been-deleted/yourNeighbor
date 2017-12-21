@@ -2,9 +2,10 @@ class MapController < ApplicationController
   def asotop
     @places = Place.all
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
-   marker.lat place.latitude
-   marker.lng place.longitude
-   marker.infowindow place.name
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.infowindow place.name
+    end
 
 
   #全ピンの情報を取得
