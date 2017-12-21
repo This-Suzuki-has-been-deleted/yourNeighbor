@@ -45,3 +45,4 @@ class MapController < ApplicationController
     end
   end
 end
+end
