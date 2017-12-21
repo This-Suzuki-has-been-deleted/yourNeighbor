@@ -1,4 +1,4 @@
-class MapController < ApplicationController::Base
+class MapController < ApplicationController
   def asotop
 
   end
