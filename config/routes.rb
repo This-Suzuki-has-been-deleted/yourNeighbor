@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, :as => :asoberu
+  resources :asoberu, :as => :asoberu, :path => 'asoberu/map' ,:only => [:edit]
 
-  resources :users, :only => [:index] , :as => :asoberu
+  resources :asoberu, :as => :asoberu, :path => 'asoberu/map' ,:only => [:new]
+
 
 
   devise_scope :user do
