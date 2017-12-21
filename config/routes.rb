@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get 'asotop', :as => :top_Page
   end
 
-  root 'maps#asotop'
-  get 'pages/show'
+  root 'pages#index'
+  get 'maps/asotop'
 
 
   devise_scope :user do
