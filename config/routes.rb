@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   #   get 'asotop', :as => :top_Page
   # end
 
-   resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
+  ? resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
 
    root :controller => 'pages', :action => 'index'
-   # get "asotop" => "map/asotop#new"
+   get "asotop" => "map/asotop#new"
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
