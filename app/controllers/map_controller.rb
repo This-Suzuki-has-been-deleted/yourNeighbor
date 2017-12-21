@@ -13,6 +13,8 @@ class MapController < ApplicationController
     @maps = map.all
   end
 
+ end
+
   #検索ワードと一致するピンを表示
   def get_search_ping
     if request.post? then
@@ -44,5 +46,4 @@ class MapController < ApplicationController
       map.destroy_all(maps_id: map_id)
     end
   end
- end
 end
