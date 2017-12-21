@@ -1,21 +1,10 @@
-<%= render "shared/errors", obj: @reviews %>
+<%= render "shared/errors", object: @reviews %>
+<%= f.label :review_title, "タイトル" %>
+<%= f.text_field :review_title %>
 
-  <table class="attr">
-    <tr>
-      <th><%= form.label :review_title, "タイトル" %></th>
-      <td><%= form.text_field :review_title, size: 15 %></td>
-    </tr>
-    <tr>
-      <th>評価</th>
-      <td>
-        <%= form.radio_button :review_eva, 0 %>
-        <%= form.label :review_eva, "Good!" %>
-        <%= form.radio_button :review_eva, 1 %>
-        <%= form.label :review_eva, "Bad!" %>
-      </td>
-    </tr>
-    <tr>
-      <th><%= form.label :review_text, "内容" %></th>
-      <td><%= form.text_area :review_text, cols: 40, rows: 5 %></td>
-    </tr>
-  </table>
+<%= f.label :review_eva, "評価" %>
+<%= f.radio_button 'eva', 'good' {:checked => true} %>
+<%= f.radio_button 'eva', 'bad' %>
+
+<%= f.label :review_text, "内容" %>
+<%= f.text_area :review_text %>

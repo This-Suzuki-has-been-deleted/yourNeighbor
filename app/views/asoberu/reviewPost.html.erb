@@ -3,41 +3,6 @@
 <h1><%= @page_title %></h1>
 
 <%= form_for @reviews do |f| %>
-  <%= render "shared/errors", object: @reviews %>
-  <%= f.label :review_title, "タイトル" %>
-  <%= f.text_field :review_title %>
-
-  <%= f.label :review_eva, "評価" %>
-  <%= f.radio_button 'eva', 'good' {:checked => true} %>
-  <%= f.radio_button 'eva', 'bad' %>
-
-  <%= f.label :review_text, "内容" %>
-  <%= f.text_area :review_text %>
-<% end %>
-<form method="post" action="reviewCheck.html.erb">
-  <table>
-    <tr>
-      <th>タイトル</th>
-      <td><input type="text" name="タイトル" size="50"></td>
-    </tr>
-    <tr>
-      <th>評価</th>
-      <td><input type="radio" name="評価" value="Good"/>
-        Good!
-        <input type="radio" name="評価" value="Bad"/>Bad!</td>
-    </tr>
-    <tr>
-      <th>内容</th>
-      <td>
-        <textarea name="detail" rows="15" cols="70">レビューを書き込んでね！</textarea>
-      </td>
-    </tr>
-  </table>
-  <!----------------------------------------------------------------->
-  <input type="hidden" name="Confirm_Page" value="reviewCheck.html">
-  <!----------------------------------------------------------------->
-  <input type="submit" value="確認">
-  <input type="reset" value="リセット">
-</form>
-
+<%= render "form", form: form %>
+<%= f.submit %>
 <% end %>
