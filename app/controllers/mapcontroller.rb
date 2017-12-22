@@ -8,6 +8,7 @@ class MapController < ApplicationController
     # end
 
 @products = Product.all
+render json: @products
 
   #全ピンの情報を取得
   # def get_ping
