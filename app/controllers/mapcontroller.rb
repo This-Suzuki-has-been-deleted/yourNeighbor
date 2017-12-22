@@ -7,6 +7,7 @@ class MapController < ApplicationController
     #   marker.infowindow place.name
     # end
 
+@products = Product.all
 
   #全ピンの情報を取得
   # def get_ping
@@ -14,7 +15,6 @@ class MapController < ApplicationController
   # end
 
  end
-
   #検索ワードと一致するピンを表示
   def get_search_ping
     if request.post? then
