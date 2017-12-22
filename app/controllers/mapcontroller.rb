@@ -7,7 +7,7 @@ class MapController < ApplicationController
     #   marker.infowindow place.name
     # end
 
-layout "asotop"
+render layout "asotop"
 
   #全ピンの情報を取得
   # def get_ping
