@@ -49,6 +49,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
+gem 'coffee-script-source', '1.8.0'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'config'
 gem 'composite_primary_keys'
