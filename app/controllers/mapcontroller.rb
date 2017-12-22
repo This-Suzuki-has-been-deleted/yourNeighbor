@@ -7,7 +7,6 @@ class MapController < ApplicationController
     #   marker.infowindow place.name
     # end
 
-@maps = map.all
 render body: new
 
   #全ピンの情報を取得
