@@ -7,7 +7,7 @@ class MapController < ApplicationController
     #   marker.infowindow place.name
     # end
 
-@products = Product.all
+@maps = map.all
 render json: @products
 
   #全ピンの情報を取得
