@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
 
-  # resource :maps do
-  #   get 'asotop', :as => :top_Page
-  # end
+  resource :maps
 
    # resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
 
