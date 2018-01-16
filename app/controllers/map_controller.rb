@@ -30,7 +30,7 @@ class MapController < ApplicationController
   end
 
   #削除
-  def delete_ping
+  def delete
     if request.post? then
       map_id = params[:map_id]
       map.destroy_all(maps_id: map_id)
