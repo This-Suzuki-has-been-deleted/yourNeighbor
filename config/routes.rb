@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resource :maps
 
    # resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
+  root :controller => 'pages', :action => 'index'
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
