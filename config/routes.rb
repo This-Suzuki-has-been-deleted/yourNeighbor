@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'maps#index'
+
+
   devise_for :users
 
 
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
   resources :maps
 
    # resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
-  root :controller => 'maps', :action => 'index'
+  # root :controller => 'maps', :action => 'index'
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
