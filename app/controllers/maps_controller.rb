@@ -1,4 +1,4 @@
-class MapController < ApplicationController
+class MapsController < ApplicationController
 
   #全ピンの情報を取得
   def index
