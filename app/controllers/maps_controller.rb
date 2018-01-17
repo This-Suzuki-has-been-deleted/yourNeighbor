@@ -2,7 +2,7 @@ class MapsController < ApplicationController
 
   #全ピンの情報を取得
   def index
-    @ping = File.open("path/to/file.dump", "wb") { |file| Marshal.dump(obj, file) }aps.all
+    @ping = Map.all
   end
 
   #検索ワードと一致するピンを表示
