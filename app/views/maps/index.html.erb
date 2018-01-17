@@ -6,6 +6,7 @@
 	<body>
 
 		<h1>あそべ～るトップページ</h1>
+		<!--
 	<%= form_for @maps do |f| %>
 		<%= render "shared/errors", object: @maps %>
 		<%= form_tag("/search", method: "get") do %>
@@ -13,7 +14,7 @@
 		<%= text_field_tag(:q) %>
 		<%= submit_tag("けんさく") %>
 	<% end %>
-	<!--
+
 	<a href="../pinRegist.html.erb">地点登録</a>
 	<div id="map">ここにマップを表示</div>
 	<script>
