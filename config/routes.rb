@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'maps/show'
 
   devise_for :users
-
+  resources :maps
 
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
