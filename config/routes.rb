@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
 
-  resource :maps
+  resources :maps
 
    # resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
   root :controller => 'pages', :action => 'index'
