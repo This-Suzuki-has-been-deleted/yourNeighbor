@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root 'maps#index'
-
+  root 'pages#index'
 
   devise_for :users
 
@@ -9,8 +8,6 @@ Rails.application.routes.draw do
   #  get'maps/new' => 'maps/new#new'
 
   resources :maps
-
-   # resources :asoberu, :controller => :map, :path => 'asoberu', :only => [:creates]
   # root :controller => 'maps', :action => 'index'
 
   devise_scope :user do
