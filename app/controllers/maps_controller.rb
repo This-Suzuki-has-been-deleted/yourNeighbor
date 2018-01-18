@@ -4,7 +4,6 @@ class MapsController < ApplicationController
   def index
     @ping = Map.all
 
-    end
   end
 
   #検索ワードと一致するピンを表示
