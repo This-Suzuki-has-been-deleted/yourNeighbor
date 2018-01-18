@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews
   resources :coulmns
-  
 
   end
 
