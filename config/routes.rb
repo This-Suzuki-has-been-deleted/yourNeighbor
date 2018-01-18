@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   resources :reviews
   resources :coulmns
 
-  end
-
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
   # root :controller => 'maps', :action => 'index'
