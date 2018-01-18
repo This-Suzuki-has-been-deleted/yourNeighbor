@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :maps
+  resources :users
+  resources :reviews
+  resources :coulmns
 
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
