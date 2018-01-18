@@ -2,7 +2,13 @@ class MapsController < ApplicationController
 
   #全ピンの情報を取得
   def index
-    @ping = Map.all
+    #@ping = Map.all
+    @places = Place.all
+    @hash = Gmaps4rails.build_markers(@places) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.infowindow place.name
+    end
   end
 
   #検索ワードと一致するピンを表示
