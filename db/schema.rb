@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20180118032140) do
   create_table "maps", id: false, force: :cascade do |t|
     t.string "maps_id"
     t.string "map_name"
-    t.string "map_lat"
-    t.string "map_lng"
+    t.float "map_lat"
+    t.float "map_lng"
     t.date "map_date"
     t.string "email"
   end
