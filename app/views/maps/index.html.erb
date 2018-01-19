@@ -24,13 +24,13 @@
 </thead>
 
 <tbody>
-  <% @users.each do |user| %>
+  <% @users.each do |maps| %>
     <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= maps.name %></td>
+      <td><%= maps.email %></td>
+      <td><%= link_to 'Show', maps %></td>
+      <td><%= link_to 'Edit', edit_user_path(maps) %></td>
+      <td><%= link_to 'Destroy', maps, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </tbody>
