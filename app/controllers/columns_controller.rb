@@ -13,6 +13,11 @@ class ColumnsController < ApplicationController
 
   def create
     column = params.require(:column).permit(:title, :text)
-    Column.create(column)
+    check = Column.create(column)
+    if check.save
+      redirect_to columns_path, notice: '登録しました。'
+    else
+      redirect_to columns_path, notice: '登録に失敗しました。'
+    end
   end
 end
