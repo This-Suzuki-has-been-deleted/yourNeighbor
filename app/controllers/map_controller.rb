@@ -3,18 +3,14 @@ class MapController < ApplicationController
   #全ピンの情報を取得
   def index
     @maps = Map.all
-    @latitude = '35.6585805'
 
-    @longitude = '139.7454329'
-
-    @address = '〒105-0011 東京都港区芝公園４丁目２-８'
   end
 
   #検索ワードと一致するピンを表示
   def search
     if request.post? then
       word = params[:word]
-      @ping = map.where("map_name like '%" + word + "%'")
+      @maps = map.where("map_name like '%" + word + "%'")
     end
   end
 
