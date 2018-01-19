@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20180118032140) do
     t.float "map_lat"
     t.float "map_lng"
     t.date "map_date"
-    t.string "email"
   end
 
   create_table "prefs", force: :cascade do |t|
@@ -60,7 +59,6 @@ ActiveRecord::Schema.define(version: 20180118032140) do
     t.string "tag1"
     t.string "tag2"
     t.string "tag3"
-    t.string "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180118032140) do
     t.string "review_text"
     t.string "review_eva", default: "good"
     t.date "review_date"
-    t.string "email"
     t.string "maps_id"
   end
 
