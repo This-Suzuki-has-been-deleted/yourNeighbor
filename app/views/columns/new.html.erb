@@ -4,8 +4,8 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@column) do |f| %>
       <br />
-      <%= f.label :"タイトル" %>
-      <%= f.text_field :"本文" %>
+      <%= f.label :title %>
+      <%= f.text_field :text %>
       <br />
       <%= f.label :text %>
       <%= f.text_area :text, :maxlength => "1000", :size => "100x15" %>
