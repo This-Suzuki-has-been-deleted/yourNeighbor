@@ -2,6 +2,7 @@ class MapController < ApplicationController
 
   #全ピンの情報を取得
   def index
+    @maps = Map.all
     @latitude = '35.6585805'
 
     @longitude = '139.7454329'
