@@ -6,8 +6,8 @@
       <%= f.label :title %>
       <%= f.text_field :title %>
 
-      <%= f.label :email %>
-      <%= f.text_area :email, maxlength >= 1000 %>
+      <%= f.label :text %>
+      <%= f.text_area :text, :maxlength >= 1000 %>
 
       <%= f.submit "コラムを投稿する", class: "btn btn-primary" %>
     <% end %>
