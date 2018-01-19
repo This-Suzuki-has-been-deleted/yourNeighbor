@@ -1,4 +1,4 @@
-class ColumnController < ApplicationController
+class ColumnsController < ApplicationController
   def index
     @column = Column.all
   end
