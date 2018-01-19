@@ -1,35 +1,68 @@
 <h1>あそべ～るトップページ</h1>
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
-</div>
+
+<style type="text/css">
+#map {
+  height: 400px;
+  margin-left: auto;
+  /* 左側マージンを自動的に空ける */
+  margin-right: auto;
+  /* 右側マージンを自動的に空ける */
+  text-align: left;
+  /* 中身を左側表示に戻す */
+  width: 80%;
+}
+</style>
+<div id="map"></div>
 
 <table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
 
-  <tbody>
-    <% @maps.each do |map| %>
-      <tr>
-        <td><%= map.address %></td>
-        <td><%= map.latitude %></td>
-        <td><%= map.longitude %></td>
-        <td><%= link_to 'Show', map %></td>
-        <td><%= link_to 'Edit', edit_map_path(map) %></td>
-        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Show', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Map', new_map_path %>
+<%= link_to 'New User', new_user_path %>
 
+<script type="text/javascript">
+function initMap() {
+
+  var test = {
+    lat: <%= @latitude %>,
+    lng: <%= @longitude %>
+  };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: test
+  });
+  var transitLayer = new google.maps.TransitLayer();
+  transitLayer.setMap(map);
+
+  var contentString = '住所：<%= @address %>';
+  var infowindow = new google.maps.InfoWindow({content: contentString});
+
+  var marker = new google.maps.Marker({position: test, map: map, title: contentString});
+
+  marker.addListener('click', function () {
+    infowindow.open(map, marker);
+  });
+}
+</script>
+<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
 </html>

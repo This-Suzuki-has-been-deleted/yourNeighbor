@@ -1,24 +1,12 @@
 class MapController < ApplicationController
-  # GET /maps
-  # GET /maps.json
+
+  #全ピンの情報を取得
   def index
-    @maps = Map.all
-  end
+    @latitude = '35.6585805'
 
-  # GET /maps/1
-  # GET /maps/1.json
-  def show
-    @map = Map.find_by(id: params[:id])
-    @latitude = @map.latitude
+    @longitude = '139.7454329'
 
-    @longitude = @map.longitude
-
-    @address = @map.address
-  end
-
-  # GET /maps/new
-  def new
-    @map = Map.new
+    @address = '〒105-0011 東京都港区芝公園４丁目２-８'
   end
 
   #検索ワードと一致するピンを表示
@@ -30,12 +18,12 @@ class MapController < ApplicationController
   end
 
   #登録
-  # def new
-  #   if request.post? then
-  #     map_data = params[:map_data]
-  #     map.create(maps_id: map.count.to_i + 1, map_name: map_data[1], map_text: map_data[2], map_lat: map_data[3], map_lng: map_data[4], map_date: Date.today.to_time)
-  #   end
-  # end
+  def new
+    if request.post? then
+      map_data = params[:map_data]
+      map.create(maps_id: map.count.to_i + 1, map_name: map_data[1], map_text: map_data[2], map_lat: map_data[3], map_lng: map_data[4], map_date: Date.today.to_time)
+    end
+  end
 
   #編集
   def edit
