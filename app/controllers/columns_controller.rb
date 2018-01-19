@@ -10,4 +10,9 @@ class ColumnsController < ApplicationController
   def new
     @column = Column.new
   end
+
+  def create
+    column = params.require(:column).permit(:title, :text)
+    Column.create(column)
+  end
 end
