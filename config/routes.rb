@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :maps
   resources :users
   resources :reviews
-  resources :coulmns
+  resources :columns
 
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
