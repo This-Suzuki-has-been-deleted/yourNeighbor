@@ -6,4 +6,8 @@ class ColumnController < ApplicationController
   def show
     id = params[:id]
   end
+
+  def new
+    @column = Column.new
+  end
 end
