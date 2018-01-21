@@ -4,7 +4,7 @@ class ColumnsController < ApplicationController
   end
 
   def show
-    id = params[:id]
+    @column = Column.find(params[:id])
   end
 
   def new
