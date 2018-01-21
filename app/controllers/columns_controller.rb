@@ -20,4 +20,10 @@ class ColumnsController < ApplicationController
       redirect_to columns_path, notice: '登録に失敗しました。'
     end
   end
+
+  def destroy
+    Column.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to maps_url
+  end
 end
