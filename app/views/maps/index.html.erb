@@ -12,6 +12,15 @@
   width: 80%;
 }
 </style>
+<%= form_tag :search_maps, method: :get do %>
+  <%= text_field_tag(
+      :word,
+      params[:word],
+      placeholder: "地点名を入力",
+      class: "form-control"
+  ) %>
+  <%= submit_tag "検索" %>
+<% end %>
 <%= link_to '地点登録', new_map_path %>
 
 <div id="map">ここにマップを表示</div>

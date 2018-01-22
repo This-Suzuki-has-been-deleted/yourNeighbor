@@ -1,8 +1,8 @@
 <% @page_title = "地点詳細" %>
 <h2><%= @page_title %></h2>
 <p>
-  <%= link_to"編集", [:edit, @map] %><br />
-  <%= link_to"削除", [:delete, @map] %><br />
+  <%= link_to"編集", [:edit, map] %><br />
+  <%= link_to"削除", map, method: :delete, data: { confirm: "本当に削除しますか？" } %><br />
 </p>
 <p>
   <strong>地点名:</strong>

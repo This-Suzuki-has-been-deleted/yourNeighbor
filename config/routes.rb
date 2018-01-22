@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'maps/show'
 
   devise_for :users
-  resources :maps
+  resources :maps do
+    collection { get "search"}
+  end
   resources :users
   resources :reviews
   resources :columns
