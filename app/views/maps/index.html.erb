@@ -72,7 +72,7 @@
       });
       infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
         content: '<div class="fukidashi">' + markerData[i]['name'] +
-          '<br><a href="review/new.html.erb">レビューを書き込む</a> <a href="review/show.html.erb">レビューを見る</a> ' +
+          '<br><a href="review/new">レビュー投稿</a> <a href="review/show">レビュー一覧</a> ' +
           '<a href="#">通報</a></div>' // 吹き出しに表示する内容
       });
       markerEvent(i); // マーカーにクリックイベントを追加

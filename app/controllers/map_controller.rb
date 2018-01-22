@@ -3,7 +3,6 @@ class MapController < ApplicationController
   #全ピンの情報を取得
   def index
     @maps = Map.all
-
   end
 
   #検索ワードと一致する地点を表示
@@ -50,7 +49,6 @@ class MapController < ApplicationController
       map.destroy_all(maps_id: map_id)
       flash[:success] = "Marker deleted"
       redirect_to maps_path
-
     end
   end
 
