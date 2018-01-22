@@ -27,6 +27,7 @@ class MapController < ApplicationController
         redirect_to columns_path, notice: '登録しました。'
       else
         redirect_to columns_path, notice: '登録に失敗しました。'
+      end
     end
   end
 
@@ -39,6 +40,7 @@ class MapController < ApplicationController
         redirect_to columns_path, notice: '更新しました。'
       else
         redirect_to columns_path, notice: '更新に失敗しました。'
+      end
     end
   end
 
