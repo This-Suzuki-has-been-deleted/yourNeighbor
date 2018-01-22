@@ -16,6 +16,6 @@
           <td><%= @column.text %></td>
         </tr>
       </tbody>
-      <%= link_to "削除する", column_path, method: :delete %>
+      <%= link_to '削除する', columns_path(@column), :method => :delete, :confirm => '本当に削除しますか？' %>
   </div>
 </body>
