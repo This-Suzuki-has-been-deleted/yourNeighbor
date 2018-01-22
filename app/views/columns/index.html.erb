@@ -1,16 +1,17 @@
 
 <body>
   <h1>コラム一覧</h1>
-  <div class="cards">
     <% @column.each do |column| %>
+  <div class="cards">
     <div class="card">
       <div class="card-title">
-
         <a href="#" class="toggle-info btn">
           <span class="left"></span>
-            <%= column.title %>
           <span class="right"></span>
         </a>
+        <h2>
+          <%= column.title %>
+        </h2>
 
       </div>
       <div class="card-flap flap1">
@@ -19,11 +20,11 @@
         </div>
         <div class="card-flap flap2">
           <div class="card-actions">
-            <%= link_to "Read more", column_path(column.id), class: 'btn btn-default' %>
+            <%= link_to "Read more", column_path(column.id), class: 'btn' %>
           </div>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
 </body>
