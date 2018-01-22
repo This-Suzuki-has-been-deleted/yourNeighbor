@@ -24,6 +24,6 @@ class ColumnsController < ApplicationController
   def destroy
     Column.find(params[:id]).destroy
     flash[:success] = "User deleted"
-    redirect_to action: 'index', status: :ok
+    redirect_to columns_path
   end
 end
