@@ -12,7 +12,7 @@
   width: 80%;
 }
 </style>
-<%= link_to '地点登録', new_map_path %>
+<%= link_to '地点登録', new_map %>
 
 <div id="map">ここにマップを表示</div>
 <script>
@@ -63,8 +63,8 @@
       });
       infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
         content: '<div class="fukidashi">' + markerData[i]['name'] +
-          '<br><a href="reviewPost.html">レビューを書き込む</a> <a href="reviewDetail.html">レビューを見る</a> ' +
-          '<a href="./result.html">通報</a></div>' // 吹き出しに表示する内容
+          '<br><a href="review/new.html.erb">レビューを書き込む</a> <a href="review/show.html.erb">レビューを見る</a> ' +
+          '<a href="#">通報</a></div>' // 吹き出しに表示する内容
       });
       markerEvent(i); // マーカーにクリックイベントを追加
     }
