@@ -28,4 +28,4 @@ resources :answers
 # #answer
 #   post 'answer/create' => 'answer#create', as: :answer_create
 #   delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete
-# end
+end
