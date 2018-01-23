@@ -2,7 +2,7 @@
 
 <style type="text/css">
 #map {
-  height: 800px;
+  height: 600px;
   margin-left: auto;
   /* 左側マージンを自動的に空ける */
   margin-right: auto;
@@ -17,7 +17,7 @@
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "検索", :word => nil %>
   </p>
-<% end %><%= link_to '地点登録', new_map_path %>
+<% end %><%= link_to '地点登録', new_maps_path %>
 
 <div id="map">ここにマップを表示</div>
 <script>
