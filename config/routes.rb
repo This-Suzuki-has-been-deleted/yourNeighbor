@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   end
 
 #question
-  get 'questions/index'
-  get 'questions/show/:id' => 'questions#show', as: :questions_show
-  post 'questions/create' => 'questions#create'
-  delete 'questions/delete/:id' => 'questions#delete', as: :question_delete
-  get 'questions/new' => 'questions#new'
+  get 'question/index'
+  get 'question/show/:id' => 'question#show', as: :question_show
+  post 'question/create' => 'question#create'
+  delete 'question/delete/:id' => 'question#delete', as: :question_delete
+  get 'question/new' => 'question#new'
 #answer
   post 'answers/create' => 'answer#create', as: :answer_create
   delete 'answers/delete/:id' => 'answer#delete', as: :answer_delete
