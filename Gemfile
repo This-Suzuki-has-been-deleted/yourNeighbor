@@ -58,6 +58,7 @@ gem 'passenger'
 gem 'rails-i18n'
 gem 'gmaps4rails'
 
+
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
