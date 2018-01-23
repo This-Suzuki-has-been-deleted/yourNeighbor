@@ -47,21 +47,23 @@ class MapController < ApplicationController
   end
 
   def create
-    @meo = Map.new(map_params)
+    @map = Map.new(map_params)
     if @map.save
-           redirect_to @map, notice: '地点を登録しました。'
-         else
-           render "new"
-  end
+      redirect_to @map, notice: '地点を登録しました。'
+   else
+     render "new"
+   end
+ end
 
   def update
-    @meo = Map.find(params[:maos_id])
+    @map = Map.find(params[:maos_id])
     @map.assign_attributes(map_params)
     if @map.save
-           redirect_to @map, notice: '地点を更新しました。'
-         else
-           render "edit"
-  end
+     redirect_to @map, notice: '地点を更新しました。'
+   else
+     render "edit"
+   end
+ end
 
   #削除
   def delete
