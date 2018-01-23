@@ -2,15 +2,15 @@ class MapController < ApplicationController
 
   #全ピンの情報を取得
   def index
-    @maps = Map.all
-    @maps = Map.search(params[:search])
+    @map = Map.all
+    @map = Map.search(params[:search])
   end
 
   #検索ワードと一致する地点を表示
   def search
     if request.post? then
       word = params[:word]
-      @maps = map.where("map_name like '%" + word + "%'")
+      @map = map.where("map_name like '%" + word + "%'")
     end
   end
 
