@@ -1,6 +1,6 @@
-class CreateQuiestions < ActiveRecord::Migration[5.1]
+class CreateQuestions < ActiveRecord::Migration[5.1]
   def change
-    create_table :quiestions do |t|
+    create_table :questions do |t|
       t.string :title
       t.string :text
       t.string :eva
