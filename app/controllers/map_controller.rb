@@ -16,11 +16,6 @@ class MapController < ApplicationController
 
   #詳細
   def show
-    map_id = params[:maps_id]
-  end
-
-  #登録
-  def new
     if request.post? then
       map_data = params[:map_data]
       map.create(maps_id: map.count.to_i + 1, map_name: map_data[1], map_lat: map_data[2], map_lng: map_data[3], map_date: Date.today.to_time)
@@ -30,6 +25,11 @@ class MapController < ApplicationController
         redirect_to maps_path, notice: '登録に失敗しました。'
       end
     end
+  end
+
+  #登録
+  def new
+    @map = Map.new
   end
 
   #編集
