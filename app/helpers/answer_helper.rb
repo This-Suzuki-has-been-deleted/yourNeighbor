@@ -1,2 +1,2 @@
-module QuestionHelper
+module AnswerHelper
 end
