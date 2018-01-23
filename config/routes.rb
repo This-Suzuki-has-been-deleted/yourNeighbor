@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 resources :questions
 resources :answers
 #question
-  get 'question/index'
+  get 'questions/index'
   get 'question/show/:id' => 'question#show', as: :question_show
   post 'question/create' => 'question#create'
   delete 'question/delete/:id' => 'question#delete', as: :question_delete
