@@ -17,14 +17,15 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-
-#question
-  get 'question/index'
-  get 'question/show/:id' => 'question#show', as: :question_show
-  post 'question/create' => 'question#create'
-  delete 'question/delete/:id' => 'question#delete', as: :question_delete
-  get 'question/new' => 'question#new'
-#answer
-  post 'answer/create' => 'answer#create', as: :answer_create
-  delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete
+resources :question
+resources :answer
+# #question
+#   get 'questions/index'
+#   get 'question/show/:id' => 'question#show', as: :question_show
+#   post 'question/create' => 'question#create'
+#   delete 'question/delete/:id' => 'question#delete', as: :question_delete
+#   get 'question/new' => 'question#new'
+# #answer
+#   post 'answer/create' => 'answer#create', as: :answer_create
+#   delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete
 end
