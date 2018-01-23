@@ -1,14 +1,14 @@
 class AnswerController < ApplicationController
   def create
-    @answer = Answer.new(params[:answer].permit(:board_id, :name, :body))
+    @answer = Answer.new(params[:answer].permit(:question_id, :name, :body))
     @answer.save
-    redirect_to boards_show_path(params[:answer]['board_id'])
+    redirect_to questions_show_path(params[:answer]['question_id'])
   end
 
   def delete
-    @answer = Answer.find(params['board_id'])
+    @answer = Answer.find(params['question_id'])
     @answer.destroy
-    redirect_to boards_index_path
+    redirect_to questions_index_path
   end
 
   # DELETE /Answers/1
@@ -16,7 +16,7 @@ class AnswerController < ApplicationController
   def destroy
     @answer.destroy
     respond_to do |format|
-      format.html { redirect_to boards_url, notice: 'Answer was successfully destroyed.' }
+      format.html { redirect_to questions_url, notice: 'Answer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
