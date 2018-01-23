@@ -2,14 +2,14 @@
 
 <h1>質問一覧</h1>
 <ul>
-  <% @boards.each do |board| %>
-    <li><%= link_to board.title, boards_show_path(board.id) %></li>
-    <%= link_to '[削除]', board_delete_path(board.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+  <% @questions.each do |question| %>
+    <li><%= link_to question.title, questions_show_path(question.id) %></li>
+    <%= link_to '[削除]', question_delete_path(question.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
   <% end %>
 </ul>
 
 <h1>質問投稿</h1>
 
-  <%= form_for @newBoard, :url => {:action => 'new'} , method: :get do |f| %>
+  <%= form_for @newQuestion, :url => {:action => 'new'} , method: :get do |f| %>
   <%= f.submit %>
 <% end %>
