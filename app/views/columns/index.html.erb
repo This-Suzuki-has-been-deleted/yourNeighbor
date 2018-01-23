@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @columns.each do |column| %>
+    <% @column.each do |column| %>
       <tr>
         <td><%= link_to column.id, column_path(column) %></td>
         <td><%= column.title %></td>
