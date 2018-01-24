@@ -12,8 +12,8 @@ class QuestionController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-    @newQuestion = Question.new(:question_id => params[:id])
-    @question = Question.where(question_id: params[:id])
+    @newAnswer = Answer.new(:question_id => params[:id])
+    @Answers = Answer.where(question_id: params[:id])
   end
 
   # GET /questions/new
