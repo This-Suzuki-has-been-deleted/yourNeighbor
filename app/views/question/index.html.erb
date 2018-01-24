@@ -3,7 +3,7 @@
 <h1>質問一覧</h1>
 <ul>
   <% @questions.each do |question| %>
-    <li><%= link_to question.title, 'question/show'(question.id) %></li>
+    <li><%= link_to question.title, 'question/question.id' %></li>
     <%= link_to '[削除]', question_delete_path(question.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
   <% end %>
 </ul>
