@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 resources :answer
 # #question
-  get 'questions/index'
+  get 'question/index'
   get 'question/show/:id' => 'question#show', as: :question_show
   post 'question/create' => 'question#create'
   delete 'question/delete/:id' => 'question#delete', as: :question_delete
