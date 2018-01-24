@@ -33,6 +33,10 @@
             <li><%= link_to "質問作成", question_new_path  %></li>
           </ul>
         </div>
+        <div class="navbar-right">
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+            <li><%= link_to "会員情報変更", edit_user_registration_path  %></li>
+        </div>
       </div>
     </div>
 
