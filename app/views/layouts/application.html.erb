@@ -26,7 +26,7 @@
           <span class="icon-bar"></span>
         </button>
           <a class="navbar-brand" href="#">
-				      <img alt="Brand" src="<%= asset_path "a.png" %>" style="height: 5px;">
+				      <a class="navbar-brand" href="#">Your Neighbor</a>
 			   </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
@@ -38,9 +38,6 @@
           <div class="navbar-right">
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
           </div>
-        </div>
-        <div class="navbar-right">
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
         </div>
       </div>
     </div>
