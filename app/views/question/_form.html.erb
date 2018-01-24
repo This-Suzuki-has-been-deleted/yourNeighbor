@@ -18,10 +18,11 @@
   </div>
   <div class="field">
     <%= form.label '内　　容' %>
-    <%= form.text_field :content, id: :question_content %>
+    <%= form.text_field :text, id: :question_text %>
   </div>
 
-  <h3>※質問に回答された場合、削除することが出来ません。</h3>
+  <h3>※質問に回答された場合、他の親の参考とさせていただくため
+    削除することが出来ません。よろしければ登録してください。</h3>
 
   <div class="actions">
     <%= form.submit %>
