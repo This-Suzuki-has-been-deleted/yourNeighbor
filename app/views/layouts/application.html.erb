@@ -35,9 +35,7 @@
             <li><%= link_to "質問一覧", question_index_path  %></li>
             <li><%= link_to "質問作成", question_new_path  %></li>
           </ul>
-          <ul class="navbar-right">
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
-          </ul>
+              <p class="navbar-right"><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></p>
         </div>
       </div>
     </div>
