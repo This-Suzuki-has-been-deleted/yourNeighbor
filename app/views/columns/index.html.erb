@@ -14,7 +14,7 @@
     <% @column.each do |column| %>
       <tr>
         <td><%= column.title %></td>
-        <td><%= column.text %></td>
+        <td><%= column.text(0.20) %></td>
         <td>
           <%= link_to t('詳細を標示する', :default => t("helpers.links.show")),
                       column_path(column), :class => 'btn btn-default btn-xs' %>
