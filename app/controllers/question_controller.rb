@@ -1,33 +1,33 @@
 class QuestionController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
-  # GET /questions
-  # GET /questions.json
+  # GET /question
+  # GET /question.json
   def index
     @questions = Question.all
     @newQuestion = Question.new
   end
 
-  # GET /questions/1
-  # GET /questions/1.json
+  # GET /question/1
+  # GET /question/1.json
   def show
     @question = Question.find(params[:id])
     @newAnswer = Answer.new(:question_id => params[:id])
     @Answers = Answer.where(question_id: params[:id])
   end
 
-  # GET /questions/new
+  # GET /question/new
   def new
     @question = Question.new
     @question.save
   end
 
-  # GET /questions/1/edit
+  # GET /question/1/edit
   def edit
   end
 
-  # question /questions
-  # question /questions.json
+  # question /question
+  # question /question.json
   def create
     @question = Question.new(params[:question].permit(:title))
     @question.save
@@ -53,8 +53,8 @@ class QuestionController < ApplicationController
 
 
 
-  # PATCH/PUT /questions/1
-  # PATCH/PUT /questions/1.json
+  # PATCH/PUT /question/1
+  # PATCH/PUT /question/1.json
   def update
     respond_to do |format|
       if @question.update(question_params)
@@ -67,8 +67,8 @@ class QuestionController < ApplicationController
     end
   end
 
-  # DELETE /questions/1
-  # DELETE /questions/1.json
+  # DELETE /question/1
+  # DELETE /question/1.json
   def destroy
     @question.destroy
     respond_to do |format|
