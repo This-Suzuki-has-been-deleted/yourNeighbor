@@ -26,7 +26,7 @@
           <span class="icon-bar"></span>
         </button>
           <a class="navbar-brand" href="#">
-				      <img alt="Brand" src="images/Good.png" style="height: 10px;">
+				      <img alt="Brand" src="<%= asset_path "a.png" %>" style="height: 5px;">
 			   </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
@@ -35,6 +35,9 @@
             <li><%= link_to "質問一覧", question_index_path  %></li>
             <li><%= link_to "質問作成", question_new_path  %></li>
           </ul>
+          <div class="navbar-right">
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+          </div>
         </div>
         <div class="navbar-right">
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
