@@ -34,16 +34,36 @@ class MapController < ApplicationController
 
   #編集
   def edit
-    if request.post? then
-      map_id = params[:maps_id]
-      map.update(maps_id: map_id)
-      if check.save
-        redirect_to maps_path, notice: '更新しました。'
-      else
-        redirect_to maps_path, notice: '更新に失敗しました。'
-      end
-    end
+    @map = Map.find
+    # if request.post? then
+    #   map_id = params[:maps_id]
+    #   map.update(maps_id: map_id)
+    #   if check.save
+    #     redirect_to maps_path, notice: '更新しました。'
+    #   else
+    #     redirect_to maps_path, notice: '更新に失敗しました。'
+    #   end
+    # end
   end
+
+  def create
+    @map = Map.new(map_params)
+    if @map.save
+      redirect_to @map, notice: '地点を登録しました。'
+   else
+     render "new"
+   end
+ end
+
+  def update
+    @map = Map.find(params[:maos_id])
+    @map.assign_attributes(map_params)
+    if @map.save
+     redirect_to @map, notice: '地点を更新しました。'
+   else
+     render "edit"
+   end
+ end
 
   #削除
   def delete
