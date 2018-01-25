@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'maps#index'
   get 'maps/show'
 
+  devise_for :users
+
   resources :maps do
     collection { get "search"}
   end
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  devise_for :users
+
 # #question
   # get 'questions/index'
   # get 'questions/show/:id' => 'questions#show', as: :questions_show
