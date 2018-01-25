@@ -1,24 +1,24 @@
+# maps
 class MapController < ApplicationController
-  before_action :set_map, only: [:show, :edit, :update, :destroy]
-
   # GET /maps
   # GET /maps.json
   def index
     @maps = Map.all
   end
 
-  # 検索ワードと一致する地点を表示
+  # search
   def search
     if request.post?
       word = params[:word]
       @map = map.where("map_name like '%" + word + "%'")
+    else
+      format.html { redirect_to @map, notice: '検索に失敗。' }
     end
   end
 
   # GET /maps/1
   # GET /maps/1.json
-  def show
-  end
+  def show; end
 
   # GET /maps/new
   def new
@@ -26,8 +26,7 @@ class MapController < ApplicationController
   end
 
   # GET /maps/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /maps
   # POST /maps.json
@@ -36,7 +35,7 @@ class MapController < ApplicationController
 
     respond_to do |format|
       if @map.save
-        format.html { redirect_to @map, notice: 'Map was successfully created.' }
+        format.html { redirect_to @map, notice: '地点を登録しました。' }
         format.json { render :show, status: :created, location: @map }
       else
         format.html { render :new }
@@ -50,7 +49,7 @@ class MapController < ApplicationController
   def update
     respond_to do |format|
       if @map.update(map_params)
-        format.html { redirect_to @map, notice: 'Map was successfully updated.' }
+        format.html { redirect_to @map, notice: '地点を編集しました。' }
         format.json { render :show, status: :ok, location: @map }
       else
         format.html { render :edit }
@@ -64,19 +63,21 @@ class MapController < ApplicationController
   def destroy
     @map.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'Map was successfully destroyed.' }
+      format.html { redirect_to maps_url, notice: '地点を削除しました。' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_map
-      @map = map.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def map_params
-      params.require(:map).permit(:maps_id, :map_name, :map_lat, :map_lng, :map_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_map
+    @map = map.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def map_params
+    params.require(:map).permit(:maps_id, :map_name, :map_lat, :map_lng, :map_date)
+  end
 end
