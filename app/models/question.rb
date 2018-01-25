@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-belongs_to :user , Class_name => "User"
- foreign_key: "email"
+self.primary_keys = :question_id
+belongs_to :user, primary_key: "email", foreign_key: "email"  
 
 end
