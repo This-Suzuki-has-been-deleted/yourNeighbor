@@ -19,7 +19,6 @@ class QuestionsController < ApplicationController
   # GET /question/new
   def new
     @question = Question.new
-    user = current_user.email
   end
 
   # GET /question/1/edit
@@ -30,7 +29,7 @@ class QuestionsController < ApplicationController
   # question /question.json
   def create
     email = current_user.email
-    quetion = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3).merge(email: current_user)
+    quetion = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user)
     #
     # respond_to do |format|
     #   if @question.save
