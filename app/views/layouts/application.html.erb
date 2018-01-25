@@ -37,7 +37,7 @@
           </ul>
           <% if user_signed_in? %>
             <% if(current_user.userName.blank?) %>
-              <p class="navbar-text">ようこそ <div class="navbar-link"><%= link_to "ゲスト", edit_user_registration_path  %> さん。</p>
+              <p class="navbar-text">ようこそ ゲストさん。</p>
             <% else %>
               <p class="navbar-text">ようこそ <a href=user_path class="navbar-link"><%= current_user.userName %></a> さん。</p>
             <% end %>
