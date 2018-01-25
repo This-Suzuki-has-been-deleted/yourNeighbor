@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   # question /question
   # question /question.json
   def create
-    @question = Question.new(params[:question].permit(:title, :text, :tag1, :tag2, :tag3 ))
+    @question = Question.new(params[:question].permit(:title, :text,:eva, :tag1, :tag2, :tag3 ))
     @question.save
     redirect_to questions_path
     # @question = Question.new(question_params)
@@ -83,8 +83,8 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
-    end
-end
+#     # Never trust parameters from the scary internet, only allow the white list through.
+#     def question_params
+#       params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
+#     end
+# end
