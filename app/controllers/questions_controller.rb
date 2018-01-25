@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   # question /question.json
   def create
     email = current_user.email
-    qustion = params.require(:questions).permit(:title, :text, :tag1, :tag2, :tag3,email)
+    qustion = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3,email)
     #
     # respond_to do |format|
     #   if @question.save
