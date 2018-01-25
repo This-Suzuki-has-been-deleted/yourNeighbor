@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /question
   # GET /question.json
   def index
-    @questions = Question.all
+    @question = Question.all
     @newQuestion = Question.new
   end
 
@@ -29,8 +29,8 @@ class QuestionsController < ApplicationController
   # question /question
   # question /question.json
   def create
-    @question = Question.new(params[:question].permit(:title, :text,:eva, :tag1, :tag2, :tag3 ))
-    @question.save
+    @question = params.require(:question).permit(:title, :text,:eva, :tag1, :tag2, :tag3)
+    Question.create(@question)
     redirect_to questions_path
     # @question = Question.new(question_params)
     #
