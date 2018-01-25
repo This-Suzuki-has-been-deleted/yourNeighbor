@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
  :registrations => 'users/registrations'
 }
-resources :questions
 # #question
   get 'questions/index'
   get 'questions/show/:id' => 'questions#show', as: :questions_show
