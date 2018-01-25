@@ -29,9 +29,8 @@ class QuestionsController < ApplicationController
   # question /question
   # question /question.json
   def create
-    user = current_user.email
-    @question = Question.new(params[:question].permit(:title, :text, :tag1,:tag2,:tag3,user))
-    # @question = Question.new(question_params)
+    email = current_user.email
+    column = params.require(:column).permit(:title, :text, :eva, :tag1,:tag2,:tag3,email)
     #
     # respond_to do |format|
     #   if @question.save
