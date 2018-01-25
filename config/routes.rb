@@ -27,7 +27,4 @@ resources :answer
 #answer
   post 'answer/create' => 'answer#create', as: :answer_create
   delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete
-
-  get '*path', controller: 'application', action: 'render_404'
-  
 end
