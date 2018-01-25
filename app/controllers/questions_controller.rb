@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
   def delete
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_index_path
+    redirect_to questions_path
   end
 
 
@@ -85,6 +85,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :content)
+      params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
     end
 end
