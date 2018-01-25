@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-resources :answer
+resources :questions
 # #question
   get 'question/index'
   get 'question/show/:id' => 'question#show', as: :question_show
