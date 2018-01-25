@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # get 'questions/index'
   # get 'questions/show/:id' => 'questions#show', as: :questions_show
   # post 'questions/create' => 'questions#create'
-  # delete 'questions/delete/:id' => 'question#delete', as: :question_delete
+  delete 'questions/delete/:id' => 'question#delete', as: :question_delete
   # get 'questions/new' => 'questions#new'
 #answer
   post 'answer/create' => 'answer#create', as: :answer_create
