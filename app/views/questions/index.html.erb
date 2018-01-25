@@ -8,7 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:text) %></th>
-      <th><%= model_class.human_attribute_name(:eva) %></th>
       <th><%= model_class.human_attribute_name(:tag1) %></th>
       <th><%= model_class.human_attribute_name(:tag2) %></th>
       <th><%= model_class.human_attribute_name(:tag3) %></th>
@@ -19,10 +18,9 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= link_to question.id, question_path(question) %></td>
+        <td><%= link_to question.id, questions_path(question) %></td>
         <td><%= question.title %></td>
         <td><%= question.text %></td>
-        <td><%= question.eva %></td>
         <td><%= question.tag1 %></td>
         <td><%= question.tag2 %></td>
         <td><%= question.tag3 %></td>
