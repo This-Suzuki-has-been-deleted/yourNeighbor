@@ -1,6 +1,5 @@
 class Map < ApplicationRecord
   self.primary_keys = :maps_id
-  has_many :revews, foreign_key: "maps_id"
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
       Map.where("map_name like '%" + word + "%'")
