@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: "email"
   has_many :questions, foreign_key: "email"
   has_many :answers, foreign_key: "email"
+  validates :userName, presence: true, length: { maximum: 50 }
 
 
 
