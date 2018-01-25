@@ -1,19 +1,17 @@
 ja:
   activerecord:
     models:
-      maps:                   位置情報
+      maps:                   地点情報
       reviews:                レビュー
       member_image:           会員画像
     attributes:
       maps:
-        maps_id:              位置ID
-        map_name:             位置名
+        maps_id:              地点ID
+        map_name:             地点名
         latlng:               緯度経度
         map_lat:              緯度
         map_lng:              経度
-        map_text:             概要
         map_date:             追加日付
-        email:                メールアドレス
       reviews:
         reviews_id:           レビューID
         review_title:         レビュータイトル
