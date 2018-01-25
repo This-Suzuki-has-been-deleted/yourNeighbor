@@ -39,13 +39,14 @@
             <% if(current_user.userName.blank?) %>
               <p class="navbar-text">ようこそ ゲストさん。</p>
             <% else %>
-              <p class="navbar-text">ようこそ <a href=user_path class="navbar-link"><%= current_user.userName %></a> さん。</p>
+              <p class="navbar-text">ようこそ <a href=user_path class="navbar-text"><%= current_user.userName %></a> さん。</p>
             <% end %>
               <p class="navbar-right"><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></p>
           <% end %>
         </div>
       </div>
     </div>
+
 
     <div class="container">
       <div class="row">
