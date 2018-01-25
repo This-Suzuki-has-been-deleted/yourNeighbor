@@ -12,8 +12,8 @@ class ColumnsController < ApplicationController
   end
 
   def create
-    user = current_user
-    column = params.require(:column).permit(:title, :text, user)
+    email = current_user.email
+    column = params.require(:column).permit(:title, :text, email)
     check = Column.create(column)
     if check.save
       redirect_to columns_path, notice: '登録しました。'
