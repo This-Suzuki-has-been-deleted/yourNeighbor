@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
   # GET /question/new
   def new
     @question = Question.new
+    user = current_user.email
   end
 
   # GET /question/1/edit
@@ -29,8 +30,7 @@ class QuestionsController < ApplicationController
   # question /question.json
   def create
     user = current_user.email
-    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3, user)
-    redirect_to questions_path
+    @question = Question.new(params[:question].permit(:title, :text, :tag1,:tag2,:tag3,user))
     # @question = Question.new(question_params)
     #
     # respond_to do |format|
