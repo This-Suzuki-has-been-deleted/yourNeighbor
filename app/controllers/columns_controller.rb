@@ -24,7 +24,7 @@ class ColumnsController < ApplicationController
 
   def destroy
     Column.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "削除されました。"
     redirect_to columns_path
   end
 end
