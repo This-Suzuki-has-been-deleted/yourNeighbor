@@ -29,7 +29,6 @@ class QuestionsController < ApplicationController
   # question /question.json
   def create
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user)
-    question.save
     redirect_to questions_path
   end
 
