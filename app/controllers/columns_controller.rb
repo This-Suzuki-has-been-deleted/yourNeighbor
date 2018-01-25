@@ -12,7 +12,8 @@ class ColumnsController < ApplicationController
   end
 
   def create
-    column = params.require(:column).permit(:title, :text)
+    email = current_user.email
+    column = params.require(:column).permit(:title, :text, email)
     check = Column.create(column)
     if check.save
       redirect_to columns_path, notice: '登録しました。'
@@ -23,7 +24,7 @@ class ColumnsController < ApplicationController
 
   def destroy
     Column.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "削除されました。"
     redirect_to columns_path
   end
 end

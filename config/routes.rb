@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   get 'maps/show'
 
   devise_for :users
+
   resources :maps do
     collection { get "search"}
   end
   resources :users
   resources :reviews
   resources :columns
+  resources :questions
 
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
@@ -17,13 +19,13 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-resources :questions
+
 # #question
-  get 'question/index'
-  get 'question/show/:id' => 'question#show', as: :question_show
-  post 'question/create' => 'question#create'
-  delete 'question/delete/:id' => 'question#delete', as: :question_delete
-  get 'question/new' => 'question#new'
+  # get 'questions/index'
+  # get 'questions/show/:id' => 'questions#show', as: :questions_show
+  # post 'questions/create' => 'questions#create'
+  delete 'questions/delete/:id' => 'question#delete', as: :question_delete
+  # get 'questions/new' => 'questions#new'
 #answer
   post 'answer/create' => 'answer#create', as: :answer_create
   delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete

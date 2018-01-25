@@ -1,10 +1,10 @@
-class QuestionController < ApplicationController
+class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /question
   # GET /question.json
   def index
-    @questions = Question.all
+    @question = Question.all
     @newQuestion = Question.new
   end
 
@@ -19,7 +19,6 @@ class QuestionController < ApplicationController
   # GET /question/new
   def new
     @question = Question.new
-    @question.save
   end
 
   # GET /question/1/edit
@@ -29,9 +28,9 @@ class QuestionController < ApplicationController
   # question /question
   # question /question.json
   def create
-    @question = Question.new(params[:question].permit(:title))
-    @question.save
-    redirect_to questions_index_path
+    user = current_user.email
+    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3, user)
+    redirect_to questions_path
     # @question = Question.new(question_params)
     #
     # respond_to do |format|
@@ -48,7 +47,7 @@ class QuestionController < ApplicationController
   def delete
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_index_path
+    redirect_to questions_path
   end
 
 
@@ -83,8 +82,8 @@ class QuestionController < ApplicationController
       @question = Question.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.require(:question).permit(:title, :content)
-    end
+#     # Never trust parameters from the scary internet, only allow the white list through.
+#     def question_params
+#       params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
+#     end
 end
