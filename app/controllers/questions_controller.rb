@@ -29,9 +29,9 @@ class QuestionsController < ApplicationController
   # question /question
   # question /question.json
   def create
-    @question = Question.new(params[:question].permit(:title))
+    @question = Question.new(params[:question].permit(:title, :text,:tag1,:tag2,:tag3))
     @question.save
-    redirect_to questions_index_path
+    redirect_to questions_path
     # @question = Question.new(question_params)
     #
     # respond_to do |format|
