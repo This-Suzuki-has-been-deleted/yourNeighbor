@@ -31,6 +31,13 @@ class QuestionsController < ApplicationController
     user = current_user.email
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3, user)
     redirect_to questions_path
+
+    check = Question.create(question)
+    if check.save
+      redirect_to questions_path, notice: '登録しました。'
+    else
+      redirect_to questions_path, notice: '登録に失敗しました。'
+    end
     # @question = Question.new(question_params)
     #
     # respond_to do |format|
