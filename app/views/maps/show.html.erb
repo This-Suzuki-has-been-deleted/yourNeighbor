@@ -1,9 +1,38 @@
 <% @page_title = "地点詳細" %>
 <h2><%= @page_title %></h2>
+<script type="text/javascript">
+  function initMap() {
+
+    var test = {
+      lat: <%= @map.map_lat %>,
+      lng: <%= @map.map_lng %>
+    };
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '地点名：<%= @map.map_name %>';
+    var infowindow = new google.maps.InfoWindow({content: contentString});
+
+    var marker = new google.maps.Marker({position: test, map: map, title: contentString});
+
+    marker.addListener('click', function () {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
+
+<p id="notice"><%= notice %></p>
+
 <p>
-  <%= link_to"編集", [:edit, map] %><br />
-  <%= link_to"削除", map, method: :delete, data: { confirm: "本当に削除しますか？" } %><br />
+  <strong>Maps:</strong>
+  <%= @map.maps_id %>
 </p>
+
 <p>
   <strong>地点名:</strong>
   <%= @map.map_name %>
@@ -23,6 +52,17 @@
   <strong>追加日:</strong>
   <%= @map.map_date %>
 </p>
+
+<style type="text/css">
+  #map {
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 80%;
+  }
+</style>
+<div id="map"></div>
 
 <%= link_to 'Edit', edit_map_path(@map) %> |
 <%= link_to 'Back', maps_path %>
