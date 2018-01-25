@@ -4,9 +4,11 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:userName])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:userName])
+  protected
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+    end
   end
 
   def set_current_user
