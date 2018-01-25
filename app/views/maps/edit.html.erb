@@ -1,11 +1,41 @@
 <% @page_title = "地点情報の編集" %>
   <h1><%= @page_title %></h1>
-  <%= form_for @ping do |form| %>
+  <%= render 'form', map: @map %>
+  <script>
+    function initMap() {
 
-  <%= render 'form' %>
+      // 初期位置
+        var otaru = {
+          lat: <%= @map.map_lat %>,
+          lng: <%= @map.map_lng %>
+        };
+      }
 
-  <%= link_to 'Show', @map %>
-  |
+      // マップ表示
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: otaru,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      // ドラッグできるマーカーを表示
+      var marker = new google.maps.Marker({
+        position: otaru, title: "登録したい地点にマーカーをドラッグしてください", draggable: true, // ドラッグ可能にする
+      });
+      marker.setMap(map);
+
+      // マーカーのドロップ（ドラッグ終了）時のイベント
+      google.maps.event.addListener(marker, 'dragend', function (ev) {
+        // イベントの引数evの、プロパティ.latLngが緯度経度。
+        document.getElementById('latitude').value = ev.latLng.lat();
+        document.getElementById('longitude').value = ev.latLng.lng();
+      });
+    }
+    // ONLOADイベントにセット
+    window.onload = initMap();
+  </script>
+  <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
+
+
+  <%= link_to 'Show', @map %> |
   <%= link_to 'Back', maps_path %>
-
-<% end %>
