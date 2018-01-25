@@ -1,17 +1,42 @@
 <h1>あそべ～るトップページ</h1>
 
 <style type="text/css">
-#map {
-  height: 600px;
-  margin-left: auto;
-  /* 左側マージンを自動的に空ける */
-  margin-right: auto;
-  /* 右側マージンを自動的に空ける */
-  text-align: left;
-  /* 中身を左側表示に戻す */
-  width: 100%;
-}
+  #map {
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 80%;
+  }
 </style>
+<table>
+  <thead>
+    <tr>
+      <th>Maps</th>
+      <th>Map name</th>
+      <th>Map lat</th>
+      <th>Map lng</th>
+      <th>Map date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mappus.each do |mappu| %>
+      <tr>
+        <td><%= mappu.maps_id %></td>
+        <td><%= mappu.map_name %></td>
+        <td><%= mappu.map_lat %></td>
+        <td><%= mappu.map_lng %></td>
+        <td><%= mappu.map_date %></td>
+        <td><%= link_to 'Show', mappu %></td>
+        <td><%= link_to 'Edit', edit_mappu_path(mappu) %></td>
+        <td><%= link_to 'Destroy', mappu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= form_tag maps_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
