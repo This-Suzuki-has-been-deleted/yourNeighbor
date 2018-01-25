@@ -30,8 +30,8 @@ class QuestionsController < ApplicationController
   # question /question
   # question /question.json
   def create
-    user = User.email
-    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3)
+    user = current_user.email
+    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3, user)
     redirect_to questions_path
     # @question = Question.new(question_params)
     #
