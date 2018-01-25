@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
-
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << :userName
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:userName])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:userName])
+  end
 
   def set_current_user
     asoberu.current_user = current_user
