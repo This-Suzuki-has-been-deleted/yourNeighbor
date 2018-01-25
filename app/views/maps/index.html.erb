@@ -22,16 +22,16 @@
   </thead>
 
   <tbody>
-    <% @mappus.each do |mappu| %>
+    <% @maps.each do |map| %>
       <tr>
-        <td><%= mappu.maps_id %></td>
-        <td><%= mappu.map_name %></td>
-        <td><%= mappu.map_lat %></td>
-        <td><%= mappu.map_lng %></td>
-        <td><%= mappu.map_date %></td>
-        <td><%= link_to 'Show', mappu %></td>
-        <td><%= link_to 'Edit', edit_mappu_path(mappu) %></td>
-        <td><%= link_to 'Destroy', mappu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= map.maps_id %></td>
+        <td><%= map.map_name %></td>
+        <td><%= map.map_lat %></td>
+        <td><%= map.map_lng %></td>
+        <td><%= map.map_date %></td>
+        <td><%= link_to 'Show', map %></td>
+        <td><%= link_to 'Edit', edit_map_path(map) %></td>
+        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
