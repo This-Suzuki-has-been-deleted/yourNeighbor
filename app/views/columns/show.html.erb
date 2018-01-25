@@ -12,8 +12,11 @@
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               columns_path, :class => 'btn btn-default'  %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              column_path(@column),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+
+<% if(current_user.email != @column.email) %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                column_path(@column),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+<% end %>
