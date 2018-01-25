@@ -87,4 +87,4 @@ class QuestionsController < ApplicationController
 #     def question_params
 #       params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
 #     end
-# end
+end
