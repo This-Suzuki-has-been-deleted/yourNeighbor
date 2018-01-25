@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20180125061922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.binary "userIcon"
-    t.string "userName"
+    t.string "username"
     t.string "userFullName"
     t.string "userAddress"
     t.string "userAge"
