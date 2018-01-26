@@ -4,8 +4,8 @@ class MapsController < ApplicationController
   def index
     @maps = Map.all
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
-      marker.lat map.map_lat
-      marker.lng map.map_lng
+      marker.lat Map.map_lat
+      marker.lng Map.map_lng
       # marker.infowindow map.map_name
       marker.infowindow render_to_string(partial: "maps/infowindow", locals: { map: map })
     end
@@ -26,7 +26,7 @@ class MapsController < ApplicationController
 
   # GET /maps/new
   def new
-    @map = map.new
+    @map = Map.new
   end
 
   # GET /maps/1/edit
@@ -35,7 +35,7 @@ class MapsController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    @map = map.new(map_params)
+    @map = Map.new(map_params)
 
     respond_to do |format|
       if @map.save
@@ -76,7 +76,7 @@ class MapsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_map
-    @map = map.find(params[:id])
+    @map = Map.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
