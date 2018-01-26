@@ -16,13 +16,16 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
-<%- models_class = Answer -%>
-<dl class="dl-horizontal">
-  <dt><strong><%= models_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @answer.email %></dd>
-  <dt><strong><%= models_class.human_attribute_name(:text) %>:</strong></dt>
-  <dd><%= @answer.text %></dd>
-</dl>
+<h3>新規書き込み</h3>
+<%= form_for @newpost, :url => answer_create_path do |f| %>
+  <p>お名前</p>
+  <p><%= f.text_field :email %></p>
+  <p>回答</p>
+  <p><%= f.text_area :text %></p>
+  <%= f.hidden_field :answer_id %>
+  <%= f.submit %>
+<% end %>
+
 
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
