@@ -42,7 +42,7 @@
             <% if(current_user.username.blank?) %>
               <p class="navbar-text">ようこそ HCSさん。</p>
             <% else %>
-              <p class="navbar-text">ようこそ<%= current_user.username %></a> さん。</p>
+              <p class="navbar-text">ようこそ、<%= current_user.username %></a> さん。</p>
             <% end %>
               <p class="navbar-right"><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></p>
           <% end %>
