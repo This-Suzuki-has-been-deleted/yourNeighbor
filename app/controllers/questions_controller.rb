@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   # question /question
   # question /question.json
   def create
-    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user)
+    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user.email)
     check = Question.create(question)
     if check.save
       redirect_to questions_path, notice: '登録しました。'

@@ -1,9 +1,5 @@
 class User < ApplicationRecord
   self.primary_key = "email"
-  has_many :maps, foreign_key: "email"
-  has_many :reviews, foreign_key: "email"
-  has_many :questions, foreign_key: "email"
-  has_many :answers, foreign_key: "email"
   validates :userName, length: { maximum: 50 }
 
 
