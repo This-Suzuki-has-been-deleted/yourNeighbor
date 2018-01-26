@@ -13,6 +13,7 @@ class MapController < ApplicationController
   end
 
 
+
   # search
   def search
     if request.post?
