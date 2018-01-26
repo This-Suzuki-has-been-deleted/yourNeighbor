@@ -9,7 +9,6 @@ class MapsController < ApplicationController
       # marker.infowindow map.map_name
       marker.infowindow render_to_string(partial: "maps/infowindow", locals: { map: map })
     end
-
   end
 
   #検索ワードと一致するピンを表示
