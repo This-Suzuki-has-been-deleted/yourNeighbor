@@ -18,7 +18,8 @@
         <td>
           <%= link_to t('詳細', :default => t("helpers.links.show")),
                       column_path(column), :class => 'btn btn-default btn-xs' %>
-        <% if @column.email.eql?(current_user.email) %>
+        <% mailer = @column.email %>
+        <% if mailer.eql?(current_user.email) %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       column_path(column),
                       :method => :delete,
