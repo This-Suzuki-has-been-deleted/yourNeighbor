@@ -16,13 +16,25 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
+  <% @Answers.each do |answer| %>
+
+    <table class="table table-striped">
+      <tr>
+        <td><%= answer.id %></td>
+        <td><%= answer.email %></td>
+        <td><%= answer.text %></td>
+      </tr>
+    </table>
+
+  <% end %>
+
+
 <h3>新規書き込み</h3>
 <%= form_for @newAnswer, :url => answer_create_path do |f| %>
   <p>お名前</p>
   <p><%= f.text_field :email %></p>
   <p>回答</p>
   <p><%= f.text_area :text %></p>
-  <%= f.hidden_field :answer_id %>
   <%= f.submit %>
 <% end %>
 
