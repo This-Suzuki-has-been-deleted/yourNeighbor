@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:questions_id])
     @newAnswer = Answer.new(:question_id => params[:id])
-    @Answers = Answer.where(:question_id: params[:id])
+    @Answers = Answer.where(question_id: params[:id])
   end
 
   # GET /question/new
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   def create
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user.email)
     check = Question.create(question)
-  
+
   end
 
   def delete
