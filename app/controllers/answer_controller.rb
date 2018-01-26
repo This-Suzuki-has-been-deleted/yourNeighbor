@@ -8,7 +8,7 @@ class AnswerController < ApplicationController
   def delete
     @answer = Answer.find(params['question_id'])
     @answer.destroy
-    redirect_to questions_index_path
+    redirect_to questions_path
   end
 
   # DELETE /Answers/1
