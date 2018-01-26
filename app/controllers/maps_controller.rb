@@ -2,7 +2,13 @@ class MapsController < ApplicationController
 
   #全ピンの情報を取得
   def index
-    @ping = Map.all
+    @maps = Map.all
+    @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
+      marker.lat map.map_lat
+      marker.lng map.map_lng
+      # marker.infowindow map.map_name
+      marker.infowindow render_to_string(partial: "maps/infowindow", locals: { map: map })
+    end
 
   end
 
@@ -10,32 +16,71 @@ class MapsController < ApplicationController
   def search
     if request.post? then
       word = params[:word]
-      @ping = Map.where("map_name like '%" + word + "%'")
+      @map = Map.where("map_name like '%" + word + "%'")
     end
   end
 
-  #登録
+  # GET /maps/1
+  # GET /maps/1.json
+  def show; end
+
+  # GET /maps/new
   def new
-    if request.post? then
-      map_data = params[:map_data]
-      Map.create(maps_id: map.count.to_i + 1, map_name: map_data[1], map_text: map_data[2], map_lat: map_data[3], map_lng: map_data[4], map_date: Date.today.to_time)
+    @map = map.new
+  end
+
+  # GET /maps/1/edit
+  def edit; end
+
+  # POST /maps
+  # POST /maps.json
+  def create
+    @map = map.new(map_params)
+
+    respond_to do |format|
+      if @map.save
+        format.html { redirect_to @map, notice: 'map was successfully created.' }
+        format.json { render :show, status: :created, location: @map }
+      else
+        format.html { render :new }
+        format.json { render json: @map.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  #編集
-  def edit
-    if request.post? then
-      map_id = params[:map_id]
-      Map.update(maps_id: map_id)
+  # PATCH/PUT /maps/1
+  # PATCH/PUT /maps/1.json
+  def update
+    respond_to do |format|
+      if @map.update(map_params)
+        format.html { redirect_to @map, notice: 'map was successfully updated.' }
+        format.json { render :show, status: :ok, location: @map }
+      else
+        format.html { render :edit }
+        format.json { render json: @map.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  #削除
-  def delete
-    if request.post? then
-      map_id = params[:map_id]
-      Map.destroy_all(maps_id: map_id)
+  # DELETE /maps/1
+  # DELETE /maps/1.json
+  def destroy
+    @map.destroy
+    respond_to do |format|
+      format.html { redirect_to maps_url, notice: 'map was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_map
+    @map = map.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def map_params
+    params.require(:map).permit(:maps_id, :map_name, :map_lat, :map_lng, :map_date)
+  end
 end
