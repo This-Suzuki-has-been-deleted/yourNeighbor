@@ -49,6 +49,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1.json
   def update
    @question.update(question_params)
+   @question.save
    redirect_to questions_path
   end
 
