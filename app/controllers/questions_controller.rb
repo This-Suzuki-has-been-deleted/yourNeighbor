@@ -30,11 +30,7 @@ class QuestionsController < ApplicationController
   def create
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user.email)
     check = Question.create(question)
-    if check.save
-      redirect_to questions_path, notice: '登録しました。'
-    else
-      redirect_to questions_path, notice: '登録に失敗しました。'
-    end
+  
   end
 
   def delete
