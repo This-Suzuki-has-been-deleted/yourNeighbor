@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
 
   # GET /question/1/edit
   def edit
+    @User.find(param[:id])
   end
 
   # question /question
@@ -50,7 +51,7 @@ class QuestionsController < ApplicationController
   def update
    @question.update(question_params)
    @question.save
-   redirect_to questions_path
+   redirect_to question_path(param[@question])
   end
 
   # DELETE /question/1
