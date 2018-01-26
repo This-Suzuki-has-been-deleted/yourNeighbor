@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   # GET /question/1
   # GET /question/1.json
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:questiid])
     @newAnswer = Answer.new(:question_id => params[:id])
     @Answers = Answer.where(question_id: params[:id])
   end
@@ -30,7 +30,11 @@ class QuestionsController < ApplicationController
   def create
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 ).merge(email: current_user.email)
     check = Question.create(question)
-
+    if check.save
+      redirect_to questions_path, notice: '登録しました。'
+    else
+      redirect_to questions_path, notice: '登録に失敗しました。'
+    end
   end
 
   def delete
