@@ -9,76 +9,49 @@
     width: 80%;
   }
 </style>
+<table>
+  <thead>
+    <tr>
+      <th>Maps</th>
+      <th>Map name</th>
+      <th>Map lat</th>
+      <th>Map lng</th>
+      <th>Map date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @maps.each do |map| %>
+      <tr>
+        <td><%= map.id %></td>
+        <td><%= map.map_name %></td>
+        <td><%= map.map_lat %></td>
+        <td><%= map.map_lng %></td>
+        <td><%= map.map_date %></td>
+        <td><%= link_to 'Show', map %></td>
+        <td><%= link_to 'Edit', edit_map_path(map) %></td>
+        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= form_tag maps_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "検索", :word => nil %>
   </p>
-<% end %><%= link_to '地点登録', new_map_path %>
+<% end %>
+<%= link_to '地点登録', new_map_path %>
 
 <div id="map">ここにマップを表示</div>
-<script>
-  var map;
-  var marker = [];
-  var infoWindow = [];
-  var markerData = [{ // マーカーを立てる場所名・緯度・経度
-    name: '北海道情報専門学校',
-    lat: 43.056032, // 緯度
-    lng: 141.379728 // 経度
-  }, {
-    name: 'イーアス札幌',
-    lat: 43.054331,
-    lng: 141.383220
-  }, {
-    name: 'らあめんがんてつ イーアス札幌店',
-    lat: 43.055335,
-    lng: 141.384448
-  }, {
-    name: 'TSUTAYA 札幌菊水店',
-    lat: 43.052986,
-    lng: 141.378298
-  }, {
-    name: 'やよい公園',
-    lat: 43.055084,
-    lng: 141.374029
-  }];
-
-  function initMap() {
-    var mapLatLng = new google.maps.LatLng({
-      lat: markerData[0]['lat'],
-      lng: markerData[0]['lng']
-    }); // 緯度経度のデータ作成
-    map = new google.maps.Map(document.getElementById('map'), { // #mapに地図を埋め込む
-      center: mapLatLng, // 地図の中心を指定
-      zoom: 15 // 地図のズームを指定
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
     });
-
-    // マーカー毎の処理
-    for (var i = 0; i < markerData.length; i++) {
-      markerLatLng = new google.maps.LatLng({
-        lat: markerData[i]['lat'],
-        lng: markerData[i]['lng']
-      }); // 緯度経度のデータ作成
-      marker[i] = new google.maps.Marker({ // マーカーの追加
-        position: markerLatLng, // マーカーを立てる位置を指定
-        map: map // マーカーを立てる地図を指定
-      });
-      infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-        content: '<div class="fukidashi">' + markerData[i]['name'] +
-          '<br><a href="review/new">レビュー投稿</a> <a href="review/show">レビュー一覧</a> ' +
-          '<a href="#">通報</a></div>' // 吹き出しに表示する内容
-      });
-      markerEvent(i); // マーカーにクリックイベントを追加
-    }
-  }
-  // マーカーにクリックイベントを追加
-  function markerEvent(i) {
-    marker[i].addListener('click', function() { // マーカーをクリックしたとき
-      infoWindow[i].open(map, marker[i]); // 吹き出しの表示
-    });
-  }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfuH3GcpFYapsQGKpWvoiZJ2oqF8ud44&callback=initMap"></script>
 </html>
