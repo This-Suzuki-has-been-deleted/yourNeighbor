@@ -16,6 +16,19 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
+<%- model_class = Answer -%>
+  <% @answer.each_with_index do |answer| %>
+  <% @question.each do |question| %>
+
+  <table class="table table-striped">
+    <tr>
+      <td><%= answer.id %></td>
+      <td><%= answer.email %></td>
+      <td><%= answer.text %></td>
+    </tr>
+  </table>
+
+
 <h3>新規書き込み</h3>
 <%= form_for @newAnswer, :url => answer_create_path do |f| %>
   <p>お名前</p>
