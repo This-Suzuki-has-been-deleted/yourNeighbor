@@ -13,8 +13,7 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
               columns_path, :class => 'btn btn-default'  %>
 
-<% umail = current_user.email %>
-<% if(umail.eql?(@column.email)) %>
+<% if(current_user.email === @column.email) %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 column_path(@column),
                 :method => 'delete',
