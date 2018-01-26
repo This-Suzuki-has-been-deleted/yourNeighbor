@@ -35,6 +35,7 @@
   <p><%= f.text_field :email %></p>
   <p>回答</p>
   <p><%= f.text_area :text %></p>
+  <%  f.hidden_field :question_id %>
   <%= f.submit %>
 <% end %>
 
