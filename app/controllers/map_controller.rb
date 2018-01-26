@@ -5,8 +5,8 @@ class MapController < ApplicationController
   def index
     @maps = Map.all
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
-      marker.lat Map.map_lat
-      marker.lng Map.map_lng
+      marker.lat map.map_lat
+      marker.lng map.map_lng
       # marker.infowindow mappu.map_name
       marker.infowindow render_to_string(partial: "maps/infowindow", locals: { map: map })
     end
