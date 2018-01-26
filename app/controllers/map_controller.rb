@@ -37,10 +37,11 @@ class MapController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    @map = Map.new(map_params)
+    map = params.require(:map).permit(:map_name, :map_lat, :map_lng)
+    check = Map.create(map)
 
     respond_to do |format|
-      if @map.save
+      if check.save
         format.html { redirect_to @map, notice: '地点を登録しました。' }
         format.json { render :show, status: :created, location: @map }
       else
