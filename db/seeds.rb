@@ -7,5 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # coding: utf-8
-
-Map.create(:maps_id => '1', :map_name => 'スーパーアークス菊水店', :map_lat => 43.053583, :map_lng => 141.378778, :map_date =>, 2018/01/25)
