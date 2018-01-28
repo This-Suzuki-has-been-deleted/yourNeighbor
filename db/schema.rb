@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180126025732) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "maps", id: false, force: :cascade do |t|
+  create_table "maps", force: :cascade do |t|
     t.string "maps_id"
     t.string "map_name"
     t.float "map_lat"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20180126025732) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reviews", id: false, force: :cascade do |t|
+  create_table "reviews",force: :cascade do |t|
     t.string "reviews_id"
     t.string "review_title"
     t.string "review_text"
