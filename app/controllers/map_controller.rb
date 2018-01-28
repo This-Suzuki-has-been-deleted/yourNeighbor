@@ -37,8 +37,7 @@ class MapController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    count = MAP.count+1
-    map = params.require(:map).permit(:map_name, :map_lat, :map_lng).merge(map_id: count)
+    map = params.require(:map).permit(:map_name, :map_lat, :map_lng)
     Map.create(map)
   end
 
