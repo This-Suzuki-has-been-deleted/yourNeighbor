@@ -1,6 +1,6 @@
 class CreateReviews < ActiveRecord::Migration[5.1]
   def change
-    create_table :reviews, primary_keys: 'reviews_id' 'email' 'maps_id', id: false do |t|
+    create_table :reviews do |t|
       t.string :reviews_id                 # レビューID
       t.string :review_title	              # レビュータイトル
     	t.string :review_text               	# レビュー本文
