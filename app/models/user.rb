@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   self.primary_key = "email"
-  validates :userName, length: { maximum: 50 }
+  validates :username, length: { maximum: 50 }
 
 
 

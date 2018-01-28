@@ -36,7 +36,11 @@
             <li><%= link_to "質問作成", new_question_path  %></li>
           </ul>
           <% if user_signed_in? %>
+<<<<<<< HEAD
             <% if(current_user.userName.blank?) %>
+=======
+            <% if(current_user.username.blank?) %>
+>>>>>>> parent of ea27021... Merge branch 'master' of https://github.com/This-Suzuki-has-been-deleted/yourNeighbor
               <p class="navbar-text">ようこそ HCSさん。</p>
             <% else %>
               <p class="navbar-text">ようこそ <a href=user_path class="navbar-text"><%= current_user.userName %></a> さん。</p>

@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
 
   # GET /question/1/edit
   def edit
+    @User.find(param[:id])
   end
 
   # question /question
@@ -48,15 +49,9 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
-      else
-        format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
+   @question.update(question_params)
+   @question.save
+   redirect_to question_path(param[@question])
   end
 
   # DELETE /question/1

@@ -4,6 +4,12 @@ class MapController < ApplicationController
   # GET /maps.json
   def index
     @maps = Map.all
+    @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
+      marker.lat map.map_lat
+      marker.lng map.map_lng
+      # marker.infowindow mappu.map_name
+      marker.infowindow render_to_string(partial: "maps/infowindow", locals: { map: map })
+    end
   end
 
   # search
@@ -31,17 +37,8 @@ class MapController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    @map = Map.new(map_params)
-
-    respond_to do |format|
-      if @map.save
-        format.html { redirect_to @map, notice: '地点を登録しました。' }
-        format.json { render :show, status: :created, location: @map }
-      else
-        format.html { render :new }
-        format.json { render json: @map.errors, status: :unprocessable_entity }
-      end
-    end
+    map = params.require(:map).permit(:map_name, :map_lat, :map_lng)
+    Map.create(map)
   end
 
   # PATCH/PUT /maps/1
