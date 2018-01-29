@@ -1,8 +1,13 @@
 class AnswerController < ApplicationController
   def create
-    @answer = Answer.new(params[:answer].permit(:text,:questions_id)).merge(email: current_user.username)
-    @answer.save
-    redirect_to questions_path
+    answer = params.require(:question).permit(:text,:questions_id).merge(email: current_user.username)
+    check = Question.create(answer)
+    if check.save
+      redirect_to questions_path, notice: '登録しました。'
+    else
+      redirect_to questions_path, notice: '登録に失敗しました。'
+    end
+
   end
 
   def delete
