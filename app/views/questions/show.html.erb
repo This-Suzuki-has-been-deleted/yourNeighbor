@@ -25,7 +25,7 @@
         <dd><%= answer.text %></dd>
         <% if answer.email === current_user.email %>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_answer_path(@Answers), :class => 'btn btn-default' %>
+                      edit_answer_path(@Answers)  %>
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       answer_delete_path(@Answers),
                       :method => 'delete',
@@ -35,13 +35,14 @@
 
     <% end %>
 </dl>
-
-<h3>新規書き込み</h3>
-<%= form_for @newAnswer, :url => answer_create_path do |f| %>
-  <p>回答</p>
-  <p><%= f.text_area :text %></p>
-  <%= f.hidden_field  :question_id , :value => params[:id]%>
-  <%= f.submit %>
+<% if @question.email <>? current_user.email %>
+  <h3>新規書き込み</h3>
+  <%= form_for @newAnswer, :url => answer_create_path do |f| %>
+    <p>回答</p>
+    <p><%= f.text_area :text %></p>
+    <%= f.hidden_field  :question_id , :value => params[:id]%>
+    <%= f.submit %>
+  <% end %>
 <% end %>
 
 
