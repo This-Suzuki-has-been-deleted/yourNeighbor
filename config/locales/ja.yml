@@ -1,5 +1,5 @@
 ja:
-    activerecord:
+  activerecord:
     models:
       map:                    地点情報
       review:                 レビュー
