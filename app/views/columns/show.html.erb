@@ -3,16 +3,10 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<table class="table tale-hover">
-  <tr>
-    <th><h3><%= @column.title %></h3></th>
-  </tr>
-  <tr>
-    <td class="text-info">
-      <%= @column.text %>
-    </td>
-  </tr>
-</table>
+  <%= @column.title %>
+  <pre>
+    <%= @column.text %>
+  </pre>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               columns_path, :class => 'btn btn-default'  %>
