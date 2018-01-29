@@ -1,6 +1,5 @@
 class AnswerController < ApplicationController
   def create
-    qid = @qid
     answer = params.require(:answer).permit(:text,:qid).merge(email: current_user.email,username: current_user.username, question_id: qid)
     check = Answer.create(answer)
     if check.save
