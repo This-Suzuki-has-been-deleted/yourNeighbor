@@ -11,9 +11,10 @@ class QuestionsController < ApplicationController
   # GET /question/1
   # GET /question/1.json
   def show
+    idx = param[:id]
     @question = Question.find(params[:id])
     @newAnswer = Answer.new(:question_id => params[:id])
-    
+    @Answers = Answer.where(:question_id = idx)
   end
 
   # GET /question/new
