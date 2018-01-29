@@ -37,10 +37,10 @@ ja:
         title:                タイトル
         text:                 本文
         actions:              操作
-        new:                  新規作成
-        show:                 詳細表示
-        index:                一覧
-        destroy:              削除
+        _new:                 新規作成
+        _show:                詳細表示
+        _index:               一覧
+        _destroy:             削除
 
     errors:
       messages:
