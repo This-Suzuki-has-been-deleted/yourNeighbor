@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :columns
   resources :questions
+  resources :answer
 
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'
