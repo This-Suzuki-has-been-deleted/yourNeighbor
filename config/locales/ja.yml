@@ -1,16 +1,11 @@
 ja:
-  new:                        新規作成
-  show:                       詳細表示
-  index:                      一覧
-  destroy:                    削除
-
   activerecord:
     models:
-      maps:                   地点情報
-      reviews:                レビュー
-      columns:                コラム
-      questions:              質問
-      answers:                回答
+      map:                    地点情報
+      review:                 レビュー
+      column:                 コラム
+      question:               質問
+      answer:                 回答
 
       member_image:           会員画像
     attributes:
@@ -39,6 +34,14 @@ ja:
       users:
         uploaded_image:       画像
         username:             ユーザ名
+      columns:
+        title:                タイトル
+        text:                 本文
+        actions:              操作
+        new:                  新規作成
+        show:                 詳細表示
+        index:                一覧
+        destroy:              削除
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
