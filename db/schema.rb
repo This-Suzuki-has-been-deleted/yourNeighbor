@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126025732) do
+ActiveRecord::Schema.define(version: 20180128162826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,13 @@ ActiveRecord::Schema.define(version: 20180126025732) do
   end
 
   create_table "maps", force: :cascade do |t|
-    t.string "maps_id"
     t.string "map_name"
+    t.string "map_text"
     t.float "map_lat"
     t.float "map_lng"
-    t.date "map_date"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prefs", force: :cascade do |t|
@@ -72,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180126025732) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reviews",force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.string "reviews_id"
     t.string "review_title"
     t.string "review_text"
