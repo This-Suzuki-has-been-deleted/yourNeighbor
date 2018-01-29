@@ -1,19 +1,18 @@
 class MapsController < ApplicationController
-
-  #全ピンの情報を取得
+  # 全ピンの情報を取得
   def index
     @maps = Map.all
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
       marker.lat Map.map_lat
       marker.lng Map.map_lng
       # marker.infowindow map.map_name
-      marker.infowindow render_to_string(partial: "maps/infowindow", locals: { map: map })
+      marker.infowindow render_to_string(partial: 'maps/infowindow', locals: { map: map })
     end
   end
 
-  #検索ワードと一致するピンを表示
+  # 検索ワードと一致するピンを表示
   def search
-    if request.post? then
+    if request.post?
       word = params[:word]
       @map = Map.where("map_name like '%" + word + "%'")
     end
@@ -34,52 +33,18 @@ class MapsController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    @map = Map.new(map_params)
-
-    respond_to do |format|
-      if @map.save
-        format.html { redirect_to @map, notice: 'map was successfully created.' }
-        format.json { render :show, status: :created, location: @map }
-      else
-        format.html { render :new }
-        format.json { render json: @map.errors, status: :unprocessable_entity }
-      end
+    map = params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
+    check = Map.create(map)
+    if check.save
+      redirect_to maps_path, notice: '登録しました。'
+    else
+      redirect_to maps_path, notice: '登録に失敗しました。'
     end
   end
 
-  # PATCH/PUT /maps/1
-  # PATCH/PUT /maps/1.json
-  def update
-    respond_to do |format|
-      if @map.update(map_params)
-        format.html { redirect_to @map, notice: 'map was successfully updated.' }
-        format.json { render :show, status: :ok, location: @map }
-      else
-        format.html { render :edit }
-        format.json { render json: @map.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /maps/1
-  # DELETE /maps/1.json
   def destroy
-    @map.destroy
-    respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'map was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_map
-    @map = Map.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def map_params
-    params.require(:map).permit(:maps_id, :map_name, :map_lat, :map_lng, :map_date)
+    map.find(params[:id]).destroy
+    flash[:success] = '削除しました。'
+    redirect_to maps_path
   end
 end

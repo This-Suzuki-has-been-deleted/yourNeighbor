@@ -14,7 +14,7 @@
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    var contentString = '地点名：<%= @map.map_name %>';
+    var contentString = '<%= @map.map_name %>';
     var infowindow = new google.maps.InfoWindow({content: contentString});
 
     var marker = new google.maps.Marker({position: test, map: map, title: contentString});
@@ -30,12 +30,17 @@
 
 <p>
   <strong>Maps:</strong>
-  <%= @map.maps_id %>
+  <%= @map.id %>
 </p>
 
 <p>
   <strong>地点名:</strong>
   <%= @map.map_name %>
+</p>
+
+<p>
+  <strong>概要:</strong>
+  <%= @map.map_text %>
 </p>
 
 <p>
@@ -46,11 +51,6 @@
 <p>
   <strong>経度:</strong>
   <%= @map.map_lng %>
-</p>
-
-<p>
-  <strong>追加日:</strong>
-  <%= @map.map_date %>
 </p>
 
 <style type="text/css">
