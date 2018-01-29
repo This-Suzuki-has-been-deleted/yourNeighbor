@@ -24,7 +24,6 @@ class QuestionsController < ApplicationController
 
   # GET /question/1/edit
   def edit
-    @question = Question.find(params[:id])
   end
 
   # question /question
@@ -50,12 +49,12 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
-   question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
-   check = Question.update(Question = question)
-   if check.save
-     redirect_to questions_path, notice: '登録しました。'
+    @question = Question.find(params[:id])
+    @question.assign_attributes(params[:question])
+   if @question.save
+     redirect_to questions_path, notice: '更新しました。'
    else
-     redirect_to questions_path, notice: '登録に失敗しました。'
+     redirect_to questions_path, notice: '更新に失敗しました。'
    end
   end
 
@@ -75,8 +74,8 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
     end
 
-#     # Never trust parameters from the scary internet, only allow the white list through.
-#     def question_params
-#       params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
-#     end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def question_params
+      params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
+    end
 end
