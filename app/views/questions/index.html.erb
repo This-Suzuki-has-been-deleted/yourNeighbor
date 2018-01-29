@@ -26,7 +26,7 @@
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       question_path(question), :class => 'btn btn-default btn-xs' %>
-          <%= if ( question.email == current_user.email ) %>
+          <%= if ( question.email === current_user.email ) %>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_question_path(question), :class => 'btn btn-default btn-xs' %>
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
