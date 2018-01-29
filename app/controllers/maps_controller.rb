@@ -33,7 +33,7 @@ class MapsController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    map = params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
+    map = params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng).merge(email: current_user.email)
     check = Map.create(map)
     if check.save
       redirect_to maps_path, notice: '登録しました。'
@@ -43,8 +43,8 @@ class MapsController < ApplicationController
   end
 
   def destroy
-    map.find(params[:id]).destroy
-    flash[:success] = '削除しました。'
-    redirect_to maps_path
+    @map = Map.find(params[:id])
+    @map.destroy
+    redirect_to maps_path,  notice: '削除しました。'
   end
 end
