@@ -24,7 +24,7 @@
   <p>回答</p>
   <p><%= f.text_area :text %></p>
 
-  <%  f.hidden_field ID = @question.id %>
+  <%  f.hidden_field @question.id %>
   <%= f.submit %>
 <% end %>
 
