@@ -50,12 +50,11 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
-    @question = Question.find(params[:id])
     @question.assign_attributes(params[:question])
    if @question.save
-     redirect_to @question, notice: '更新しました。'
+     redirect_to questions_path, notice: '更新しました。'
    else
-     render "edit", notice: '更新に失敗しました。'
+     redirect_to questions_path, notice: '更新に失敗しました。'
    end
   end
 
