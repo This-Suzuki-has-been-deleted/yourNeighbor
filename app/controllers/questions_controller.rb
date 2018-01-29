@@ -51,8 +51,12 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1.json
   def update
    @question.update(question_params)
-   @question.save
-   redirect_to questions_path
+   check = Question.create(question)
+   if check.save
+     redirect_to questions_path, notice: '登録しました。'
+   else
+     redirect_to questions_path, notice: '登録に失敗しました。'
+   end
   end
 
   # DELETE /question/1
