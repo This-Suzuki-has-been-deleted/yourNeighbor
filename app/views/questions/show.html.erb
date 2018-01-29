@@ -19,7 +19,6 @@
 <%- model_class = Answer -%>
 <dl class="dl-horizontal">
     <% @Answers.each do |answer| %>
-      <% if answer.question_id == @question.id %>
         <dt><strong><%= models_class.human_attribute_name(:username) %>:</strong></dt>
         <dd><%= answer.username %></dd>
         <dt><strong><%= models_class.human_attribute_name(:text) %>:</strong></dt>
