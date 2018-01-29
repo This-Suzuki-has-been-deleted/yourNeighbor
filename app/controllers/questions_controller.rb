@@ -51,11 +51,9 @@ class QuestionsController < ApplicationController
   def update
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
     check = Question.update(question)
-   if check.save
+
      redirect_to questions_path, notice: '更新しました。'
-   else
-     redirect_to questions_path, notice: '更新に失敗しました。'
-   end
+
   end
 
   # DELETE /question/1
