@@ -50,8 +50,8 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1.json
   def update
     @question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
-    question = Question.update(:id, :title = '@question.title')
-   if question.save
+  )
+   if @question.save
      redirect_to questions_path, notice: '更新しました。'
    else
      redirect_to questions_path, notice: '更新に失敗しました。'
