@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1.json
   def update
    question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
-   check = Question.update("title = ':title'")
+   check = Question.update(title = :title)
    if check.save
      redirect_to questions_path, notice: '登録しました。'
    else
