@@ -16,13 +16,11 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
-<%- qid = @question.id -%>
-
 <h3>新規書き込み</h3>
 <%= form_for @newAnswer, :url => answer_create_path do |f| %>
   <p>回答</p>
   <p><%= f.text_area :text %></p>
-  <% f.hidden_field :qid %>
+  <% f.hidden_field  :qid , :value => @question.id%>
   <%= f.submit %>
 <% end %>
 
