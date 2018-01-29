@@ -16,6 +16,14 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
+<%- model_class = Answer -%>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:username) %>:</strong></dt>
+  <dd><%= @answer.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
+  <dd><%= @answer.text %></dd>
+</dl>
+
 <h3>新規書き込み</h3>
 <%= form_for @newAnswer, :url => answer_create_path do |f| %>
   <p>回答</p>
