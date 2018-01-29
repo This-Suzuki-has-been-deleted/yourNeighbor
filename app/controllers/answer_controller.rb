@@ -1,8 +1,8 @@
 class AnswerController < ApplicationController
   def create
-    @answer = Answer.new(params[:answer].permit(:questions_url_id, :email, :text))
+    @answer = Answer.new(params[:answer].permit( :email, :text)).marge(:questions_id)
     @answer.save
-    redirect_to questions_path(params['questions_id'])
+    redirect_to questions_path
   end
 
   def delete
