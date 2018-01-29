@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   def update
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
     question.title
-    @question = Question.where('title = ?', question.title)
+    @question = Question.where('question_id= ?', :id).update.all(question)
    if @question.save
      redirect_to questions_path, notice: '更新しました。'
    else
