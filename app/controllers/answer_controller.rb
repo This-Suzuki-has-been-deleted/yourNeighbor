@@ -1,6 +1,6 @@
 class AnswerController < ApplicationController
   def create
-    @answer = Answer.new(params[:answer].permit( :email, :text,:questions_id))
+    @answer = Answer.new(params[:answer].permit(:text,:questions_id)).merge(email: current_user.username)
     @answer.save
     redirect_to questions_path
   end
