@@ -21,11 +21,9 @@
 
 <h3>新規書き込み</h3>
 <%= form_for @newAnswer, :url => answer_create_path do |f| %>
-  <p>お名前</p>
-  <p><%= f.text_field :email %></p>
   <p>回答</p>
   <p><%= f.text_area :text %></p>
-  <%  f.hidden_field :question_id %>
+  <%  f.hidden_field @question.id%>
   <%= f.submit %>
 <% end %>
 
