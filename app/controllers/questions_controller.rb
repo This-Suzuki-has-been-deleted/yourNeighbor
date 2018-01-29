@@ -52,7 +52,7 @@ class QuestionsController < ApplicationController
   def update
    @question.update(question_params)
    @question.save
-   redirect_to question_path(param[@question])
+   redirect_to questions_path
   end
 
   # DELETE /question/1
