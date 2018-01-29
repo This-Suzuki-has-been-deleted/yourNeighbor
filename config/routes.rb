@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   delete 'questions/delete/:id' => 'question#delete', as: :question_delete
   # get 'questions/new' => 'questions#new'
 #answer
-  post 'answer/create' => 'answer#create', as: :answer_create
+  post 'answer/create' => 'answer#create', as: :answer_create 
   delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete
 end
