@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     idx = param[:id]
     @question = Question.find(params[:id])
     @newAnswer = Answer.new(:question_id => params[:id])
-    @Answers = Answer.where(:question_id = idx)
+    @Answers = Answer.where(:question_id :idx)
   end
 
   # GET /question/new
