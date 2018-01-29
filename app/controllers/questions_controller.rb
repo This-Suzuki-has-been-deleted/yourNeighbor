@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
-   @question.update(question_params)
+   @question.update(question)
    check = Question.create(question)
    if check.save
      redirect_to questions_path, notice: '登録しました。'
