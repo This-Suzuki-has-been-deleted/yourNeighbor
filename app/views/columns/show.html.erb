@@ -4,12 +4,16 @@
 </div>
 
 <table>
-  <td><h1><%= @column.title %></h1></td>
-  <td>
-    <pre>
-      <%= @column.text %>
-    </pre>
-  </td>
+  <tr>
+    <td><h1><%= @column.title %></h1></td>
+  </tr>
+  <tr>
+    <td>
+      <pre>
+        <%= @column.text %>
+      </pre>
+    </td>
+  </tr>
 </table>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
