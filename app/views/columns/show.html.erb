@@ -3,13 +3,15 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<table>
-  <td><h1><%= @column.title %></h1></td>
-  <td>
-    <pre>
+<table class="table tale-hover">
+  <tr>
+    <th><h1><%= @column.title %></h1></th>
+  </tr>
+  <tr>
+    <td class="info">
       <%= @column.text %>
-    </pre>
-  </td>
+    </td>
+  </tr>
 </table>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
