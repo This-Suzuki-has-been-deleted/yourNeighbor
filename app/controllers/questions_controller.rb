@@ -55,7 +55,7 @@ class QuestionsController < ApplicationController
    if @question.save
      redirect_to questions_path, notice: '更新しました。'
    else
-     redirect_to questions_path, notice: '更新に失敗しました。'
+     render "edit", notice: '更新に失敗しました。'
    end
   end
 
