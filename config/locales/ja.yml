@@ -1,12 +1,11 @@
 ja:
-  activerecord:
+    activerecord:
     models:
       map:                    地点情報
       review:                 レビュー
       column:                 コラム
       question:               質問
       answer:                 回答
-
       member_image:           会員画像
     attributes:
       maps:
@@ -42,6 +41,7 @@ ja:
         show:                 詳細表示
         index:                一覧
         destroy:              削除
+
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
