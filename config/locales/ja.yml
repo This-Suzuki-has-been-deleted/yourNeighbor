@@ -3,6 +3,9 @@ ja:
     models:
       maps:                   地点情報
       reviews:                レビュー
+      columns:                コラム
+      questions:              質問
+      answers:                回答
       member_image:           会員画像
     attributes:
       maps:
