@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1.json
   def update
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
-    check = Question.update(question)
+    check = Question.update(question).where(@question.id = :question_id)
 
      redirect_to questions_path, notice: '更新しました。'
 
