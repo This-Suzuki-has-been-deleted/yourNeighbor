@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @newAnswer = Answer.new(:question_id => params[:id])
-    @Answers = Answer.where(:question_id = params[:id])
+    @Answers = Answer.where(:question_id: params[:id])
   end
 
   # GET /question/new
