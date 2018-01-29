@@ -4,9 +4,7 @@
 </div>
 
   <%= @column.title %>
-  <pre style="container">
-    <%= @column.text %>
-  </pre>
+  <pre><%= @column.text %></pre>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               columns_path, :class => 'btn btn-default'  %>
