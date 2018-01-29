@@ -16,12 +16,15 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
-<%- models_class = Answer -%>
+<%- model_class = Answer -%>
 <dl class="dl-horizontal">
-  <dt><strong><%= models_class.human_attribute_name(:username) %>:</strong></dt>
-  <dd><%= @answer.username %></dd>
-  <dt><strong><%= models_class.human_attribute_name(:text) %>:</strong></dt>
-  <dd><%= @answer.text %></dd>
+    <% @answer.each do |answer| %>
+      <% if answer.question_id == @question.id %>
+        <dt><strong><%= models_class.human_attribute_name(:username) %>:</strong></dt>
+        <dd><%= answer.username %></dd>
+        <dt><strong><%= models_class.human_attribute_name(:text) %>:</strong></dt>
+        <dd><%= answer.text %></dd>
+      <% end %>
 </dl>
 
 <h3>新規書き込み</h3>
