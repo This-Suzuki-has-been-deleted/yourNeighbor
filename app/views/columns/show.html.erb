@@ -3,14 +3,14 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dd><h1><%= @column.title %></h1></dd>
-  <dd>
-      <pre>
-        <%= @column.text %>
-      </pre>
-  </dd>
-</dl>
+<table>
+  <td><h1><%= @column.title %></h1></td>
+  <td>
+    <pre>
+      <%= @column.text %>
+    </pre>
+  </td>
+</table>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               columns_path, :class => 'btn btn-default'  %>
