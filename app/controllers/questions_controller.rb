@@ -24,7 +24,6 @@ class QuestionsController < ApplicationController
 
   # GET /question/1/edit
   def edit
-    @question = Question.find(params[:id])
   end
 
   # question /question
@@ -50,6 +49,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
+    @question = Question.find(params[:id])
     @question.assign_attributes(params[:question])
    if @question.save
      redirect_to questions_path, notice: '更新しました。'
