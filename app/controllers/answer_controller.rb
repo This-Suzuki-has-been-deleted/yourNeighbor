@@ -1,6 +1,7 @@
 class AnswerController < ApplicationController
   def create
-    answer = params.require(:answer).permit(:text).merge(email: current_user.email,username: current_user.username, question_id: @qid)
+    qid = @qid
+    answer = params.require(:answer).permit(:text).merge(email: current_user.email,username: current_user.username, question_id: qid)
     check = Answer.create(answer)
     if check.save
       redirect_to questions_path, notice: '登録しました。'

@@ -16,7 +16,7 @@
   <dd><%= @question.tag3 %></dd>
 </dl>
 
-<%- @qid=@question.id -%>
+<%- @qid = @question.id -%>
 
 <h3>新規書き込み</h3>
 <%= form_for @newAnswer, :url => answer_create_path do |f| %>
@@ -24,7 +24,6 @@
   <p><%= f.text_area :text %></p>
   <%= f.submit %>
 <% end %>
-<h1><%= @qid %></h1>
 
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
