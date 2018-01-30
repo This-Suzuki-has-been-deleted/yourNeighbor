@@ -9,6 +9,8 @@ class ColumnsController < ApplicationController
 
   def new
     @column = Column.new
+    @report_id = params[:id]
+    @report_type = params[:report_type]
   end
 
   def create
