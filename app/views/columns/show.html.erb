@@ -17,4 +17,4 @@
                 :class => 'btn btn-danger' %>
 <% end %>
 
-<%= link_to "このコラムを通報する", new_report_path, :class=>'btn btn-danger' %>
+<%= link_to "このコラムを通報する", new_report_path(@column.id), :class=>'btn btn-danger' %>
