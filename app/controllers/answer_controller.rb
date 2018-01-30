@@ -12,7 +12,7 @@ class AnswerController < ApplicationController
 
   # GET /question/1/edit
   def edit
-    @Answers=Answer.find(params[:id])
+    @answer=Answer.find(params[:id])
   end
 
 
@@ -20,7 +20,7 @@ class AnswerController < ApplicationController
 
   def update
     answer = params.require(:answer).permit(:text)
-    Answer.where('id = ?', @Answers.id).update(answer)
+    Answer.where('id = ?', @answer.id).update(answer)
       redirect_to questions_path, notice: '更新しました。'
   end
   def delete
