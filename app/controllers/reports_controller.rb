@@ -10,4 +10,8 @@ class ReportsController < ApplicationController
   def show
     @report=Report.find(params[:id])
   end
+
+  def create
+    report = params.require(:report).permit(:report_text).merge(email: current_user.email)
+  end
 end
