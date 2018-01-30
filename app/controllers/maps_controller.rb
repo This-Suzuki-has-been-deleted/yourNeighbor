@@ -58,5 +58,5 @@ end
 
 # Never trust parameters from the scary internet, only allow the white list through.
 def map_params
-  params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
+  params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng).merge(email: current_user.email)
 end
