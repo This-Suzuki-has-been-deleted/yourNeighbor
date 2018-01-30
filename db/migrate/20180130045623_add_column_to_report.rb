@@ -3,5 +3,6 @@ class AddColumnToReport < ActiveRecord::Migration[5.1]
     add_column :reports, :report_type, :string
     add_column :reports, :report_id, :string
     add_column :reports, :report_email, :string
+    add_column :reports, :report_text, :string
   end
 end
