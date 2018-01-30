@@ -44,6 +44,9 @@
             <% end %>
               <p class="navbar-right"><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></p>
           <% end %>
+          <% if(current_user.user_type.eql("admin")) %>
+            <li><%= link_to "通報一覧", reports_path  %></li>
+          <% end %>
         </div>
       </div>
     </div>
