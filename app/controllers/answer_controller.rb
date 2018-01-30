@@ -12,7 +12,7 @@ class AnswerController < ApplicationController
 
   # GET /question/1/edit
   def edit
-    @answer=Answer.find(params[:id])
+    @Answers=Answer.find(params[:id])
   end
 
 
