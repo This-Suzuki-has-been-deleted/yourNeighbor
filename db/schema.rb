@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180130050910) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "report_type"
+    t.string "report_text"
     t.string "report_id"
     t.string "report_email"
   end
