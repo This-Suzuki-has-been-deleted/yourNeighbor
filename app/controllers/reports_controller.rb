@@ -1,6 +1,8 @@
 class ReportsController < ApplicationController
   def new
     @report=Report.new
+    @report_id = params[:id]
+    @report_type = params[:report_type]
   end
 
   def index
