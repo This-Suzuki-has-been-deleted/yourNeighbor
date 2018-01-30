@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
 
   # GET /question/1/edit
   def edit
-    @question=Question.find(params[:ids])
+    @question=Question.find(params[:id])
   end
 
   # question /question
@@ -50,7 +50,6 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
-    @question = find(params[:id])
     question = params.require(:question).permit(:id, :title, :text, :tag1, :tag2, :tag3 )
     #ここでidを指定して更新　もしくはこの前に指定を済ませて更新する
     if @question.id === question.id
