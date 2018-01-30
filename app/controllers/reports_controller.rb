@@ -14,7 +14,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-    report = params.require(:report).permit(:report_text).merge(email: current_user.email)
+    report = params.require(:report).permit(:report_text).merge(report_email: current_user.email)
     check = Report.create(report)
     if check.save
       redirect_to map_path, notice: '登録しました。'
