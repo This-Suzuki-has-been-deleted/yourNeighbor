@@ -15,14 +15,12 @@ class AnswerController < ApplicationController
     @answer=Answer.find(params[:id])
   end
 
-
-
-
   def update
     answer = params.require(:answer).permit(:text)
-    Answer.where('id = ?', @Answers.id).update(answer)
+    Answer.where('id = ?', @answer.id).update(answer)
       redirect_to questions_path, notice: '更新しました。'
   end
+
   def delete
     @Answers = Answer.find(params['question_id'])
     @Answers.destroy
