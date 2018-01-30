@@ -1,4 +1,6 @@
 class MapsController < ApplicationController
+  before_action :set_map, only: %i[show edit update destroy]
+
   # 全ピンの情報を取得
   def index
     @maps = Map.all
@@ -30,24 +32,45 @@ class MapsController < ApplicationController
   # GET /maps/1/edit
   def edit; end
 
-  # POST /maps
+  # POST /maus
   # POST /maps.json
   def create
-    map = params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng).merge(email: current_user.email)
-    check = Map.create(map)
-    if check.save
-      redirect_to maps_path, notice: '登録しました。'
-    else
-      redirect_to maps_path, notice: '登録に失敗しました。'
+    @map = Map.new(map_params)
+
+    respond_to do |format|
+      if @map.save
+        format.html { redirect_to @map, notice: 'Map was successfully created.' }
+        format.json { render :show, status: :created, location: @map }
+      else
+        format.html { render :new }
+        format.json { render json: @map.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def destroy
-    @map = Map.find(params[:id])
-    @map.destroy
-    redirect_to maps_path,  notice: '削除しました。'
+  # PATCH/PUT /maps/1
+  # PATCH/PUT /maps/1.json
+  def update
+    respond_to do |format|
+      if @map.update(map_params)
+        format.html { redirect_to @map, notice: 'Map was successfully updated.' }
+        format.json { render :show, status: :ok, location: @map }
+      else
+        format.html { render :edit }
+        format.json { render json: @map.errors, status: :unprocessable_entity }
+      end
+    end
   end
-end
+
+  # DELETE /maps/1
+  # DELETE /maps/1.json
+  def destroy
+    @map.destroy
+    respond_to do |format|
+      format.html { redirect_to maps_url, notice: 'Map was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
 private
 
