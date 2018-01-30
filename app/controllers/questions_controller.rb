@@ -50,6 +50,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1.json
   def update
     @question = Question.find(params[:id])
+
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
     #ここでidを指定して更新　もしくはこの前に指定を済ませて更新する
       @question.update_attributes(question)
