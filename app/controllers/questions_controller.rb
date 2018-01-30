@@ -24,6 +24,7 @@ class QuestionsController < ApplicationController
 
   # GET /question/1/edit
   def edit
+    @question=Question.find(params[:id])
   end
 
   # question /question
