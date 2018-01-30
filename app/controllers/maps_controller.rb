@@ -48,3 +48,16 @@ class MapsController < ApplicationController
     redirect_to maps_path,  notice: '削除しました。'
   end
 end
+
+private
+
+# Use callbacks to share common setup or constraints between actions.
+def set_map
+  @map = Map.find(params[:id])
+end
+
+# Never trust parameters from the scary internet, only allow the white list through.
+def map_params
+  params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
+end
+end
