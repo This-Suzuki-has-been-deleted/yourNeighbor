@@ -16,25 +16,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :report_type, :class => 'control-label col-lg-2' %>
+    <%= f.label :report_text, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :report_type, :class => 'form-control' %>
+      <%= f.text_field :report_text, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:report_type) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :report_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :report_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:report_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :report_email, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :report_email, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:report_email) %>
+    <%=f.error_span(:report_text) %>
   </div>
 
   <div class="form-group">
