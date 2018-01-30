@@ -51,11 +51,8 @@ class QuestionsController < ApplicationController
   def update
 
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
-    questions = Question.where(questin_id: :id)
-    if :question_id === :questions_id
-      Question.update(questions)#ここでidを指定して更新　もしくはこの前に指定を済ませて更新する
+      Question.update(questions).where(question_id: :id)#ここでidを指定して更新　もしくはこの前に指定を済ませて更新する
       redirect_to questions_path, notice: '更新しました。'
-    end
   end
 
   # DELETE /question/1
