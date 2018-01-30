@@ -17,9 +17,9 @@ class ReportsController < ApplicationController
     report = params.require(:report).permit(:report_text).merge(report_email: current_user.email)
     check = Report.create(report)
     if check.save
-      redirect_to column_path, notice: '登録しました。'
+      redirect_to columns_path, notice: '登録しました。'
     else
-      redirect_to colmun_path, notice: '登録に失敗しました。'
+      redirect_to colmuns_path, notice: '登録に失敗しました。'
     end
   end
 end
