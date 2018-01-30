@@ -60,4 +60,3 @@ end
 def map_params
   params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
 end
-end
