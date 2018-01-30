@@ -5,11 +5,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:report_type) %></th>
-      <th><%= model_class.human_attribute_name(:report_id) %></th>
-      <th><%= model_class.human_attribute_name(:report_email) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>ID</th>
+      <th>通報された分野</th>
+      <th>分野でのID</th>
+      <th>通報者のE-mail</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,23 +19,16 @@
         <td><%= report.report_type %></td>
         <td><%= report.report_id %></td>
         <td><%= report.report_email %></td>
-        <td><%=l report.created_at %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      report_path(report), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_report_path(report), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to "詳細", report_path(report), :class => 'btn btn-default btn-xs' %>
+
+          <%= link_to "削除",
                       report_path(report),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => '本当に削除しますか？')) },
                       :class => 'btn btn-xs btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_report_path,
-            :class => 'btn btn-primary' %>
