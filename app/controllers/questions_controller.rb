@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   def update
 
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3 )
-    Question.update(check)#ここでidを指定して更新　もしくはこの前に指定を済ませて更新する
+    Question.update(question)#ここでidを指定して更新　もしくはこの前に指定を済ませて更新する
      redirect_to questions_path, notice: '更新しました。'
 
   end
