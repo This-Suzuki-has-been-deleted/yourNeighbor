@@ -14,12 +14,8 @@
   <dd><%= @user.userType %></dd>
 </dl>
 
-<%= link_to "戻る", :default => t("helpers.links.back")),
-              users_path, :class => 'btn btn-default'  %>
-<%= link_to "編集", :default => t("helpers.links.edit")),
-              edit_user_path(@user), :class => 'btn btn-default' %>
-<%= link_to "削除", :default => t("helpers.links.destroy")),
-              user_path(@user),
-              :method => 'delete',
+<%= link_to "戻る", users_path, :class => 'btn btn-default'  %>
+<%= link_to "編集", edit_user_path(@user), :class => 'btn btn-default' %>
+<%= link_to "削除", user_path(@user), :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => '本当に削除しますか？')) },
               :class => 'btn btn-danger' %>
