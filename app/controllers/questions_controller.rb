@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @newQuestion = Question.new
   end
 
-  # GET /question/1 
+  # GET /question/1
   # GET /question/1.json
   def show
     idx = params[:id]
@@ -40,11 +40,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def delete
-    @question = Question.find(params[:id])
-    @question.destroy
-    redirect_to questions_path
-  end
 
 
 
