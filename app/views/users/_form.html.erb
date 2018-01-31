@@ -1,13 +1,13 @@
-<%= form_for @user, :html => { :class => "form-horizontal user" } do |f| %>
+<%= form_for @users, :html => { :class => "form-horizontal user" } do |f| %>
 
-  <% if @user.errors.any? %>
+  <% if @users.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@users.errors.count, "error") %> prohibited this user from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @user.errors.full_messages.each do |msg| %>
+        <% @users.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
