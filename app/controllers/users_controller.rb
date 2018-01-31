@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def update
     users = params.require(:user).permit(:username,:userType)
     User.where('email=?',@users.email).update(users)
-    redirect_to users_path
+    redirect_to users_path, notice: '更新しました。'
   end
 
   def destroy
