@@ -38,12 +38,10 @@
 </table>
 
 <%= form_tag maps_path, :method => 'get' do %>
-  <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "検索", :word => nil %>
-  </p>
+    <%= link_to '地点登録', new_map_path, :class=>"btn btn-primary" %>
 <% end %>
-<%= link_to '地点登録', new_map_path, :class=>"btn btn-primary" %>
 
 <div id="map"></div>
 <script type="text/javascript">
