@@ -10,13 +10,11 @@
         <% @answer.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-        <% @answer.each do |msg| %>
-          <li><%= msg.id %></li>
-        <% end %>
         </ul>
       </div>
     </div>
   <% end %>
+
   <div class="form-group">
     <%= f.label :text, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -29,7 +27,7 @@
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                questions_path, :class => 'btn btn-default' %>
+                answers_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
