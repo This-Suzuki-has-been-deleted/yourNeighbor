@@ -18,9 +18,9 @@ class AnswerController < ApplicationController
   # PATCH/PUT /answer/1
   # PATCH/PUT /answer/1.json
   def update
-    answer = params.require(:answer).permit(:id,:text)
+    answer = params.require(:answer).permit(:text)
 
-    Answer.where('id = ?', answer.id).update(answer)
+    Answer.where('id = ?',@answer.id).update.all(answer)
     redirect_to questions_path, notice: '更新しました。'
   end
 
