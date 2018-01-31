@@ -10,8 +10,15 @@ class AnswerController < ApplicationController
 
   end
 
+def index
+  @answer= Answer.all
+end
+
+
+
   # GET /answer/1/edit
   def edit
+
     @answer=Answer.find(params[:id])
   end
 
