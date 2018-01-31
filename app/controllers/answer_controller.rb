@@ -20,19 +20,19 @@ class AnswerController < ApplicationController
   def update
     answer = params.require(:answer).permit(:text)
     Answer.where('id = ?',@answer.id).update(answer)
-      redirect_to questions_path, notice: '更新しました。'
+    redirect_to questions_path, notice: '更新しました。'
   end
 
   def delete
-    @Answers = Answer.find(params['question_id'])
-    @Answers.destroy
-    redirect_to questions_path
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to questions_path,  notice: '削除しました。'
   end
 
   # DELETE /Answers/1
   # DELETE /Answers/1.json
   def destroy
-    @Answers.destroy
+    @answer.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Answer was successfully destroyed.' }
       format.json { head :no_content }
