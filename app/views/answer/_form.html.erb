@@ -1,16 +1,16 @@
-<%= form_for @answer, :html => { :class => "form-horizontal answer" } do |f| %>
+<%= form_for @Answers, :html => { :class => "form-horizontal answer" } do |f| %>
 
-  <% if @answer.errors.any? %>
+  <% if @Answers.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@Answers.errors.count, "error") %> prohibited this answer from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @answer.errors.full_messages.each do |msg| %>
+        <% @Answers.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-        <% @answer.each do |msg| %>
+        <% @Answers.each do |msg| %>
           <li><%= msg.id %></li>
         <% end %>
         </ul>
