@@ -19,7 +19,7 @@ class AnswerController < ApplicationController
   # PATCH/PUT /answer/1.json
   def update
     answer = params.require(:answer).permit(:text).merge(email: current_user.email)
-    Answer.where('id = ?',@answer.id.to_i).update(answer)
+    Answer.where("id = ?",@answer.id.to_i).update(answer)
     redirect_to questions_path, notice: '更新しました。'
   end
 
