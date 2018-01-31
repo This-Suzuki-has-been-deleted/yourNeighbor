@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     @users = User.find_by(email: params[:email])
   end
 
+  def update
+    users = params.require(:user).permit(:username,:userType)
+    User.where('email=?',@users.email).update(users)
+    redirect_to users_path
+  end
+
   def destroy
     User.find_by(email: params[:email]).destroy
     flash[:success] = "削除されました。"
