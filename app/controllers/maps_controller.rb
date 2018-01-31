@@ -32,7 +32,7 @@ class MapsController < ApplicationController
   # GET /maps/1/edit
   def edit; end
 
-  # POST /maus
+  # POST /maps
   # POST /maps.json
   def create
     @map = Map.new(map_params)
