@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :map_name %>
+    <%= form.label '地点名' %>
     <%= form.text_field :map_name, id: :map_name %>
   </div>
   <div class="field">
-    <%= form.label :map_text %>
+    <%= form.label '概要' %>
     <%= form.text_field :map_text, id: :map_text %>
   </div>
 
   <div class="field">
-    <%= form.label :map_lat %>
-    <%= form.text_field :map_lat, id: "latitude"%>
+    <%= form.label '緯度' %>
+    <%= form.text_field :map_lat, id: 'latitude' %>
   </div>
 
   <div class="field">
-    <%= form.label :map_lng %>
-    <%= form.text_field :map_lng, id: "longitude" %>
+    <%= form.label '経度' %>
+    <%= form.text_field :map_lng, id: 'longitude' %>
   </div>
 
   <div class="actions">
