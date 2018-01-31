@@ -10,4 +10,10 @@ class UsersController < ApplicationController
   def edit
     @users = User.find_by(email: params[:email])
   end
+
+  def destroy
+    User.find_by(email: params[:email]).destroy
+    flash[:success] = "削除されました。"
+    redirect_to users_path
+  end
 end
