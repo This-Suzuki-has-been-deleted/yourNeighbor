@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:text) %></th>
       <th><%= model_class.human_attribute_name(:tag1) %></th>
       <th><%= model_class.human_attribute_name(:tag2) %></th>
       <th><%= model_class.human_attribute_name(:tag3) %></th>
@@ -17,7 +16,6 @@
     <% @question.each do |question| %>
       <tr>
         <td><%= question.title %></td>
-        <td><%= question.text %></td>
         <td><%= question.tag1 %></td>
         <td><%= question.tag2 %></td>
         <td><%= question.tag3 %></td>
