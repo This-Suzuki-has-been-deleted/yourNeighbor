@@ -37,7 +37,7 @@ class MapController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    map = params.require(:map).permit(:map_name, :map_lat, :map_lng)
+    map = params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
     Map.create(map)
   end
 
@@ -75,6 +75,6 @@ class MapController < ApplicationController
   # Never trust parameters from the scary internet,
   # only allow the white list through.
   def map_params
-    params.require(:map).permit(:maps_id, :map_name, :map_lat, :map_lng, :map_date)
+    params.require(:map).permit(:map_name, :map_text, :map_lat, :map_lng)
   end
 end
