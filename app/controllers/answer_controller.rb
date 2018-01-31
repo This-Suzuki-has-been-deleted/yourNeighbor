@@ -3,7 +3,7 @@ class AnswerController < ApplicationController
     answer = params.require(:answer).permit(:text,:question_id).merge(email: current_user.email,username: current_user.username)
     check = Answer.create(answer)
     if check.save
-      redirect_to question_path(answer.question_id), notice: '登録しました。'
+      redirect_to questions_path, notice: '登録しました。'
     else
       redirect_to questions_path, notice: '登録に失敗しました。'
     end
