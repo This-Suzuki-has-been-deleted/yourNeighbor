@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :maps do
     collection { get "search"}
   end
-  resources :users
+  resources :users, param: :email
   resources :reviews
   resources :columns
   resources :questions
