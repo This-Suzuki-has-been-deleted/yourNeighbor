@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:email])
+    @users = User.find_by(email: params[:email])
   end
 
   def edit
-    @users = User.find(params[:email])
+    @users = User.find_by(email: params[:email])
   end
 end
