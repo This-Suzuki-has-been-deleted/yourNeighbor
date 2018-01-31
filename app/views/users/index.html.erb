@@ -7,7 +7,6 @@
     <tr>
       <th>ID</th>
       <th>メールアドレス</th>
-      <th>パスワード</th>
       <th>ユーザ名</th>
       <th>権限レベル</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -17,7 +16,6 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
-        <td><%= user.email %></td>
         <td><%= user.encrypted_password %></td>
         <td><%= user.username %></td>
         <td><%= user.userType %></td>
