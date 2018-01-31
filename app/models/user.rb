@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   self.primary_key = "email"
   validates :username, length: { maximum: 50 }
-
+  def to_param
+    email
+  end
 
 
   # Include default devise modules. Others available are:
