@@ -17,7 +17,7 @@ class AnswerController < ApplicationController
 
   def update
     answer = params.require(:answer).permit(:text)
-    Answer.where('id = ?', @answer.id).update(answer)
+    Answers.where('id = ?', @answer.id).update(answer)
       redirect_to questions_path, notice: '更新しました。'
   end
 
