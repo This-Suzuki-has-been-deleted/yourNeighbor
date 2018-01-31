@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @newQuestion = Question.new
   end
 
-  # GET /question/1
+  # GET /question/1 
   # GET /question/1.json
   def show
     idx = params[:id]
