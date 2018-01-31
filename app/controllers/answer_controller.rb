@@ -24,15 +24,10 @@ class AnswerController < ApplicationController
     redirect_to questions_path, notice: '更新しました。'
   end
 
-  def delete
-    @answer = Answer.find(params[:id])
-    @answer.destroy
-    redirect_to questions_path,  notice: '削除しました。'
-  end
-
   # DELETE /Answers/1
   # DELETE /Answers/1.json
   def destroy
+    @answer = Answer.find(params[:id])
     @answer.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Answer was successfully destroyed.' }
