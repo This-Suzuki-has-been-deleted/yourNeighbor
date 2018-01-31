@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @newAnswer = Answer.new(:question_id => params[:id])
     @Answers = Answer.where(question_id: idx)
+    @answer = Answer.all
   end
 
   # GET /question/new
