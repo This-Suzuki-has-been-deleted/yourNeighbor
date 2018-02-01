@@ -5,7 +5,6 @@ ja:
       review:                 レビュー
       column:                 コラム
       question:               質問
-      questions:              質問
       answer:                 回答
       member_image:           会員画像
     attributes:
@@ -52,6 +51,7 @@ ja:
         _index:               一覧
         _destroy:             削除
         _edit:                編集
+      answers:                 回答
 
     errors:
       messages:
