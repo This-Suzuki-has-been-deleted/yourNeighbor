@@ -1,13 +1,13 @@
-<%= form_for @report, :html => { :class => "form-horizontal report" } do |f| %>
+<%= form_for @reports, :html => { :class => "form-horizontal report" } do |f| %>
 
-  <% if @report.errors.any? %>
+  <% if @reports.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@reports.errors.count, "error") %> prohibited this report from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @report.errors.full_messages.each do |msg| %>
+        <% @reports.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
