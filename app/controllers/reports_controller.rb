@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
   def create
     report = params.require(:report).permit(:report_text).merge(report_email: current_user.email)
     check = Report.create(report)
-    path = Pathname.new(report.report_type)
+    path = "\/"+report.report_text+"s"
     if check.save
       redirect_to path, notice: '通報しました。'
     else
