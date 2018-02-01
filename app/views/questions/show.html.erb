@@ -18,7 +18,9 @@
 <br>
 
 <%- model_class = Answer -%>
-<h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 <dl class="dl-horizontal">　
     <% @Answers.each do |answer| %>
         <dt><strong><%= model_class.human_attribute_name(:username) %>:</strong></dt>
