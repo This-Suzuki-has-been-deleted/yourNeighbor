@@ -23,10 +23,10 @@
     table-layout: fixed;
   }
   .name {
-    width: 80px;
+    width: 100px;
   }
   .text {
-    width: 80px;
+    width: 100px;
   }
   .lat {
     width: 200px;
@@ -41,8 +41,8 @@
       <!-- <th>ID</th> -->
       <th class="name">地点名</th>
       <th class="text">概要</th>
-      <th class="lat">緯度</th>
-      <th class="lng">経度</th>
+      <!-- <th class="lat">緯度</th>
+      <th class="lng">経度</th> -->
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -53,8 +53,8 @@
         <!-- <td><%= map.id %></td> -->
         <td class="name"><%= map.map_name %></td>
         <td class="text"><%= map.map_text %></td>
-        <td class="lat"><%= map.map_lat %></td>
-        <td class="lng"><%= map.map_lng %></td>
+        <!-- <td class="lat"><%= map.map_lat %></td>
+        <td class="lng"><%= map.map_lng %></td> -->
         <!-- <td><%= link_to 'Show', map %></td> <td><%= link_to 'Edit', edit_map_path(map) %></td> -->
         <td><%= link_to '削除', map, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
@@ -65,8 +65,8 @@
 <%= search_form_for @keyword do |f| %>
 <%= f.search_field :map_name_cont, :placeholder => "地点名で検索" %>
 <%= f.submit '検索' %>
-<% end %>
 <%= link_to '地点登録', new_map_path, :class=>"btn btn-primary" %>
+<% end %>
 
 <div id="map"></div>
 <script type="text/javascript">
