@@ -41,7 +41,7 @@
           <strong><p><%= "回答" %>:</strong>
         </dt>
         <dd><%= answer.text %></p></dd>
-        <% if answer.email === current_user.email || current_user.user_type ==='admin' %>
+        <% if answer.email === current_user.email  %>
           <dt>
             <strong><p><%=　"選択" %></p>:</strong>
           </dt>
