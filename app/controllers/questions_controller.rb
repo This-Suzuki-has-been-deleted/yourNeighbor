@@ -56,7 +56,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: '削除されました。' }
+      format.html { redirect_to questions_url, notice: '削除しました。' }
       format.json { head :no_content }
     end
   end
