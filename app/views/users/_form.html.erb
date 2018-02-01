@@ -25,7 +25,6 @@
     <%= f.label "権限レベル", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.select :userType, [["一般ユーザ","normal"]["上位ユーザ","super"]["管理者","admin"]] %>
-      <%= f.text_field :userType, :class => 'form-control' %>
     </div>
     <%=f.error_span(:userType) %>
   </div>
