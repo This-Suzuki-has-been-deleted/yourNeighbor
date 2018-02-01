@@ -1,14 +1,30 @@
-<%= @page_title = "レビュー一覧" %>
-
-<h1><%= @page_title %></h1>
+<h1>レビュー一覧</h1>
 <h2>XXXのレビュー</h2>
+<%= link_to "レビューを書く", new_review_path %>
 
-<% 5.times do |x| %>
-  <h2>見出し</h2>
-  <p>
-    ここに本文が入ります。 ここに本文が入ります。 ここに本文が入ります。 ここに本文が入ります。 ここに本文が入ります。
-    <%= link_to "もっと読む", "reviewList.html.erb" %>
-  </p>
-
-<% end %>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>評価</th>
+      <th>本文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.review_title %></td>
+        <td>
+          <% if review.review_eva == 'good' %>
+            <%= image_tag 'Good.png', :size =>'25x25', :alt => 'good' %>
+          <% else %>
+            <%= image_tag 'BAD.png', :size =>'25x25', :alt => 'bad' %>
+          <% end %>
+        </td>
+        <td><%= review.review_text[0,15] %>…</td>
+        <td><%= link_to "詳細", review_path(review), :class => 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

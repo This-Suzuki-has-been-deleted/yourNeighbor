@@ -1,10 +1,35 @@
-<%= render "shared/errors", object: @reviews %>
-<%= f.label :review_title, "タイトル" %>
-<%= f.text_field :review_title %>
+<%= form_with(model: review, local: true) do |form| %>
+  <% if review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-<%= f.label :review_eva, "評価" %>
-<%= f.radio_button 'eva', 'good' {:checked => true} %>
-<%= f.radio_button 'eva', 'bad' %>
+      <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= f.label :review_text, "内容" %>
-<%= f.text_area :review_text %>
+  <div class="field">
+    <%= form.label 'タイトル' %>
+    <%= form.text_field :review_title, id: :review_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label '評価' %>
+    <%= form.radio_button :review_eva, 'good', :checked => "checked" %>
+    <%= image_tag 'Good.png', :size =>'50x50', :alt => 'good' %>
+    <%= form.radio_button :review_eva, 'bad' %>
+    <%= image_tag 'BAD.png', :size =>'50x50' :alt => 'bad' %>
+  </div>
+
+  <div class="field">
+    <%= form.label '本文' %>
+    <%= form.text_area :review_text, id: :review_text, :size => "40x10" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
