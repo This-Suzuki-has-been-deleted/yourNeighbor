@@ -35,9 +35,7 @@
             <li><%= link_to "コラム", columns_path  %></li>
             <li><%= link_to "質問一覧", questions_path  %></li>
             <li><%= link_to "質問作成", new_question_path  %></li>
-            <% if(current_user.userType === "admin") %>
-              <li class="navbar-right"><%= link_to "ユーザ編集", users_path, :class => 'btn btn-primary' %></li>
-            <% end %>
+            <li class="navbar-right"><%= link_to "ユーザ編集", users_path, :class => 'btn btn-primary' %></li>
           </ul>
           <% if user_signed_in? %>
             <% if(current_user.username.blank?) %>
