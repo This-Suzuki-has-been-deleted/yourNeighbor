@@ -10,8 +10,10 @@ ja:
       destroy: "削除"
       new: "新規"
       edit: "編集"
+      show: "閲覧"
     titles:
       edit: "編集"
       save: "保存"
       new: "新規"
       delete: "削除"
+      show: "閲覧"
