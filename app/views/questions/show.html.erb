@@ -35,13 +35,13 @@
       <% @Answers.each do |answer| %>
       <div class ="boxer">
         <dt>
-          <strong><p><%= "回答者" %></p>:</strong>
+          <strong><p><%= "回答者" %>:</strong>
         </dt>
-        <dd><p><%= answer.username %></p></dd>
+        <dd><%= answer.username %></p></dd>
         <dt>
-          <strong><p><%= "回答" %></p>:</strong>
+          <strong><p><%= "回答" %>:</strong>
         </dt>
-        <dd><p><%= answer.text %></p></dd>
+        <dd><%= answer.text %></p></dd>
         <% if answer.email === current_user.email || current_user.user_type ==='admin' %>
           <dt>
             <strong><p><%=　"選択" %></p>:</strong>
