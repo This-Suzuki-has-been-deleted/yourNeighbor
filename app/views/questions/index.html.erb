@@ -15,7 +15,7 @@
     <tbody>
       <% @question.each do |question| %>
         <tr>
-          <td><%= question.title.trincate(18)%></td>
+          <td><%= question.title.truncate(18)%></td>
           <td><%= question.tag1.truncate(18) %></td>
           <td><%= question.tag2.truncate(18) %></td>
           <td><%= question.tag3.truncate(18) %></td>
