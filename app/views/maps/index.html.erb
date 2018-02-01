@@ -9,29 +9,31 @@
     width: 80%;
   }
   /*スクロール用*/
-thead.scrollHead,tbody.scrollBody{
-  display:block;
-}
-tbody.scrollBody{
-  overflow-y:scroll;
-  height:100px;
-}
-
-/*幅調整*/
-td,th{
-  table-layout:fixed;
-}
-.name{
-  width:80px;
-}
-.text{
-  width:80px;
-}
-.lat{
-  width:200px;
-}.lng{
-  width:200px;
-}
+  tbody.scrollBody,
+  thead.scrollHead {
+    display: block;
+  }
+  tbody.scrollBody {
+    overflow-y: scroll;
+    height: 100px;
+  }
+  /*幅調整*/
+  td,
+  th {
+    table-layout: fixed;
+  }
+  .name {
+    width: 80px;
+  }
+  .text {
+    width: 80px;
+  }
+  .lat {
+    width: 200px;
+  }
+  .lng {
+    width: 200px;
+  }
 </style>
 <table>
   <thead class="scrollHead">
@@ -53,28 +55,31 @@ td,th{
         <td class="text"><%= map.map_text %></td>
         <td class="lat"><%= map.map_lat %></td>
         <td class="lng"><%= map.map_lng %></td>
-        <!-- <td><%= link_to 'Show', map %></td>
-        <td><%= link_to 'Edit', edit_map_path(map) %></td>
-        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <!-- <td><%= link_to 'Show', map %></td> <td><%= link_to 'Edit', edit_map_path(map) %></td> <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= form_tag maps_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "検索", :word => nil %>
-    <%= link_to '地点登録', new_map_path, :class=>"btn btn-primary" %>
+<%= search_form_for @keyword do |f| %>
+<%= f.search_field :map_name_cont, :placeholder => "地点名で検索" %>
+<%= f.submit '検索' %>
 <% end %>
+<%= link_to '地点登録', new_map_path, :class=>"btn btn-primary" %>
 
 <div id="map"></div>
 <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.getMap().setCenter(new google.maps.LatLng(43.197707, 140.993696));
-      handler.fitMapToBounds();
-    });
+handler = Gmaps.build('Google');
+handler.buildMap({
+  provider: {},
+  internal: {
+    id: 'map'
+  }
+}, function () {
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.getMap().setCenter(new google.maps.LatLng(43.197707, 140.993696));
+  handler.fitMapToBounds();
+});
 </script>
 </html>

@@ -3,11 +3,13 @@ class MapsController < ApplicationController
 
   # 全ピンの情報を取得
   def index
-    @maps = Map.all
+    # @maps = Map.all
+    @keyword = Map.ransack(params[:q]) #:q(query)は検索窓に入力された値をパラメータで取得
+    @maps = @keyword.result
+
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
       marker.lat map.map_lat
       marker.lng map.map_lng
-      # marker.infowindow map.map_name
       marker.infowindow render_to_string(partial: 'maps/infowindow', locals: { map: map })
     end
   end
