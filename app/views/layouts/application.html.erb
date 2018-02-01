@@ -35,14 +35,14 @@
             <li><%= link_to "コラム", columns_path  %></li>
             <li><%= link_to "質問一覧", questions_path  %></li>
             <li><%= link_to "質問作成", new_question_path  %></li>
+            <li class="navbar-right"><%= link_to "ユーザ編集", users_path %></li>
           </ul>
           <% if user_signed_in? %>
             <% if(current_user.username.blank?) %>
-              <p class="navbar-text">ようこそ HCSさん。</p>
+              <p class="navbar-text">ようこそ 名無しさん。</p>
             <% else %>
               <p class="navbar-text">ようこそ、<%= current_user.username %> さん。</p>
             <% end %>
-              <p class="navbar-right"><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></p>
           <% end %>
         </div>
       </div>
