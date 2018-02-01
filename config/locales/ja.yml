@@ -42,11 +42,10 @@ ja:
         _index:               一覧
         _destroy:             削除
       questions:
-        arucard:
-          title:                タイトル
-          text:                 本文
-          actions:              操作
-          tag:                  タグ
+        title:                タイトル
+        text:                 本文
+        actions:              操作
+        tag:                  タグ
       answers:
         title:                タイトル
         text:                 本文
