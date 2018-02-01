@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :maps do
     collection { get "search"}
   end
-  resources :users, param: :email
+  resources :users, param: :email, constraints: {email: /[^\/]+/ }
   resources :reviews
   resources :columns
   resources :questions

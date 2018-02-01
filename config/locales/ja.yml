@@ -41,7 +41,20 @@ ja:
         _show:                詳細表示
         _index:               一覧
         _destroy:             削除
-
+      questions:
+        title:                タイトル
+        text:                 本文
+        actions:              操作
+        tag:                  タグ
+        _new:                 新規作成
+        _show:                詳細表示
+        _index:               一覧
+        .destroy:             削除
+        _edit:                編集
+      answers:
+        title:                タイトル
+        text:                 本文
+        actions:              操作
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
