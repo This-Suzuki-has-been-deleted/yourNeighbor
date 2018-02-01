@@ -63,8 +63,7 @@
       <%= f.submit %>
     <% end %>
   <% end %>
-<% if answer.email === current_user.email %>
+<% if question.email === current_user.email  %>
   <%= link_to "この質問を通報する", new_report_path(:id =>@question.id,:report_type =>'question'), :class=>'btn btn-danger' %>
-
-  <%= link_to t('.back', :default => t("helpers.links.back")), questions_path, :class => 'btn btn-default' %>
 <% end %>
+  <%= link_to t('.back', :default => t("helpers.links.back")), questions_path, :class => 'btn btn-default' %>
