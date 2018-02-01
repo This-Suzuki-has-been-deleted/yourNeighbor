@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.find_by(email: params[:email])
-    users = params.require(:user).permit(:username,:userType)
+    users = params.require(:user).permit(:username,:user_type)
     User.where('email=?',user.email).update(users)
     redirect_to users_path, notice: '更新しました。'
   end
