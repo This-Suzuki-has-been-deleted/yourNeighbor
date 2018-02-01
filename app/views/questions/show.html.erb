@@ -1,27 +1,27 @@
 <%- model_class = Question -%>
   <div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+    <h1><%="質問" %></h1>
   </div>
 
   <dl class="dl-horizontal">
     <dt>
-      <strong><%= model_class.human_attribute_name(:title) %>:</strong>
+      <strong><%= "タイトル" %>:</strong>
     </dt>
     <dd><%= @question.title %></dd>
     <dt>
-      <strong><%= model_class.human_attribute_name(:tag1) %>:</strong>
+      <strong><%= "タグ1" %>:</strong>
     </dt>
     <dd><%= @question.tag1 %></dd>
     <dt>
-      <strong><%= model_class.human_attribute_name(:tag2) %>:</strong>
+      <strong><%= "タグ2" %>:</strong>
     </dt>
     <dd><%= @question.tag2 %></dd>
     <dt>
-      <strong><%= model_class.human_attribute_name(:tag3) %>:</strong>
+      <strong><%= "タグ3" %>:</strong>
     </dt>
     <dd><%= @question.tag3 %></dd>
     <dt>
-      <strong><%= model_class.human_attribute_name(:text) %>:</strong>
+      <strong><%= "内容" %>:</strong>
     </dt>
     <dd><%= @question.text %></dd>
 
@@ -34,11 +34,11 @@
     <dl class="dl-horizontal">
       <% @Answers.each do |answer| %>
         <dt>
-          <strong><%= model_class.human_attribute_name(:username) %>:</strong>
+          <strong><%= "回答者" %>:</strong>
         </dt>
         <dd><%= answer.username %></dd>
         <dt>
-          <strong><%= model_class.human_attribute_name(:text) %>:</strong>
+          <strong><%= "回答" %>:</strong>
         </dt>
         <dd><%= answer.text %></dd>
         <% if answer.email === current_user.email %>
@@ -63,7 +63,7 @@
       <%= f.submit %>
     <% end %>
   <% end %>
-<% if @question.email === current_user.email  %>
+<% if @question.email != current_user.email  %>
   <%= link_to "この質問を通報する", new_report_path(:id =>@question.id,:report_type =>'question'), :class=>'btn btn-danger' %>
 <% end %>
 
