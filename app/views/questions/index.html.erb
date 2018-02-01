@@ -5,18 +5,18 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th><%= truncate(model_class.human_attribute_name(:title),:length => 10,:omission => '...') %></th>
-        <th><%= model_class.human_attribute_name(:tag1).truncate(10) %></th>
-        <th><%= model_class.human_attribute_name(:tag2).truncate(10) %></th>
-        <th><%= model_class.human_attribute_name(:tag3).truncate(10) %></th>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th><%= model_class.human_attribute_name(:tag1) %></th>
+        <th><%= model_class.human_attribute_name(:tag2) %></th>
+        <th><%= model_class.human_attribute_name(:tag3) %></th>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
     </thead>
     <tbody>
       <% @question.each do |question| %>
         <tr>
-          <td><%= question.title %></td>
-          <td><%= question.tag1 %></td>
+          <td><%= truncate(question.title,:length => 10,:omission => '...') %></td>
+          <td><%= question.tag1.truncate(10) %></td>
           <td><%= question.tag2 %></td>
           <td><%= question.tag3 %></td>
           <td>
