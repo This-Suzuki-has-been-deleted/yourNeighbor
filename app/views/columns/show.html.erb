@@ -9,7 +9,7 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
               columns_path, :class => 'btn btn-default'  %>
 
-<% if(current_user.email === @column.email) %>
+<% if(current_user.email === @column.email || current_user.user_type === "admin") %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 column_path(@column),
                 :method => 'delete',
