@@ -91,7 +91,7 @@ Rails.application.configure do
 end
 
 # mailer setting
-# config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+config.action_mailer.default_url_options = { host: '54.249.109.82', port: 25 }
 # ここで接続先を変える？
 # mail setting
 config.action_mailer.raise_delivery_errors = true
