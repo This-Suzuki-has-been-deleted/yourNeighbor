@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
     report = params.require(:report).permit(:report_text,:report_type,:report_id).merge(report_email: current_user.email)
     check = Report.create(report)
     if check.save
-      case check.report_text
+      case check.report_type
         when "column" then
           redirect_to columns_path, notice: '通報しました。'
         when "question" then
