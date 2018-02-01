@@ -5,7 +5,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th><%= model_class.human_attribute_name(:title).truncate(10) %></th>
+        <th><%= truncate(model_class.human_attribute_name(:title),:length => 10,:omission => '...') %></th>
         <th><%= model_class.human_attribute_name(:tag1).truncate(10) %></th>
         <th><%= model_class.human_attribute_name(:tag2).truncate(10) %></th>
         <th><%= model_class.human_attribute_name(:tag3).truncate(10) %></th>
