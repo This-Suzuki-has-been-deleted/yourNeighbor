@@ -51,8 +51,10 @@ ja:
         _index:               一覧
         _destroy:             削除
         _edit:                編集
-      answers:                 回答
-
+      answers:
+        title:                タイトル
+        text:                 本文
+        actions:              操作
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
