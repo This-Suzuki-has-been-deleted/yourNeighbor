@@ -15,7 +15,7 @@
     <tbody>
       <% @question.each do |question| %>
         <tr>
-          <td><%=link_to t(question.title.truncate(13),question_path(question))%></td>
+          <td><%=link_to question.title.truncate(13),question_path(question) %></td>
           <td><%= question.tag1.truncate(13) %></td>
           <td><%= question.tag2.truncate(13) %></td>
           <td><%= question.tag3.truncate(13) %></td>
