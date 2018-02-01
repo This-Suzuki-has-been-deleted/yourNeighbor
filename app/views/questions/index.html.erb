@@ -15,10 +15,10 @@
     <tbody>
       <% @question.each do |question| %>
         <tr>
-          <td><%= question.title.truncate(18)%></td>
-          <td><%= question.tag1.truncate(18) %></td>
-          <td><%= question.tag2.truncate(18) %></td>
-          <td><%= question.tag3.truncate(18) %></td>
+          <td><%= question.title.truncate(13)%></td>
+          <td><%= question.tag1.truncate(13) %></td>
+          <td><%= question.tag2.truncate(13) %></td>
+          <td><%= question.tag3.truncate(13) %></td>
           <td>
             <%= link_to t('.show', :default => t("helpers.links.show")), question_path(question), :class => 'btn btn-default btn-xs' %>
             <% if question.email === current_user.email  %>
