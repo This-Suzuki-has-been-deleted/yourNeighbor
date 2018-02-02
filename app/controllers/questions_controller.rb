@@ -4,9 +4,8 @@ class QuestionsController < ApplicationController
   # GET /question
   # GET /question.json
   def index
-    @question = Question.all
+    @question = Question.User.where(activated: true).search(params[:search])
     @newQuestion = Question.new
-    @key = Question.all
   end
 
   # GET /question/1
