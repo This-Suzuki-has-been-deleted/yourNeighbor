@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:user_type])
     end
 
-  def set_current_user
-    asoberu.current_user = current_user
-  end
+    # URL直打ちによる不正なアクセスに対応
+    def auth_user
+      if @current_user.user_type != "admin"
+        flash[:notice] = "権限がありません"
+        redirect_to maps_path
+      end
+    end
+
 end
