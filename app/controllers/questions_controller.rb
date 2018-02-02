@@ -4,9 +4,8 @@ class QuestionsController < ApplicationController
   # GET /question
   # GET /question.json
   def index
-    @question = Question.all
+    @question = Question.search(params[:tag1])
     @newQuestion = Question.new
-    @key = Question.all
   end
 
   # GET /question/1

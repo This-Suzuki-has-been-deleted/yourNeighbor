@@ -10,8 +10,6 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    @map = Map.find(params[:id])
-    @reviews = Review.where(maps_id: params[:id])
   end
 
   # GET /reviews/new
