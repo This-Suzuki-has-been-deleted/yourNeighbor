@@ -2,8 +2,8 @@
   <div class="page-header">
     <h1><%="質問" %></h1>
     <%= form_for @question, :url => questions_path do |f| %>
-      <p>回答</p>
-      <p><%= f.text_field_tag :tag1 , :class => 'form-control'%></p>
+      <p>検索</p>
+      <p><%= f.text_field :tag1 %></p>
       <%= f.submit %>
     <% end %>
 
