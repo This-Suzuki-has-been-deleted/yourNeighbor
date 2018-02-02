@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
     if check.save
       redirect_to questions_path, notice: '登録しました。'
     else
-      redirect_to questions_path, notice: '登録に失敗しました。'
+      redirect_to new_question_path, notice: '登録に失敗しました。'
     end
   end
 
