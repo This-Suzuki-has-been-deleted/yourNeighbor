@@ -4,8 +4,8 @@ class QuestionsController < ApplicationController
   # GET /question
   # GET /question.json
   def index
-    # @keyword = Question.ransack(params[:q])
-    # @questions= @keyword.result(distinct: true)
+    @keyword = Question.ransack(params[:q])
+    @questions= @keyword.result(distinct: true)
     @question=Question.all
     @newQuestion = Question.new
   end
