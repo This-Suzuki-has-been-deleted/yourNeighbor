@@ -2,10 +2,10 @@
   <div class="page-header">
     <h1><%="質問" %></h1>
 
-    <%= form_tag questions_path, :method => 'get' do %>
+    <%= form_for @key  :url,questions_path do |f| %>
         <p>
-          <%= text_field_tag tag1, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
+          <%= f.text_field_tag :tag1  %>
+          <%= f.submit "Search" %>
         </p>
     <% end %>
   </div>
