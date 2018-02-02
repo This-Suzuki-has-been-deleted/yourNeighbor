@@ -1,12 +1,6 @@
-<% @page_title = "レビューの編集" %>
-<h1><%= @page_title %></h1>
+<h1>レビュー編集</h1>
 
-<p>
-  <%= link_to "レビューの詳細に戻る", @review %>
-</p>
-<%= form_for @review do |form| %>
-<%= render "form", form: form %>
-<p>
-  <%= form.submit %>
-</p>
-<% end %>
+<%= render 'form', review: @review %>
+
+<%= link_to 'Show', @review :class=>"btn btn-primary" %> |
+<%= link_to 'Back', reviews_path :class=>"btn btn-primary" %>
