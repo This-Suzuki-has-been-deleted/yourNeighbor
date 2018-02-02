@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   def index
     @question = Question.all
     @newQuestion = Question.new
+    @key = Question.all
   end
 
   # GET /question/1
