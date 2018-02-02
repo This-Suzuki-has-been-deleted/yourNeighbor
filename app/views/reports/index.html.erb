@@ -17,13 +17,13 @@
       <tr>
         <% case report.report_type %>
           <% when "column" then %>
-            <td><%= link_to report.id,  :controller => "columns", :action => "show", column_path(id: report.report_id) %></td>
+            <td><%= link_to report.id, column_path(id: report.report_id) %></td>
           <% when "map" then %>
-            <td><%= link_to report.id,  :controller => "maps", :action => "show", map_path(id: report.report_id) %></td>
+            <td><%= link_to report.id, map_path(id: report.report_id) %></td>
           <% when "question" then %>
-            <td><%= link_to report.id,  :controller => "questions", :action => "show", question_path(id: report.report_id) %></td>
+            <td><%= link_to report.id, question_path(id: report.report_id) %></td>
           <% when "review" then %>
-            <td><%= link_to report.id,  :controller => "reviews", :action => "show", review_path(id: report.report_id) %></td>
+            <td><%= link_to report.id, review_path(id: report.report_id) %></td>
           <% else %>
             <td><%= report.id %></td>
         <% end %>
