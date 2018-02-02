@@ -14,8 +14,9 @@
   </thead>
   <tbody>
     <% @reports.each do |report| %>
+    path = "/" + report.report_type + "/" + report.report_id
       <tr>
-        <td><%= link_to report.id, report_path(report) %></td>
+        <td><%= link_to report.id, path %></td>
         <td><%= report.report_type %></td>
         <td><%= report.report_id %></td>
         <td><%= report.report_email %></td>
