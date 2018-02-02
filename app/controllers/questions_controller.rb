@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /question
   # GET /question.json
   def index
-    @question = Question.User.where(activated: true).search(params[:search])
+    @question = Question.search(params[:tag1])
     @newQuestion = Question.new
   end
 
