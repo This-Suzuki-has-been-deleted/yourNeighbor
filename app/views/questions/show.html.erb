@@ -7,7 +7,7 @@
     <dt>
       <strong><%= "タイトル" %>:</strong>
     </dt>
-    <dd><%= @question.title %></dd>
+    <dd><%= @question.title %>　<%= link_to( "#"@question.tag1,questions_path ) %>&nbsp;<%= @question.tag2 %>&nbsp;<%= @question.tag3 %></dd>
     <dt>
       <strong><%= "内容" %>:</strong>
     </dt>

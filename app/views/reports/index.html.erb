@@ -14,9 +14,19 @@
   </thead>
   <tbody>
     <% @reports.each do |report| %>
-      <% path = "/" + report.report_type + "/" + report.report_id %>
       <tr>
-        <td><%= link_to report.id, path %></td>
+        <% case report.report_type %>
+          <% when "column" then %>
+            <td><%= link_to report.id,  :controller => "columns", :action => "show", column_path(id: report.report_id) %></td>
+          <% when "map" then %>
+            <td><%= link_to report.id,  :controller => "maps", :action => "show", map_path(id: report.report_id) %></td>
+          <% when "question" then %>
+            <td><%= link_to report.id,  :controller => "questions", :action => "show", question_path(id: report.report_id) %></td>
+          <% when "review" then %>
+            <td><%= link_to report.id,  :controller => "reviews", :action => "show", review_path(id: report.report_id) %></td>
+          <% else %>
+            <td><%= report.id %></td>
+        <% end %>
         <td><%= report.report_type %></td>
         <td><%= report.report_id %></td>
         <td><%= report.report_email %></td>
