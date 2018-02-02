@@ -1,4 +1,7 @@
 class Question < ApplicationRecord
+  include ActiveModel::Model
+  include ActiveModel::Conversion
+
    validates :title, :presence => true
    validates :text, :presence => true
 
@@ -9,4 +12,6 @@ class Question < ApplicationRecord
       all #全て表示。User.は省略
     end
   end
+
+   def persisted? ; false ; end
 end
