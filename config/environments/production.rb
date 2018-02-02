@@ -91,16 +91,16 @@ Rails.application.configure do
 end
 
 # mailer setting
-# config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-# ここで接続先を変える？
-# mail setting
+# config.action_mailer.default_url_options = { host: '54.249.109.82', port: 25 }
+# # ここで接続先を変える？
+# # mail setting
 # config.action_mailer.raise_delivery_errors = true
 # config.action_mailer.delivery_method = :smtp
 # config.action_mailer.smtp_settings = {
 #   :address => "smtp.gmail.com",
-#   :port => 587,
+#   :port => 25,
 #   :user_name => "hotmail08ts@gmail.com",
-#   :password => "yusuke081120",
+#   :password => "yuusuke081120!",
 #   :authentication => :plain,
 #   :enable_starttls_auto => true
 # }
