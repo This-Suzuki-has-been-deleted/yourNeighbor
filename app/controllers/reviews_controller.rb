@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @map = Map.find(params[:id])
     @reviews = Review.all
   end
 

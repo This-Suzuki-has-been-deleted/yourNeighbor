@@ -9,18 +9,14 @@ ja:
       member_image:           会員画像
     attributes:
       maps:
-        maps_id:              地点ID
         map_name:             地点名
         latlng:               緯度経度
         map_lat:              緯度
         map_lng:              経度
-        map_date:             追加日付
       reviews:
-        reviews_id:           レビューID
         review_title:         レビュータイトル
-        review_title:         レビュー本文
+        review_text:         レビュー本文
         review_eva:           評価
-        review_date:          追加日付
         email:                メールアドレス
         maps_id:              位置ID
       map_reports:

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :auth_user
   def index
     @users = User.all
   end
@@ -22,5 +23,13 @@ class UsersController < ApplicationController
     User.find_by(email: params[:email]).destroy
     flash[:success] = "削除されました。"
     redirect_to users_path
+  end
+
+  # URL直打ちによる不正なアクセスに対応
+  def auth_user
+    if @current_user.user_type != "admin"
+      flash[:notice] = "権限がありません"
+      redirect_to maps_path
+    end
   end
 end
