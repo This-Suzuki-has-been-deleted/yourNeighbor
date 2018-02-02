@@ -1,15 +1,34 @@
-<%= @page_title = "レビュー詳細" %>
-
-<h1><%= @page_title %></h1>
-<h2>レビューのタイトル</h2>
+<p id="notice"><%= notice %></p>
+<h2><%= @map.map_name %>のレビュー詳細</h2>
 
 <p>
-  レビューの評価<br/>
-  ここに本文が入ります。 ここに本文が入ります。 ここに本文が入ります。 ここに本文が入ります。 ここに本文が入ります。<br/>
-  <a href="javascript:if(confirm('本当に通報する？')){location='result.html'}">通報</a>
-  <a href="reviewsEdit.html.erb">編集</a>
-  <%# @pageがあれば、編集のリンクを表示 %>
-  <%= link_to_if(@page, "編集", { :controller => "pages", :action => "edit" }) %>
+  <strong>Review title:</strong>
+  <%= @review.review_title %>
 </p>
 
-<% end %>
+<p>
+  <strong>Review text:</strong>
+  <%= @review.review_text %>
+</p>
+
+<p>
+  <strong>Review eva:</strong>
+  <%= @review.review_eva %>
+</p>
+
+<p>
+  <strong>Review date:</strong>
+  <%= @review.review_date %>
+</p>
+
+<p>
+  <strong>Maps:</strong>
+  <%= @review.maps_id %>
+</p>
+<a href="javascript:if(confirm('本当に通報する？')){location='result.html'}">通報</a>
+<a href="reviewsEdit.html.erb">編集</a>
+<%# @pageがあれば、編集のリンクを表示 %>
+<%= link_to_if(@page, "編集", { :controller => "pages", :action => "edit" }) %>
+
+<%= link_to 'Edit', edit_review_path(@review) :class=>"btn btn-primary" %> |
+<%= link_to 'Back', reviews_path :class=>"btn btn-primary" %>
