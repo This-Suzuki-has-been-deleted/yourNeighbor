@@ -14,14 +14,6 @@ class MapsController < ApplicationController
     end
   end
 
-  # 検索ワードと一致するピンを表示
-  def search
-    if request.post?
-      word = params[:word]
-      @map = Map.where("map_name like '%" + word + "%'")
-    end
-  end
-
   # GET /maps/1
   # GET /maps/1.json
   def show; end
