@@ -3,7 +3,7 @@
     <h1><%="質問" %></h1>
   </div>
   <%= search_form_for @question do |f| %>
-    <p><%= f.search_field :tag1 %></p>
+    <%= f.search_field :tag1 %>
     <%= f.submit '検索'%>
   <% end %>
   <table class="table table-striped">
