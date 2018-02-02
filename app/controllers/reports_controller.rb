@@ -31,4 +31,10 @@ class ReportsController < ApplicationController
       redirect_to columns_path, notice: '通報に失敗しました。'
     end
   end
+
+  def destroy
+    Report.find(params[:id]).destroy
+    flash[:success] = "削除されました。"
+    redirect_to reports_path
+  end
 end
