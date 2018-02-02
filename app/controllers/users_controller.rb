@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   # URL直打ちによる不正なアクセスに対応
   def auth_user
-    if @current_user.user_type != "admin"
+    if current_user.user_type != "admin"
       flash[:notice] = "権限がありません"
       redirect_to maps_path
     end
