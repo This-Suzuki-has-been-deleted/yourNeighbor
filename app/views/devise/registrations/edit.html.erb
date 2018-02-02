@@ -19,7 +19,7 @@
     <%= f.label "ユーザ名" %><br />
     <%= f.text_field :username %>
   </div>
-  <% if(current_user.userType==="admin") %>
+  <% if(current_user.user_type==="admin") %>
   <%= f.label "権限レベル" %><br />
   <%= f.text_field :userType %>
   <% end %>
