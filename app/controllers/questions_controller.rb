@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [ :edit, :update, :destroy]
+  before_action :auth_user, only: [ :edit, :update, :destroy]
 
   # GET /question
   # GET /question.json
@@ -73,13 +73,13 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
     end
 
-    # # URL直打ちによる不正なアクセスに対応
-    # def auth_user
-    #   question = Questions.find(params[:id])
-    #   if current_user.user_type != "admin" || current_user.email != question.email
-    #     flash[:notice] = "権限がありません"
-    #     redirect_to questions_path
-    #   end
-    # end
+    # URL直打ちによる不正なアクセスに対応
+    def auth_user
+      question = Questions.find(params[:id])
+      if current_user.user_type != "admin" && current_user.email != question.email
+        flash[:notice] = "権限がありません"
+        redirect_to questions_path
+      end
+    end
 
 end
