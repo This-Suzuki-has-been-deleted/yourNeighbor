@@ -1,4 +1,6 @@
 class AnswerController < ApplicationController
+  before_action :auth_user, only: [ :edit, :update, :destroy]
+
   def create
     answer = params.require(:answer).permit(:text,:question_id).merge(email: current_user.email,username: current_user.username)
     check = Answer.create(answer)
@@ -34,7 +36,14 @@ class AnswerController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  # URL直打ちによる不正なアクセスに対応
+  def auth_user
+    answer = Answers.find(params[:id])
+    if current_user.user_type != "admin" && current_user.email != answer.email
+      flash[:notice] = "権限がありません"
+      redirect_to questions_path
+    end
+  end
 
 
 end
