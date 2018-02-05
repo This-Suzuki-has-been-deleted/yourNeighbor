@@ -9,7 +9,7 @@
     </dt>
 
     <dd>
-        <h4><%= link_to @question.tag1, questions_path( Question.search(:q => @question.tag1).result) %>
+        <h4><%= link_to @question.tag1, questions_path( :q => @question.tag1) %>
           &nbsp;<%=  @question.tag2 %>&nbsp;<%= @question.tag3 %> </h4>
     </dd>
 
