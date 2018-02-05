@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1><%="質問" %><%= @keyword%></h1>
     <%= search_form_for @keyword do |f| %>
-        <%= f.search_field :tag1_cont , :class => 'form-control'  %>
+        <%= f.search_field :tag1_or_tag2_or_tag3_cont , :class => 'form-control'  %>
         <%= f.submit '検索' %>
       <% end %>
   </div>
