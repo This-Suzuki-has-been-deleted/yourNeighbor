@@ -1,6 +1,4 @@
 class QuestionsController < ApplicationController
-  before_action :auth_user, only: [ :edit,:update, :destroy]
-
   # GET /question
   # GET /question.json
   def index
@@ -72,14 +70,4 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :text,:tag1,:tag2,:tag3)
     end
-
-    # # URL直打ちによる不正なアクセスに対応
-    def auth_user
-      question = Question.find(params[:id])
-      if current_user.user_type != "admin" && current_user.email != question.email
-        flash[:notice] = "権限がありません"
-        redirect_to questions_path
-      end
-    end
-
 end
