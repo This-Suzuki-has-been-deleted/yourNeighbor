@@ -10,7 +10,7 @@
 
     <dd>
       <%= search_form_for @keyword do |f| %>
-        <h4><%= link_to @question.tag1, questions_path( Question.search(:title_or_tag1_or_tag2_or_tag3_cont => @question.tag1).result ) ) %>&nbsp;<%=  @question.tag2 %>&nbsp;<%= @question.tag3 %> </h4>
+        <h4><%= link_to @question.tag1, questions_path(Question.search(:title_or_tag1_or_tag2_or_tag3_cont => @question.tag1).result) %>&nbsp;<%=  @question.tag2 %>&nbsp;<%= @question.tag3 %> </h4>
       <% end %>
     </dd>
 
