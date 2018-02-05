@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-  before_action :set_map, only: %i[show edit update destroy]
+  before_action :auth_user, {only: [:destroy]}
 
   # 全ピンの情報を取得
   def index
