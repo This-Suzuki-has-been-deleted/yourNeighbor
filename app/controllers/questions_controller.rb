@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :auth_user, only: [ :edit, :update, :destroy]
+  # before_action :auth_user, only: [ :edit, :update, :destroy]
 
   # GET /question
   # GET /question.json
