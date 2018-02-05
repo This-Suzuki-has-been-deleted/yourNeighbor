@@ -1,10 +1,9 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-
   # GET /question
   # GET /question.json
   def index
-    @question = Question.all
+    @keyword = Question.ransack(params[:q])
+    @question= @keyword.result
     @newQuestion = Question.new
   end
 

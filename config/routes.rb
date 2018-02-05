@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   resources :users, param: :email, constraints: {email: /[^\/]+/ }
   resources :reviews
   resources :columns
-  resources :questions
+  resources :questions do
+    collection { get "search"}
+  end
   resources :answer
   resources :reports
+
 
   # resources :maps, :only => [:new, :create, :edit, :update]
   #  get'maps/new' => 'maps/new#new'

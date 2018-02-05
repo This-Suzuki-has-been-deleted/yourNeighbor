@@ -32,7 +32,7 @@ class ColumnsController < ApplicationController
   # URL直打ちによる不正なアクセスに対応
   def auth_user
     column = Column.find(params[:id])
-    if current_user.user_type != "admin" || current_user.email != column.email
+    if current_user.user_type != "admin" && current_user.email != column.email
       flash[:notice] = "権限がありません"
       redirect_to columns_path
     end

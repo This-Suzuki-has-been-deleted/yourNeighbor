@@ -1,11 +1,9 @@
 class Question < ApplicationRecord
-   validates :title, :presence => true
-   validates :text, :presence => true
-   def self.search(tag1) #ここでのself.はUser.を意味する
+  def self.search(search) #self.でクラスメソッドとしている
     if search
-      where(['tag1 LIKE ?', "%#{tag1}%"]) #検索とnameの部分一致を表示。User.は省略
+      Question.where("(title like ?)",search).or("(tag1 like ?)",search).or("(tag2 like ?)",search).or("(tag3 like ?)" ,search)
     else
-      all #全て表示。User.は省略
+      Question.all #全て表示。
     end
   end
 end
