@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-  before_action :auth_user, {only: [:destroy]}
+  before_action :set_map, only: %i[show edit update destroy auth_user]
 
   # 全ピンの情報を取得
   def index
@@ -69,7 +69,7 @@ class MapsController < ApplicationController
   # URL直打ちによる不正なアクセスに対応
   def auth_user
     map = Map.find(params[:id])
-    if current_user.user_type != "admin" || current_user.email != map.email
+    if current_user.user_type != "admin" && current_user.email != map.email
       flash[:notice] = "権限がありません"
       redirect_to maps_path
     end
