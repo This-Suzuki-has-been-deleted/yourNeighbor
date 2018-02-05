@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  before_action :auth_user, {only: [:destroy, :edit, :update]}
   # GET /question
   # GET /question.json
   def index
