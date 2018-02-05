@@ -7,7 +7,11 @@
     <dt>
       <strong><h4><%= "タグ" %></h4></strong>
     </dt>
-    <dd><h4><%=  @question.tag1 %>&nbsp;<%=  @question.tag2 %>&nbsp;<%= link_to @question.tag3, questions_path(:tag1_or_tag2_or_tag3_cont => @question.tag3) %> </h4></dd>
+
+    <dd>
+      <h4><%=  @question.tag1 %>&nbsp;<%=  @question.tag2 %>&nbsp;<%= link_to @question.tag3, questions_path(:tag1_or_tag2_or_tag3_cont => @question.tag3) %> </h4>
+    </dd>
+
     <dt>
       <strong><h3><%= "タイトル" %>:</h3></strong>
     </dt>
