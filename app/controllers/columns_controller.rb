@@ -1,4 +1,3 @@
-<<<<<<< current
 class ColumnsController < ApplicationController
   before_action :auth_user, {only: [:destroy]}
   def index
