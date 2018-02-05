@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :auth_user, {only: [:destroy, :edit, :update]}
   # GET /question
   # GET /question.json
   def index
@@ -57,6 +58,15 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to questions_url, notice: '削除しました。' }
       format.json { head :no_content }
+    end
+  end
+
+  # URL直打ちによる不正なアクセスに対応
+  def auth_user
+    question = Question.find(params[:id])
+    if current_user.user_type != "admin" && current_user.email != question.email
+      flash[:notice] = "権限がありません"
+      redirect_to questions_path
     end
   end
 
