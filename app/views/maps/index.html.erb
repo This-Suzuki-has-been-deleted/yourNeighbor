@@ -50,7 +50,7 @@
       <tr>
         <!-- <td><%= map.id %></td> -->
         <td class="name"><%=  link_to map.map_name, map_path(map) %></td>
-        <td class="text"><%= map.map_text %></td>
+        <td class="text"><%= map.map_text[0,15] %>…</td>
         <!-- <td class="lat"><%= map.map_lat %></td> <td class="lng"><%= map.map_lng %></td> -->
         <!-- <td><%= link_to 'Show', map %></td> <td><%= link_to 'Edit', edit_map_path(map) %></td> -->
         <td>
