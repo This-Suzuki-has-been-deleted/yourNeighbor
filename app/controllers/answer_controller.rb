@@ -35,5 +35,4 @@ class AnswerController < ApplicationController
     end
   end
 
-
 end
