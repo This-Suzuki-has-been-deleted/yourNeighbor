@@ -16,7 +16,12 @@ class MapsController < ApplicationController
 
   # GET /maps/1
   # GET /maps/1.json
-  def show; end
+  def show
+    @map = Map.find(params[:id])
+    @newReview = Review.new(:maps_id => params[:id])
+    @reviews = Review.where(maps_id: params[:id])
+    @review = Review.all
+  end
 
   # GET /maps/new
   def new

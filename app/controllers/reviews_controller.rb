@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: %i[show edit update destroy]
 
   # GET /reviews
   # GET /reviews.json
@@ -9,8 +9,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   # GET /reviews/1.json
-  def show
-  end
+  def show; end
 
   # GET /reviews/new
   def new
@@ -18,22 +17,17 @@ class ReviewsController < ApplicationController
   end
 
   # GET /reviews/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
-
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: '登録しました' }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    review = params.require(:review).permit(:review_title, :review_text, :review_eva, :maps_id).merge(email: current_user.email)
+    check = Review.create(review)
+    if check.save
+      redirect_to  map_path(map), notice: '登録しました。'
+    else
+      redirect_to  maps_path, notice: '登録に失敗しました。'
     end
   end
 
@@ -62,13 +56,14 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def review_params
-      params.require(:review).permit(:review_title, :review_text, :review_eva, :review_date, :maps_id).merge(email: current_user.email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def review_params
+    params.require(:review).permit(:review_title, :review_text, :review_eva, :review_date, :maps_id).merge(email: current_user.email)
+  end
 end
