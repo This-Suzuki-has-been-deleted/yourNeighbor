@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+
     <%= javascript_include_tag "application" %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -34,7 +35,6 @@
             <li><%= link_to "遊び場マップ", maps_path  %></li>
             <li><%= link_to "コラム", columns_path  %></li>
             <li><%= link_to "質問一覧", questions_path  %></li>
-            <li><%= link_to "質問作成", new_question_path  %></li>
             <% if user_signed_in? %>
               <% if current_user.user_type === "admin" %>
                 <li><%= link_to "ユーザ編集", users_path %></li>
