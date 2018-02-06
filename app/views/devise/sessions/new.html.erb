@@ -3,7 +3,7 @@
 
   <title>mama Friends～Your Neighbor</title>
 </head>
-<body>
+<body style ="background-color:#F6FEA1;">
 <div id="top">
   <div id="header">
     <div id="main">
@@ -14,12 +14,16 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <%= f.label :email  %>
-            <%= f.email_field :email, autofocus: true %>
+            <div class="col-lg-10">
+              <%= f.email_field :email, autofocus: true %>
+            </div>
           </div>
 
           <div class="field">
             <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "off" %>
+            <div class="col-lg-10">
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
           </div>
 
           <% if devise_mapping.rememberable? -%>
