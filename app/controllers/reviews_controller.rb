@@ -64,6 +64,6 @@ class ReviewsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def review_params
-    params.require(:review).permit(:review_title, :review_text, :review_eva, :review_date, :maps_id).merge(email: current_user.email)
+    params.require(:review).permit(:review_title, :review_text, :review_eva, :review_date, :maps_id)
   end
 end
