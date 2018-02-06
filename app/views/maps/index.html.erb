@@ -57,7 +57,6 @@
           <% if map.email === current_user.email || current_user.user_type === "admin" %>
             <%= link_to t('.編集', :default => t("helpers.links.edit")), edit_map_path(map), :class => 'btn btn-default btn-xs' %>
             <%= link_to '削除', map, method: :delete, data: { confirm: '本当に削除しますか？' } , :class => 'btn btn-xs btn-danger' %>
-             '本当に削除しますか？')) }, :class => 'btn btn-xs btn-danger' %>
           <% end %>
         </td>
       </tr>
