@@ -60,6 +60,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # URL直打ちによる不正なアクセスに対応
+  def auth_user
+    question = Question.find(params[:id])
+    if current_user.user_type != "admin" && current_user.email != question.email
+      flash[:notice] = "権限がありません"
+      redirect_to questions_path
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
