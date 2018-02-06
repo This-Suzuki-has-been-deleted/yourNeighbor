@@ -28,19 +28,22 @@
     </div>
     <dl class="dl-horizontal">
       <% @Answers.each do |answer| %>
-        <pre><dt><strong><%= "回答者" %>:</strong></dt>
-        <dd><%= answer.username %></dd>
-        <dt><strong><%= "回答" %>:</strong></dt>
-        <dd><%= answer.text %></dd>
-
-        <% if answer.email === current_user.email ||  current_user.user_type ==='admin' %>
-          <dt>
-            <strong><%= "選択" %>:</strong>
-          </dt>
-          <dd><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_answer_path(answer), :class => 'btn btn-default btn-xs' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), answer_path(answer), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %></dd>
-        <% end %>
-        <br><br></pre>
+        <div style="font-size: 1.2em;background: #5fb3f5;padding: 4px;text-align: center;color: #FFF;font-weight: bold;letter-spacing: 0.05em;">
+          <dt><strong><%= "回答者" %>:</strong></dt>
+          <dd><%= answer.username %></dd>
+        </div>
+        <div style =" padding: 15px 20px;margin: 0;">
+          <dt><strong><%= "回答" %>:</strong></dt>
+          <dd><%= answer.text %></dd>
+        </div>
+          <% if answer.email === current_user.email ||  current_user.user_type ==='admin' %>
+            <dt>
+              <strong><%= "選択" %>:</strong>
+            </dt>
+            <dd><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_answer_path(answer), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")), answer_path(answer), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %></dd>
+          <% end %>
+          <br><br>
       <% end %>
     </dl>
     <% if @question.email != current_user.email %>
