@@ -26,7 +26,7 @@
     <div class="page-header">
       <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
     </div>
-    <pre><dl class="dl-horizontal">
+    <dl class="dl-horizontal">
       <% @Answers.each do |answer| %>
         <dt>
           <strong><%= "回答者" %>:</strong>
@@ -48,7 +48,7 @@
       <div style ="  padding-bottom: 9px;
         margin: 40px 0 20px;
         border-bottom: 1px solid #eeeeee;"></div>
-    </dl></pre>
+    </dl>
     <% if @question.email != current_user.email %>
       <div class="page-header">
         <h1>新規書き込み</h1>
