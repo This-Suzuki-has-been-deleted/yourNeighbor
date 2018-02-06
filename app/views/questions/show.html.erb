@@ -4,46 +4,42 @@
   </div>
 
   <dl class="dl-horizontal">
-    <dt>
-      <strong><h4><%= "タグ" %></h4></strong>
-
-    </dt>
-
+  <div style="margin:2em 0;position: relative;padding: 0.5em 1.5em;border-top: solid 2px black;border-bottom: solid 2px black;">
+    <dt><strong><h4><%= "タグ" %></h4></strong></dt>
     <dd><h4><%= @question.tag1 %>&nbsp;<%=  @question.tag2 %>&nbsp;<%= @question.tag3 %> </h4></dd>
 
-    <dt>
-      <strong><h3><%= "タイトル" %>:</h3></strong>
-    </dt>
+    <dt><strong><h3><%= "タイトル" %>:</h3></strong></dt>
     <dd><h3><%= @question.title %></dd>
-    <dt>
-      <strong><h3><%= "内容" %>:</h3></strong>
-    </dt>
-    <dd><h3><%= @question.text %></h3></dd>
 
+    <dt><strong><h3><%= "内容" %>:</h3></strong></dt>
+    <dd><h3><%= @question.text %></h3></dd>
+  </div>
   </dl>
 
-  <%- model_class = Answer -%> 
+  <%- model_class = Answer -%>
     <div class="page-header">
       <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
     </div>
     <dl class="dl-horizontal">
       <% @Answers.each do |answer| %>
-        <dt>
-          <strong><%= "回答者" %>:</strong>
-        </dt>
-        <dd><%= answer.username %></dd>
-        <dt>
-          <strong><%= "回答" %>:</strong>
-        </dt>
-        <dd><%= answer.text %></dd>
-        <% if answer.email === current_user.email ||  current_user.user_type ==='admin' %>
-          <dt>
-            <strong><%= "選択" %>:</strong>
-          </dt>
-          <dd><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_answer_path(answer), :class => 'btn btn-default btn-xs' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), answer_path(answer), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %></dd>
-        <% end %>
-        <br><br>
+      <div style="margin: 2em 0;background: #dcefff;">
+        <div style="font-size: 1.2em;background: #5fb3f5;padding: 4px;text-align: center;color: #FFF;font-weight: bold;letter-spacing: 0.05em;">
+          <dt><strong><%= "回答者" %>:</strong></dt>
+          <dd><%= answer.username %></dd>
+        </div>
+        <div style ="margin: 0;padding: 0;">
+          <dt><strong><%= "回答" %>:</strong></dt>
+          <h3><dd><%= answer.text %></dd><h3>
+        </div>
+          <% if answer.email === current_user.email ||  current_user.user_type ==='admin' %>
+            <dt>
+              <strong><%= "選択" %>:</strong>
+            </dt>
+            <dd><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_answer_path(answer), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")), answer_path(answer), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %></dd>
+          <% end %>
+          <br><br>
+      </div>
       <% end %>
     </dl>
     <% if @question.email != current_user.email %>
