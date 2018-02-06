@@ -45,6 +45,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /question/1
   # PATCH/PUT /question/1.json
   def update
+    @question = Question.find(params[:id])
     question = params.require(:question).permit(:title, :text, :tag1, :tag2, :tag3)
     Question.where('id = ?',@question.id).update(question)
       redirect_to questions_path, notice: '更新しました。'
@@ -53,6 +54,7 @@ class QuestionsController < ApplicationController
   # DELETE /question/1
   # DELETE /question/1.json
   def destroy
+    @question = Question.find(params[:id])
     @question.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: '削除しました。' }
