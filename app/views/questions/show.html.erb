@@ -29,7 +29,7 @@
         </div>
         <div style ="margin: 0;padding: 0;">
           <dt><strong><%= "回答" %>:</strong></dt>
-          <dd><%= answer.text %></dd>
+          <h3><dd><%= answer.text %></dd><h3>
         </div>
           <% if answer.email === current_user.email ||  current_user.user_type ==='admin' %>
             <dt>
