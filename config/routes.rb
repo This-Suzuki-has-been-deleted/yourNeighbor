@@ -34,4 +34,8 @@ Rails.application.routes.draw do
 #answer
   post 'answer/create' => 'answer#create', as: :answer_create
   delete 'answer/delete/:id' => 'answer#delete', as: :answer_delete
+#review
+  post 'reviews/create' => 'reviews#create', as: :review_create
+  delete 'reviews/delete/:id' => 'reviews#delete', as: :review_delete
+
 end
