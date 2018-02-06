@@ -4,22 +4,16 @@
   </div>
 
   <dl class="dl-horizontal">
-    <dt>
-      <strong><h4><%= "タグ" %></h4></strong>
-
-    </dt>
-
+  <div style="margin:2em 0;position: relative;padding: 0.5em 1.5em;border-top: solid 2px black;border-bottom: solid 2px black;">
+    <dt><strong><h4><%= "タグ" %></h4></strong></dt>
     <dd><h4><%= @question.tag1 %>&nbsp;<%=  @question.tag2 %>&nbsp;<%= @question.tag3 %> </h4></dd>
 
-    <dt>
-      <strong><h3><%= "タイトル" %>:</h3></strong>
-    </dt>
+    <dt><strong><h3><%= "タイトル" %>:</h3></strong></dt>
     <dd><h3><%= @question.title %></dd>
-    <dt>
-      <strong><h3><%= "内容" %>:</h3></strong>
-    </dt>
-    <dd><h3><%= @question.text %></h3></dd>
 
+    <dt><strong><h3><%= "内容" %>:</h3></strong></dt>
+    <dd><h3><%= @question.text %></h3></dd>
+  </div>
   </dl>
 
   <%- model_class = Answer -%>
