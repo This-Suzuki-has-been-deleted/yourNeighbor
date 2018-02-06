@@ -3,7 +3,7 @@
     <h1><%="質問" %></h1>
     <%= search_form_for @keyword do |f| %>
         <%= f.search_field :title_or_tag1_or_tag2_or_tag3_cont , :class => 'form-control'  %>
-        <%= f.submit '検索' %>
+        <%= f.submit '検索' , :class => 'btn btn-primary' %>
       <% end %>
   </div>
   <table class="table table-striped">
