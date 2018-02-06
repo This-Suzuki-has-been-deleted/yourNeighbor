@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    review = params.require(:review).permit(:review_title, :review_text, :review_eva, :maps_id).merge(email: current_user.email)
+    review = params.require(:review).permit(:review_title, :review_text, :review_eva, :maps_id)
     check = Review.create(review)
     if check.save
       redirect_to  map_path(map), notice: '登録しました。'
