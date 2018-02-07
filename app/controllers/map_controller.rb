@@ -60,7 +60,7 @@ class MapController < ApplicationController
   def destroy
     @map.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: '地点を削除しました。' }
+      format.html { redirect_to maps_path, notice: '地点を削除しました。' }
       format.json { head :no_content }
     end
   end

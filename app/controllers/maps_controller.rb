@@ -18,7 +18,7 @@ class MapsController < ApplicationController
   # GET /maps/1.json
   def show
     @map = Map.find(params[:id])
-    @newReview = Review.new(:maps_id => params[:id])
+    @newreview = Review.new(:maps_id => params[:id])
     @reviews = Review.where(maps_id: params[:id])
     @review = Review.all
   end
@@ -35,7 +35,6 @@ class MapsController < ApplicationController
   # POST /maps.json
   def create
     @map = Map.new(map_params)
-
     respond_to do |format|
       if @map.save
         format.html { redirect_to @map, notice: 'Map was successfully created.' }
@@ -50,6 +49,7 @@ class MapsController < ApplicationController
   # PATCH/PUT /maps/1
   # PATCH/PUT /maps/1.json
   def update
+    @map = Map.find(params[:id])
     respond_to do |format|
       if @map.update(map_params)
         format.html { redirect_to @map, notice: 'Map was successfully updated.' }
@@ -64,9 +64,10 @@ class MapsController < ApplicationController
   # DELETE /maps/1
   # DELETE /maps/1.json
   def destroy
+    @map = Map.find(params[:id])
     @map.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'Map was successfully destroyed.' }
+      format.html { redirect_to maps_path, notice: 'Map was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
