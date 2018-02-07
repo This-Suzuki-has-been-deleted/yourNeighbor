@@ -61,7 +61,7 @@
   <%= link_to 'Edit', edit_map_path(@map) %>
   |
   <%= link_to 'Back', maps_path %>
-<h2><%= @map.map_name %>のレビュー</h2>
+  <h2><%= @map.map_name %>のレビュー</h2>
   <% @reviews.each do |review| %>
     <li>
       <%= review.review_title %>
@@ -73,10 +73,10 @@
 
       <%= review.review_text %>(<%= review.updated_at %>)
       <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_review_path(review), :class => 'btn btn-default btn-xs' %>
-      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), review_path(review), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %>
-
-      <% end %>
-    </li>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), review_path(review), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs
+      btn-danger' %>
+    <% end %>
+  </li>
 
   <h2>レビュー新規書き込み</h2>
   <%= form_for @newreview, :url => review_create_path do |f| %>
