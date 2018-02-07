@@ -67,7 +67,7 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @map.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'Map was successfully destroyed.' }
+      format.html { redirect_to maps_path, notice: 'Map was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
