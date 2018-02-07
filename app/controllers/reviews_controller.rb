@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'レビューを削除しました。' }
+      format.html { redirect_to maps_path, notice: 'レビューを削除しました。' }
       format.json { head :no_content }
     end
   end
