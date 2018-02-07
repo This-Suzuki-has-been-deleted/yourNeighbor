@@ -100,7 +100,7 @@ end
 #   :address => "smtp.gmail.com",
 #   :port => 25,
 #   :user_name => "hotmail08ts@gmail.com",
-#   :password => "yuusuke081120!",
+#   :password => "yuusuke081120",
 #   :authentication => :plain,
 #   :enable_starttls_auto => true
 # }
