@@ -70,7 +70,6 @@
       <% else %>
         <%= image_tag 'BAD.png', :size =>'25x25', :alt => 'bad' %>
       <% end %>
-
       <%= review.review_text %>
       <% if map.email === current_user.email || current_user.user_type === "admin" %>
         <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_review_path(review), :class => 'btn btn-default btn-xs' %>

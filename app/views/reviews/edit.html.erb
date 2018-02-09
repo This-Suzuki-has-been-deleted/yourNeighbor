@@ -1,6 +1,46 @@
 <h1>レビュー編集</h1>
 
-<%= render 'form', review: @review %>
+<%= form_with(model: review, local: true) do |form| %>
+<% if review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(review.errors.count, "error") %>
+      prohibited this review from being saved:</h2>
+
+    <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= form.label 'タイトル' %>
+  <div style="  position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;">
+    <%= form.text_field :review_title, id: :review_title, :size => '40' %>
+  </div>
+</div>
+
+<div class="field">
+  <%= form.label '評価' %>
+  <%= form.radio_button :review_eva, 'good', :checked => "checked" %>
+  <%= image_tag 'Good.png', :size =>'50x50', :alt => 'good' %>
+  <%= form.radio_button :review_eva, 'bad' %>
+  <%= image_tag 'BAD.png', :size =>'50x50', :alt => 'bad' %>
+</div>
+
+<div class="field">
+  <%= form.label '本文' %>
+  <%= form.text_area :review_text, id: :review_text, :size => "40x10" %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
 
 <%= link_to 'Show', @review :class=>"btn btn-primary" %> |
 <%= link_to 'Back', reviews_path :class=>"btn btn-primary" %>
