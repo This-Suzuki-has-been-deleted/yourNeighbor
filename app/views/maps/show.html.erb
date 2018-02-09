@@ -49,20 +49,20 @@
   </p>
 
   <style type="text/css">
-  #map {
-    height: 200px;
-    margin-left: 50px;
-    margin-right: auto;
-    text-align: left;
-    width: 50%;
-  }
+    #map {
+      height: 200px;
+      margin-left: 50px;
+      margin-right: auto;
+      text-align: left;
+      width: 50%;
+    }
   </style>
   <div id="map"></div>
 
   <%= link_to 'Edit', edit_map_path(@map) %>
   |
   <%= link_to 'Back', maps_path %>
-  <hr />
+  <hr/>
   <h3><%= @map.map_name %>のレビュー</h3>
   <% @reviews.each do |review| %>
     <li>
@@ -78,26 +78,33 @@
       btn-danger' %>
     </li>
   <% end %>
-  <hr />
+  <hr/>
   <h4>レビュー新規書き込み</h4>
   <%= form_for @newreview, :url => review_create_path do |f| %>
-  <div class="field">
-    <%= f.label 'タイトル' %>
-    <%= f.text_field :review_title, id: :review_title, :size => '40' %>
-  </div>
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <td>
+        <%= f.text_field :review_title, id: :review_title, :size => '40' %>
+      </td>
+    </tr>
+    <tr>
+      <th>評価</th>
+      <td>
+        <%= f.radio_button :review_eva, 'good', :checked => "checked" %>
+        <%= image_tag 'Good.png', :size =>'50x50', :alt => 'good' %>
+        <%= f.radio_button :review_eva, 'bad' %>
+        <%= image_tag 'BAD.png', :size =>'50x50', :alt => 'bad' %>
+      </td>
+    </tr>
+    <tr>
+      <th>本文</th>
+      <td>
+        <%= f.text_area :review_text, id: :review_text, :size => "40x5" %>
+      </td>
+    </tr>
+  </table>
 
-  <div class="field">
-    <%= f.label '評価' %>
-    <%= f.radio_button :review_eva, 'good', :checked => "checked" %>
-    <%= image_tag 'Good.png', :size =>'50x50', :alt => 'good' %>
-    <%= f.radio_button :review_eva, 'bad' %>
-    <%= image_tag 'BAD.png', :size =>'50x50', :alt => 'bad' %>
-  </div>
-
-  <div class="field">
-    <%= f.label '本文' %>
-    <%= f.text_area :review_text, id: :review_text, :size => "40x5" %>
-  </div>
   <%= f.hidden_field :maps_id , :value => params[:id]%>
 
   <div class="actions">
