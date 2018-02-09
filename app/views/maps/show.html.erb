@@ -62,7 +62,8 @@
   <%= link_to 'Edit', edit_map_path(@map) %>
   |
   <%= link_to 'Back', maps_path %>
-  <h2><%= @map.map_name %>のレビュー</h2>
+  <hr />
+  <h3><%= @map.map_name %>のレビュー</h3>
   <% @reviews.each do |review| %>
     <li>
       <b><%= review.review_title %></b>
@@ -77,8 +78,8 @@
       btn-danger' %>
     </li>
   <% end %>
-
-  <h2>レビュー新規書き込み</h2>
+  <hr />
+  <h4>レビュー新規書き込み</h4>
   <%= form_for @newreview, :url => review_create_path do |f| %>
   <div class="field">
     <%= f.label 'タイトル' %>
