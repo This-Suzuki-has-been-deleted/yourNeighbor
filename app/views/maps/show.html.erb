@@ -49,12 +49,13 @@
   </p>
 
   <style type="text/css">
-    #map {
-      height: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
+  #map {
+    height: 200px;
+    margin-left: 50px;
+    margin-right: auto;
+    text-align: left;
+    width: 50%;
+  }
   </style>
   <div id="map"></div>
 
@@ -71,7 +72,7 @@
         <%= image_tag 'BAD.png', :size =>'25x25', :alt => 'bad' %>
       <% end %>
       <%= review.review_text %>
-      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_review_path(review), :class => 'btn btn-default btn-xs' %>
+      <!-- <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_review_path(review), :class => 'btn btn-default btn-xs' %> -->
       <%= link_to t('.destroy', :default => t("helpers.links.destroy")), review_path(review), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs
       btn-danger' %>
     </li>
