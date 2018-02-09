@@ -64,7 +64,7 @@
   <h2><%= @map.map_name %>のレビュー</h2>
   <% @reviews.each do |review| %>
     <li>
-      <b><%= review.review_title %></b>
+      <%= review.review_title %>
       <% if review.review_eva == 'good' %>
         <%= image_tag 'Good.png', :size =>'25x25', :alt => 'good' %>
       <% else %>
