@@ -32,7 +32,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(params[:review].permit(:maps_id, :review_title, :review_text, :review_eva))
     @review.save
-    redirect_to maps_path
+    respond_to do |format|
+      format.html { redirect_to maps_path, notice: 'レビューを作成しました。' }
+      format.json { head :no_content }
+    end
   end
 
   # PATCH/PUT /reviews/1
