@@ -58,9 +58,8 @@
   </style>
   <div id="map"></div>
 
-  <%= link_to 'Edit', edit_map_path(@map) %>
-  |
-  <%= link_to 'Back', maps_path %>
+  <%= link_to 'Edit', edit_map_path(@map) ,:class => 'btn btn-default btn-xs' %>
+  <%= link_to 'Back', maps_path,:class => 'btn btn-default btn-xs'  %>
   <h2><%= @map.map_name %>のレビュー</h2>
   <% @reviews.each do |review| %>
     <li>
