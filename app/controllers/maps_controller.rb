@@ -20,7 +20,6 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @newreview = Review.new(:maps_id => params[:id])
     @reviews = Review.where(maps_id: params[:id])
-    @review = Review.all
   end
 
   # GET /maps/new
