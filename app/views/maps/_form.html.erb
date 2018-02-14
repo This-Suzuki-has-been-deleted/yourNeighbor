@@ -22,12 +22,12 @@
 
   <div class="field">
     <%= form.label '緯度' %>
-    <%= form.text_field :map_lat,type: 'number', required:true, id: 'latitude',max: '90',min: '-90',value: '43.068661',step:'0.00000000001' %>
+    <%= form.text_field :map_lat,type: 'number', required:true, id: 'latitude',max: '90',min: '-90',value: '43.068661',step:'0.000000000000001' %>
   </div>
 
   <div class="field">
     <%= form.label '経度' %>
-    <%= form.text_field :map_lng, type: 'number', required:true, id: 'longitude',max: '180',min: '-180',value: '141.350755' ,step:'0.000000000001'%>
+    <%= form.text_field :map_lng, type: 'number', required:true, id: 'longitude',max: '180',min: '-180',value: '141.350755' ,step:'0.000000000000001'%>
   </div>
 
   <div class="actions">
