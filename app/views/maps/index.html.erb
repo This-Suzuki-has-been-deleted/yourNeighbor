@@ -72,17 +72,16 @@
 
 <div id="map"></div>
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({
-  provider: {},
-  internal: {
-    id: 'map'
-  }
-}, function () {
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.getMap().setCenter(new google.maps.LatLng(43.197707, 140.993696));
-  handler.fitMapToBounds();
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {},
+    internal: { id: 'map'}
+  },
+  function () {
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.getMap().setCenter(new google.maps.LatLng(43.197707, 140.993696));
+    handler.fitMapToBounds();
 });
 </script>
 </html>
